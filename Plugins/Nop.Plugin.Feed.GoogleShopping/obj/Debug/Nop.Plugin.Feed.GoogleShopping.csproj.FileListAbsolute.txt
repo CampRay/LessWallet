@@ -1,0 +1,12 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\Content\styles.css
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\Views\Configure.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\Description.txt
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\web.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\logo.jpg
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\Nop.Plugin.Feed.GoogleShopping.dll.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\Nop.Plugin.Feed.GoogleShopping.dll
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Feed.GoogleShopping\Nop.Plugin.Feed.GoogleShopping.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Feed.GoogleShopping\obj\Debug\Nop.Plugin.Feed.GoogleShopping.csproj.App.config
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Feed.GoogleShopping\obj\Debug\Nop.Plugin.Feed.GoogleShopping.dll
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Feed.GoogleShopping\obj\Debug\Nop.Plugin.Feed.GoogleShopping.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Feed.GoogleShopping\obj\Debug\Nop.Plugin.Feed.GoogleShopping.csprojResolveAssemblyReference.cache

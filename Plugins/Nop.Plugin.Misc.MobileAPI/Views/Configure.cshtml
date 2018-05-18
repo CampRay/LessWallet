@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "";
+}
+@model ConfigurationModel
+@using Nop.Plugin.Misc.MobileAPI.Models;
+@using Nop.Web.Framework;
+
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body"> 
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.EncryptionKey_OverrideForStore, model => model.EncryptionKey, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.EncryptionKey)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.EncryptionKey)
+                        @Html.ValidationMessageFor(model => model.EncryptionKey)
+                    </div>
+                </div>               
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.ProductPictureSize_OverrideForStore, model => model.ProductPictureSize, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.ProductPictureSize)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.ProductPictureSize)
+                        @Html.ValidationMessageFor(model => model.ProductPictureSize)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.QRCodeEncodeMode_OverrideForStore, model => model.QRCodeEncodeMode, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.QRCodeEncodeMode)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.QRCodeEncodeMode)
+                        @Html.ValidationMessageFor(model => model.QRCodeEncodeMode)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.QRCodeScale_OverrideForStore, model => model.QRCodeScale, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.QRCodeScale)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.QRCodeScale)
+                        @Html.ValidationMessageFor(model => model.QRCodeScale)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.QRCodeVersion_OverrideForStore, model => model.QRCodeVersion, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.QRCodeVersion)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.QRCodeVersion)
+                        @Html.ValidationMessageFor(model => model.QRCodeVersion)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.QRCodeErrorCorrect_OverrideForStore, model => model.QRCodeErrorCorrect, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.QRCodeErrorCorrect)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.QRCodeErrorCorrect)
+                        @Html.ValidationMessageFor(model => model.QRCodeErrorCorrect)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-9">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

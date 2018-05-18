@@ -1,0 +1,12 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\Views\Configure.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\Views\PaymentInfo.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\Description.txt
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\web.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\logo.jpg
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\Nop.Plugin.Payments.Manual.dll.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\Nop.Plugin.Payments.Manual.dll
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.Manual\Nop.Plugin.Payments.Manual.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\Nop.Plugin.Payments.Manual.csproj.App.config
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\Nop.Plugin.Payments.Manual.dll
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\Nop.Plugin.Payments.Manual.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.Manual\obj\Debug\Nop.Plugin.Payments.Manual.csprojResolveAssemblyReference.cache

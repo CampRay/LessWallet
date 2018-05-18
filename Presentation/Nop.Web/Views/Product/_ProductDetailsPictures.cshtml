@@ -1,0 +1,91 @@
+﻿@model ProductDetailsModel
+@using Nop.Web.Models.Catalog;
+@using Nop.Core.Domain.Catalog
+@{
+    Html.AddScriptParts("~/Scripts/jquery.magnific-popup.min.js");
+    Html.AddCssFileParts("~/Content/magnific-popup/magnific-popup.css");
+
+    var benefit = "";
+    var bgColor = "#137656";
+    var shadingUrl = "";
+    var customPicUrl = "";
+    var logoUrl = "";
+    var timeStr = Model.StartDateTime + (string.IsNullOrEmpty(Model.EndDateTime) ? "" : " - " + Model.EndDateTime);
+    foreach (var specificationAttribute in Model.ProductSpecifications)
+    {
+        var sid = specificationAttribute.SpecificationAttributeId;
+        var selectValue = specificationAttribute.ColorSquaresRgb;
+        var customValue = specificationAttribute.ValueRaw;
+        var value = (string.IsNullOrEmpty(selectValue) && string.IsNullOrEmpty(customValue)) ? specificationAttribute.SpecificationAttributeName : (string.IsNullOrEmpty(selectValue) ? customValue : selectValue);
+        switch (sid)
+        {
+            case 7:
+                bgColor = value;
+                break;
+            case 8:
+                shadingUrl = value;
+                break;
+            case 9:
+                customPicUrl = value;
+                break;
+            case 10:
+                logoUrl = value;
+                break;
+            default:
+                benefit = value;
+                break;
+
+        }
+    }
+}
+<div class="gallery">
+    <div class="coupon-picture" style="margin-bottom:50px;position: relative;">
+        @if (Model.ProductType == ProductType.WiCoupon)
+        {
+        <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;height:auto;">
+            <table border="0">
+                <tr>
+                    <td width="40%" style="padding: 10px;"><img src="@logoUrl" style="width:100%;" /></td>
+                    <td width="60%" height="50%" valign="middle" align="right" style="padding: 10px;color:white;font-size:48px;font-family: fantasy;">@Html.Raw(benefit)</td>
+                </tr>
+                <tr>
+                    <td colspan="2" width="100%" height="50%" valign="middle" align="left" style="padding: 10px;color:white;font-size:18px;">@Html.Raw(Model.Name)</td>
+                </tr>
+            </table>
+            
+        </div>
+        <div class="coupon-bottom">
+            <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;">@timeStr</div></div>
+            <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;">@Model.ProductPrice.Price </div></div>
+        </div>
+        }
+        else if (Model.ProductType == ProductType.WiTicket)
+        {
+            <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;height:auto;">
+                <table border="0">
+                    <tr>
+                        <td rowspan="2" width="30%" style="padding: 10px 0 10px 20px;"><img src="@customPicUrl" style="width:100%;" /></td>
+                        <td width="70%" height="50%" valign="top" align="left" style="padding: 10px 20px 5px 20px;color:white;font-size:18px;font-weight:600;">@Html.Raw(Model.Name)</td>
+                    </tr>
+                    <tr>
+                        <td width="70%" height="50%" valign="top" align="left" style="padding: 5px 20px 10px 20px;color:white;font-size:16px;">@Html.Raw(Model.ShortDescription)</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="coupon-bottom">
+                <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;">@timeStr</div></div>
+                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;">@Model.ProductPrice.Price </div></div>
+            </div>
+            <div class="left-arc" style="bottom:35px"></div>
+            <div class="right-arc" style="bottom:35px"></div>
+        }
+        else if (Model.ProductType == ProductType.WiCard)
+        {
+        }
+    </div>    
+    <div style="text-align:center;">使用移动端APP扫码获取</div>
+    <div class="picture">
+        <img alt="@Model.QRCodePictureModel.AlternateText" src="@Model.QRCodePictureModel.ImageUrl" title="@Model.QRCodePictureModel.Title" itemprop="image" id="main-product-img-@Model.Id" />
+    </div>
+
+</div>

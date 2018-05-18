@@ -1,0 +1,116 @@
+﻿@model ProductOverviewModel
+@using Nop.Core
+@using Nop.Core.Domain.Catalog
+@using Nop.Core.Domain.Orders
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Catalog;
+@{
+    //prepare "Add to cart" AJAX link
+    string addtocartlink = "";
+    var shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart;
+    var quantity = 1;
+    if (Model.ProductPrice.ForceRedirectionAfterAddingToCart)
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity, forceredirection = Model.ProductPrice.ForceRedirectionAfterAddingToCart });
+    }
+    else
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity });
+    }
+
+    var addtowishlistlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = (int)ShoppingCartType.Wishlist, quantity = quantity });
+    var addtocomparelink = Url.RouteUrl("AddProductToCompare", new { productId = Model.Id });
+
+    var benefit = "";
+    var bgColor= "#137656";
+    var shadingUrl = "";
+    var customPicUrl = "";
+    var logoUrl = "";
+    var timeStr = Model.StartDateTime + (string.IsNullOrEmpty(Model.EndDateTime) ? "" : " - " + Model.EndDateTime);
+    foreach (var specificationAttribute in Model.SpecificationAttributeModels)
+    {
+        var sid = specificationAttribute.SpecificationAttributeId;
+        var selectValue = specificationAttribute.ColorSquaresRgb;
+        var customValue = specificationAttribute.ValueRaw;
+        var value=(string.IsNullOrEmpty(selectValue)&& string.IsNullOrEmpty(customValue))? specificationAttribute.SpecificationAttributeName: (string.IsNullOrEmpty(selectValue)?customValue : selectValue);
+        switch (sid)
+        {
+            case 7:
+                bgColor = value;
+                break;
+            case 8:
+                shadingUrl = value;
+                break;
+            case 9:
+                customPicUrl = value;
+                break;
+            case 10:
+                logoUrl = value;
+                break;
+            default:
+                benefit = value;
+                break;
+
+        }
+    }
+}
+<div class="product-item" data-productid="@Model.Id" style="">
+    <div class="home-coupon-picture">
+        <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">  
+            @if (Model.ProductType == ProductType.WiCoupon)
+            {
+            <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;">
+                <div class="coupon-top">
+                    <div class="coupon-logo"><img src="@logoUrl" style="height:44px;max-width:100%;float: left;" /></div>
+                    <div class="coupon-benefit">@Html.Raw(benefit)</div>
+                </div>
+                <div class="coupon-title">
+                    @Html.Raw(Model.Name)
+                </div>
+            </div>
+            <div class="coupon-bottom">                
+                <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;padding-left:30px;">@timeStr</div></div>
+                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;padding-right:10px;">@Model.ProductPrice.Price </div></div>
+            </div> 
+            }
+            else if (Model.ProductType == ProductType.WiTicket)
+            {
+            <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;">
+                <table border="0">
+                    <tr>
+                        <td rowspan="2" width="30%" style="padding: 5px 0 5px 15px;"><img src="@customPicUrl" style="width:auto;height:90px;" /></td>
+                        <td width="70%" height="50%" valign="top" style="padding: 5px 10px 2px 10px;color:white;font-size:16px;font-weight:600;">@Html.Raw(Model.Name)</td>                                                
+                    </tr>
+                    <tr>
+                        <td width="70%" height="50%" valign="top" style="padding: 5px 20px 10px 20px;color:white;font-size:14px;">@Html.Raw(Model.ShortDescription)</td>                        
+                    </tr>
+                </table>
+            </div>
+            <div class="coupon-bottom">
+                <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;padding-left:30px;">@timeStr</div></div>
+                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;padding-right:10px;">@Model.ProductPrice.Price </div></div>
+            </div> 
+            <div class="left-arc"></div>
+            <div class="right-arc"></div>
+            }
+            else if (Model.ProductType == ProductType.WiCard)
+            {
+            <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;">
+                <div class="coupon-top">
+                    <div class="coupon-logo"><img src="@logoUrl" style="height:60px;max-width:100%;float: left;" /></div>
+                    <div class="coupon-benefit">@Html.Raw(benefit)</div>
+                </div>
+                <div class="coupon-title">
+                    @Html.Raw(Model.Name)
+                </div>
+            </div>
+            <div class="coupon-bottom">
+                <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;padding-left:30px;">@timeStr</div></div>
+                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;padding-right:10px;">@Model.ProductPrice.Price </div></div>
+            </div>
+            }
+        </a>
+    </div>
+   
+</div>

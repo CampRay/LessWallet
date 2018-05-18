@@ -1,0 +1,10 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\Description.txt
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\web.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\Views\Configure.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\logo.jpg
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\Nop.Plugin.Misc.MobileAPI.dll.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\Nop.Plugin.Misc.MobileAPI.dll
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Misc.MobileAPI\Nop.Plugin.Misc.MobileAPI.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Misc.MobileAPI\obj\Debug\Nop.Plugin.Misc.MobileAPI.dll
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Misc.MobileAPI\obj\Debug\Nop.Plugin.Misc.MobileAPI.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Misc.MobileAPI\obj\Debug\Nop.Plugin.Misc.MobileAPI.csprojResolveAssemblyReference.cache

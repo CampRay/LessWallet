@@ -1,0 +1,11 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Views\Configure.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Views\PaymentInfo.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\web.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Description.txt
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\logo.jpg
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Nop.Plugin.Payments.PayPalStandard.dll.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Nop.Plugin.Payments.PayPalStandard.dll
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalStandard\Nop.Plugin.Payments.PayPalStandard.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\Nop.Plugin.Payments.PayPalStandard.csproj.App.config
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\Nop.Plugin.Payments.PayPalStandard.dll
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalStandard\obj\Debug\Nop.Plugin.Payments.PayPalStandard.pdb

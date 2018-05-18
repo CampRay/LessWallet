@@ -1,0 +1,9 @@
+﻿Group: Misc
+FriendlyName: API for mobile device
+SystemName: Misc.MobileAPI
+Version: 1.0
+SupportedVersions: 3.90
+Author: Phills Li
+DisplayOrder: 1
+FileName: Nop.Plugin.Misc.MobileAPI.dll
+Description: This plugin provides an API for mobile device.

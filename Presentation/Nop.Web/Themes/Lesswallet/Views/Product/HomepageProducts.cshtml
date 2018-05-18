@@ -1,0 +1,45 @@
+﻿@model IList<ProductOverviewModel>
+
+@using Nop.Web.Models.Catalog;
+
+@if (Model.Count > 0)
+{
+    <div class="product-list home-page-product-grid">
+        <div class="title">
+            <strong>@T("HomePage.Products")</strong>
+            <span style="font-size:12px">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="text-decoration:underline;">View all</a></span>
+        </div>
+        <div class="item-grid" style="padding:0 20px;">
+            @foreach (var item in Model)
+            {
+                <table class="line-box1" width="100%" style="background:white;border:1px solid #b5b5b5;margin-bottom:20px;">
+                    <tr>
+                        <td width="350" style="border-right:1px dashed #ec6422;padding:15px;">
+                            <div class="item-box">
+                                @Html.Partial("_HomepageProductBox", item)
+                            </div>
+                        </td>                    
+                        <td style="padding:15px;">
+                            <table height="150" width="100%">
+                                <tr>
+                                    <td valign="top" height="30px" colspan="2" style="font-size:18px;font-weight:bold;color:black;">@item.ProductType</td>                                    
+                                    <td valign="top" height="30px" align="right" style="font-size:14px;color:black;"><div>Total Downloaded</div><div>1,129</div></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" height="90px" colspan="2" style="font-size:18px;font-weight:bold;color:black;">@item.Name</td>
+                                    <td valign="bottom" height="90px" align="right"><div style="font-size:18px;font-weight:bold;color:black;"><span style="font-size:26px;color:black;">@item.ProductPrice.Price</span></div></td>
+                                </tr>                                
+                                <tr>
+                                    <td valign="middle" height="30px" width="300" style="font-size:14px;color:black;position:relative;"><img style="position:absolute;top:5px;" src="~/Themes/Lesswallet/Content/images/date.png" width="20" height="20" /><span style="padding-left:25px;">11/23/2017</span></td>
+                                    <td valign="middle" height="30px" align="right" style="font-size:14px;color:black;">more from starbucks...</td>
+                                    <td height="30px" width="150"></td>
+                                </tr>
+                            </table>
+                        </td>                    
+                        <td width="180" style="padding:10px;"><a href="@Url.RouteUrl("Product", new { SeName = item.SeName })" title="@item.DefaultPictureModel.Title"><div style="width: 100%;height: 100%;background: #ec6422;text-align: center;padding: 10px;"><img width="auto" height="104" src="~/Themes/Lesswallet/Content/images/icon_get.png" /><div style="color:white;font-size:26px;font-weight:bold">Git it now</div></div></a></td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+}

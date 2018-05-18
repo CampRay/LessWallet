@@ -1,0 +1,8 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Description.txt
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\logo.jpg
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.dll.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.dll
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Debug\Nop.Plugin.ExchangeRate.EcbExchange.dll
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Debug\Nop.Plugin.ExchangeRate.EcbExchange.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Debug\Nop.Plugin.ExchangeRate.EcbExchange.csprojResolveAssemblyReference.cache

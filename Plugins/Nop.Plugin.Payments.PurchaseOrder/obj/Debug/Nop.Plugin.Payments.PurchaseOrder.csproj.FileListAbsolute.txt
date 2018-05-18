@@ -1,0 +1,12 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\Views\Configure.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\Views\PaymentInfo.cshtml
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\web.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\Description.txt
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\logo.jpg
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\Nop.Plugin.Payments.PurchaseOrder.dll.config
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\Nop.Plugin.Payments.PurchaseOrder.dll
+D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PurchaseOrder\Nop.Plugin.Payments.PurchaseOrder.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PurchaseOrder\obj\Debug\Nop.Plugin.Payments.PurchaseOrder.csproj.App.config
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PurchaseOrder\obj\Debug\Nop.Plugin.Payments.PurchaseOrder.dll
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PurchaseOrder\obj\Debug\Nop.Plugin.Payments.PurchaseOrder.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PurchaseOrder\obj\Debug\Nop.Plugin.Payments.PurchaseOrder.csprojResolveAssemblyReference.cache
