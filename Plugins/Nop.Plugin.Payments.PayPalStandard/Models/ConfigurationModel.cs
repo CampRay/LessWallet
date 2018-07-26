@@ -50,5 +50,22 @@ namespace Nop.Plugin.Payments.PayPalStandard.Models
         [NopResourceDisplayName("Plugins.Payments.PayPalStandard.Fields.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage")]
         public bool ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage { get; set; }
         public bool ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage_OverrideForStore { get; set; }
+
+        [NopResourceDisplayName("Plugins.Payments.PayPalStandard.Fields.MerchantId")]
+        public string MerchantId { get; set; }
+        public bool MerchantId_OverrideForStore { get; set; }
+
+        [NopResourceDisplayName("Plugins.Payments.PayPalStandard.Fields.PublicKey")]
+        public string PublicKey { get; set; }
+        public bool PublicKey_OverrideForStore { get; set; }
+
+        [NopResourceDisplayName("Plugins.Payments.PayPalStandard.Fields.PrivateKey")]
+        public string PrivateKey { get; set; }
+        public bool PrivateKey_OverrideForStore { get; set; }
+
+        [NopResourceDisplayName("Plugins.Payments.PayPalStandard.Fields.MerchantAccountId")]
+        public string MerchantAccountId { get; set; }
+        public bool MerchantAccountId_OverrideForStore { get; set; }
+
     }
 }

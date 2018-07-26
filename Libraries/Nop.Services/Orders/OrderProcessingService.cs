@@ -320,7 +320,8 @@ namespace Nop.Services.Orders
             if (!CommonHelper.IsValidEmail(details.Customer.BillingAddress.Email))
                 throw new NopException("Email is not valid");
 
-            details.BillingAddress = (Address)details.Customer.BillingAddress.Clone();
+            //details.BillingAddress = (Address)details.Customer.BillingAddress.Clone();
+            details.BillingAddress = details.Customer.BillingAddress;
             if (details.BillingAddress.Country != null && !details.BillingAddress.Country.AllowsBilling)
                 throw new NopException(string.Format("Country '{0}' is not allowed for billing", details.BillingAddress.Country.Name));
 
@@ -694,11 +695,7 @@ namespace Nop.Services.Orders
                 CustomOrderNumber = string.Empty
             };
 
-            _orderService.InsertOrder(order);
-
-            //generate and set custom order number
-            order.CustomOrderNumber = _customNumberFormatter.GenerateOrderCustomNumber(order);
-            _orderService.UpdateOrder(order);
+            _orderService.InsertOrder(order);  
 
             //reward points history
             if (details.RedeemedRewardPointsAmount > decimal.Zero)
@@ -1144,6 +1141,12 @@ namespace Nop.Services.Orders
 
             if (order.PaymentStatus == PaymentStatus.Paid && !order.PaidDateUtc.HasValue)
             {
+                //生成Coupon对象编号    
+                OrderItem orderItem = order.OrderItems.FirstOrDefault();
+                StockQuantityHistory sqh = _productService.GetFirstStockQuantityHistory(orderItem.Product);
+                orderItem.CustomOrderItemNumber = orderItem.GetItemNumberOfProduct(sqh.StockQuantity);
+
+                order.CustomOrderNumber = orderItem.Product.Sku + orderItem.CustomOrderItemNumber.Substring(10);
                 //ensure that paid date is set
                 order.PaidDateUtc = DateTime.UtcNow;
                 _orderService.UpdateOrder(order);
@@ -1230,32 +1233,39 @@ namespace Nop.Services.Orders
                 var skipPaymentWorkflow = details.OrderTotal == decimal.Zero;
                 if (!skipPaymentWorkflow)
                 {
-                    var paymentMethod = _paymentService.LoadPaymentMethodBySystemName(processPaymentRequest.PaymentMethodSystemName);
-                    if (paymentMethod == null)
-                        throw new NopException("Payment method couldn't be loaded");
-
-                    //ensure that payment method is active
-                    if (!paymentMethod.IsPaymentMethodActive(_paymentSettings))
-                        throw new NopException("Payment method is not active");
-
-                    if (details.IsRecurringShoppingCart)
+                    if (!string.IsNullOrEmpty(processPaymentRequest.PaymentMethodSystemName))
                     {
-                        //recurring cart
-                        switch (_paymentService.GetRecurringPaymentType(processPaymentRequest.PaymentMethodSystemName))
+                        var paymentMethod = _paymentService.LoadPaymentMethodBySystemName(processPaymentRequest.PaymentMethodSystemName);
+                        if (paymentMethod == null)
+                            throw new NopException("Payment method couldn't be loaded");
+
+                        //ensure that payment method is active
+                        if (!paymentMethod.IsPaymentMethodActive(_paymentSettings))
+                            throw new NopException("Payment method is not active");
+
+                        if (details.IsRecurringShoppingCart)
                         {
-                            case RecurringPaymentType.NotSupported:
-                                throw new NopException("Recurring payments are not supported by selected payment method");
-                            case RecurringPaymentType.Manual:
-                            case RecurringPaymentType.Automatic:
-                                processPaymentResult = _paymentService.ProcessRecurringPayment(processPaymentRequest);
-                                break;
-                            default:
-                                throw new NopException("Not supported recurring payment type");
+                            //recurring cart
+                            switch (_paymentService.GetRecurringPaymentType(processPaymentRequest.PaymentMethodSystemName))
+                            {
+                                case RecurringPaymentType.NotSupported:
+                                    throw new NopException("Recurring payments are not supported by selected payment method");
+                                case RecurringPaymentType.Manual:
+                                case RecurringPaymentType.Automatic:
+                                    processPaymentResult = _paymentService.ProcessRecurringPayment(processPaymentRequest);
+                                    break;
+                                default:
+                                    throw new NopException("Not supported recurring payment type");
+                            }
                         }
+                        else
+                            //standard cart
+                            processPaymentResult = _paymentService.ProcessPayment(processPaymentRequest);
                     }
                     else
-                        //standard cart
-                        processPaymentResult = _paymentService.ProcessPayment(processPaymentRequest);
+                    {
+                        processPaymentResult = new ProcessPaymentResult { NewPaymentStatus = PaymentStatus.Pending };
+                    }
                 }
                 else
                     //payment is not required
@@ -1323,12 +1333,10 @@ namespace Nop.Services.Orders
                             //RentalEndDateUtc = sc.RentalEndDateUtc
                             RentalStartDateUtc = sc.Product.AvailableStartDateTimeUtc,
                             RentalEndDateUtc = sc.Product.AvailableEndDateTimeUtc,                            
-                        };                                       
+                        };                        
+
                         order.OrderItems.Add(orderItem);
-                        _orderService.UpdateOrder(order);
-                        //生成Coupon对象编号         
-                        orderItem.CustomOrderItemNumber = orderItem.GetItemNumberOfProduct();
-                        _orderService.UpdateOrder(order);
+                        _orderService.UpdateOrder(order);                        
 
                         //gift cards
                         if (sc.Product.IsGiftCard)
@@ -1361,7 +1369,7 @@ namespace Nop.Services.Orders
                             }
                         }
 
-                        //inventory
+                        //inventory修改商品库存数量
                         _productService.AdjustInventory(sc.Product, -sc.Quantity, sc.AttributesXml,
                             string.Format(_localizationService.GetResource("Admin.StockQuantityHistory.Messages.PlaceOrder"), order.Id));
                     }
@@ -2417,8 +2425,8 @@ namespace Nop.Services.Orders
                 throw new ArgumentNullException("order");
 
             if (!CanMarkOrderAsPaid(order))
-                throw new NopException("You can't mark this order as paid");
-
+                throw new NopException("You can't mark this order as paid");            
+            
             order.PaymentStatusId = (int)PaymentStatus.Paid;
             order.PaidDateUtc = DateTime.UtcNow;
             _orderService.UpdateOrder(order);

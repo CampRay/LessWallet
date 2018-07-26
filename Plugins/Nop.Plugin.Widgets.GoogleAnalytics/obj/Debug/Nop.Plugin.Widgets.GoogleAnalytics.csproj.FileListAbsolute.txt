@@ -8,4 +8,3 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Pl
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\Nop.Plugin.Widgets.GoogleAnalytics.csproj.App.config
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\Nop.Plugin.Widgets.GoogleAnalytics.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\Nop.Plugin.Widgets.GoogleAnalytics.pdb
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Debug\Nop.Plugin.Widgets.GoogleAnalytics.csprojResolveAssemblyReference.cache

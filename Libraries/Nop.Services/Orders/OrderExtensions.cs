@@ -3,6 +3,8 @@ using System.Linq;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Html;
 using System.Collections.Generic;
+using Nop.Core.Domain.Catalog;
+using Nop.Services.Catalog;
 
 namespace Nop.Services.Orders
 {
@@ -162,40 +164,14 @@ namespace Nop.Services.Orders
 
             return result;
         }
-
-        //每个用户所有的卡卷对应的序列号映射集合
-        public static Dictionary<int, int> couponIDMap = new Dictionary<int, int>();
-
-        /// <summary>
-        /// 生成当前卡卷对应的序列号
-        /// </summary>
-        /// <param name="orderItem">Order  item</param>
-        /// <returns>Number</returns>
-        public static int BuileCouponNumber(this OrderItem orderItem)
-        {
-            if (orderItem == null)
-                throw new ArgumentNullException("orderItem");
-            lock (couponIDMap)
-            {
-                int num = 1;
-                if (couponIDMap.ContainsKey(orderItem.Product.Id))
-                {
-                    num = couponIDMap[orderItem.Product.Id]++;
-                }
-                else
-                {
-                    couponIDMap.Add(orderItem.Product.Id, num);
-                }
-                return num;
-            }            
-        }
+        
 
         /// <summary>
         /// 生成当前卡卷对应的完整编号（XXXXXXTVVVBNNNNN）
         /// </summary>
         /// <param name="orderItem">Order  item</param>
         /// <returns>Total number of already delivered items</returns>
-        public static string GetItemNumberOfProduct(this OrderItem orderItem)
+        public static string GetItemNumberOfProduct(this OrderItem orderItem,int total)
         {
             if (orderItem == null)
                 throw new ArgumentNullException("orderItem");            
@@ -203,7 +179,9 @@ namespace Nop.Services.Orders
             XXXXXX = XXXXXX.PadLeft(6, '0');
             var T = orderItem.Product.ProductTypeId;
             var VVV = orderItem.Product.ManufacturerPartNumber;
-            var NNNNN = Convert.ToString(orderItem.BuileCouponNumber()).PadLeft(5,'0');
+            Product product = orderItem.Product;            
+            int num = total - (product.StockQuantity- 1);
+            var NNNNN = num.ToString().PadLeft(5,'0');
 
             return XXXXXX+ T+VVV+"0"+ NNNNN;
         }

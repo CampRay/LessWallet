@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Nop.Core.Domain.Localization;
 using Nop.Core.Domain.Seo;
+using Nop.Core.Domain.Stores;
 
 namespace Nop.Core.Domain.Vendors
 {
@@ -94,5 +95,12 @@ namespace Nop.Core.Domain.Vendors
             get { return _vendorNotes ?? (_vendorNotes = new List<VendorNote>()); }
             protected set { _vendorNotes = value; }
         }
+
+
+        /// <summary>
+        /// 为供应商新添加限制到店铺的字段
+        ///  Gets or sets the store identifier
+        /// </summary>
+        public int StoreId { get; set; }
     }
 }

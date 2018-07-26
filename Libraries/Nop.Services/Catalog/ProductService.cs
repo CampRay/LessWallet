@@ -2135,6 +2135,29 @@ namespace Nop.Services.Catalog
             return new PagedList<StockQuantityHistory>(query, pageIndex, pageSize);
         }
 
+        /// <summary>
+        /// 获取第一条添加库存记录
+        /// </summary>
+        /// <param name="product"></param>
+        /// <param name="warehouseId"></param>
+        /// <param name="combinationId"></param>
+        /// <returns>StockQuantityHistory</returns>
+        public virtual StockQuantityHistory GetFirstStockQuantityHistory(Product product, int warehouseId = 0, int combinationId = 0)
+        {
+            if (product == null)
+                throw new ArgumentNullException("product");
+
+            var query = _stockQuantityHistoryRepository.Table.Where(historyEntry => historyEntry.ProductId == product.Id);
+
+            if (warehouseId > 0)
+                query = query.Where(historyEntry => historyEntry.WarehouseId == warehouseId);
+
+            if (combinationId > 0)
+                query = query.Where(historyEntry => historyEntry.CombinationId == combinationId);
+            
+            return query.FirstOrDefault();
+        }
+
         #endregion
 
         #endregion

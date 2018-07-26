@@ -14,12 +14,12 @@
             {
                 <table class="line-box1" width="100%" style="background:white;border:1px solid #b5b5b5;margin-bottom:20px;">
                     <tr>
-                        <td width="350" style="border-right:1px dashed #ec6422;padding:15px;">
-                            <div class="item-box">
+                        <td class="td-coupon">
+                            <div class="item-box home-item-box">
                                 @Html.Partial("_HomepageProductBox", item)
                             </div>
                         </td>                    
-                        <td style="padding:15px;">
+                        <td class="td-info">
                             <table height="150" width="100%">
                                 <tr>
                                     <td valign="top" height="30px" colspan="2" style="font-size:18px;font-weight:bold;color:black;">@item.ProductType</td>                                    
@@ -36,7 +36,7 @@
                                 </tr>
                             </table>
                         </td>                    
-                        <td width="180" style="padding:10px;"><a href="@Url.RouteUrl("Product", new { SeName = item.SeName })" title="@item.DefaultPictureModel.Title"><div style="width: 100%;height: 100%;background: #ec6422;text-align: center;padding: 10px;"><img width="auto" height="104" src="~/Themes/Lesswallet/Content/images/icon_get.png" /><div style="color:white;font-size:26px;font-weight:bold">Git it now</div></div></a></td>
+                        <td class="td-button"><a href="@Url.RouteUrl("Product", new { SeName = item.SeName })" title="@item.DefaultPictureModel.Title"><div style="width: 100%;height: 100%;background: #ec6422;text-align: center;padding: 10px;"><img class="td-btn-img" src="~/Themes/Lesswallet/Content/images/icon_get.png" /><div style="color:white;font-size:26px;font-weight:bold">Get it now</div></div></a></td>
                     </tr>
                 </table>
             }

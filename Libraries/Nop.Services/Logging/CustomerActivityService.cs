@@ -272,7 +272,7 @@ namespace Nop.Services.Logging
         }
 
         /// <summary>
-        /// Updates an activity log type item
+        /// Updates an activity log item
         /// </summary>
         /// <param name="activityLog">Activity log item</param>
         public virtual void UpdateLog(ActivityLog activityLog)
@@ -333,14 +333,26 @@ namespace Nop.Services.Logging
         /// 查询所有未读的日志
         /// </summary>       
         /// <param name="customerId">Customer identifier; null to load all activities</param>
-        /// <param name="logTypeIds">Activity log type identifier</param>        
+        /// <param name="logTypeIds">Activity log type identifier</param>  
+        /// <param name="readed">日志记录用户App是否已读</param>  
         /// <returns>Activity log items</returns>
-        public virtual IList<ActivityLog> GetLesswalletLogs(int customerId, int[] logTypeIds)
-        {
-            var query = from al in _activityLogRepository.Table                        
-                        orderby al.CreatedOnUtc
+        public virtual IList<ActivityLog> GetLesswalletLogs(int customerId, int[] logTypeIds,bool? readed)
+        {            
+            var query = from al in _activityLogRepository.Table                                                
+                        orderby al.CreatedOnUtc descending
                         where logTypeIds.Contains(al.ActivityLogTypeId) && al.IpAddress == null&& al.CustomerId == customerId
                         select al;
+            if (readed.HasValue)
+            {
+                if (readed.Value)
+                {
+                    query = query.Where(al => al.IpAddress != null);
+                }
+                else
+                {
+                    query = query.Where(al => al.IpAddress == null);
+                }
+            }
             var activityLogs = query.ToList();
             return activityLogs;
         }

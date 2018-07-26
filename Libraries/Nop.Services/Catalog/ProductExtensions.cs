@@ -16,27 +16,29 @@ namespace Nop.Services.Catalog
     public static class ProductExtensions
     {
         //每个卡卷商品对应的批次号映射集合
-        public static Dictionary<int, int> versionIDMap = new Dictionary<int, int>();
+        //public static Dictionary<int, int> versionIDMap = new Dictionary<int, int>();
 
         /// <summary>
         /// 生成当前卡卷商品对应的批次号
         /// </summary>
         /// <param name="product">product</param>
-        /// <returns>Number</returns>
-        public static int BuileProductVersionNumber(this Product product)
+        /// <returns>Number 001-999</returns>
+        public static String BuileProductVersionNumber(this Product product)
         {
             if (product == null)
                 throw new ArgumentNullException("product");
-            int num = 1;
-            if (versionIDMap.ContainsKey(product.Id))
-            {
-                num = versionIDMap[product.Id]++;
-            }
-            else
-            {
-                versionIDMap.Add(product.Id, num);
-            }
-            return num;
+            int num = Convert.ToInt32(product.ManufacturerPartNumber);
+            num++;
+            //int num = 1;
+            //if (versionIDMap.ContainsKey(product.Id))
+            //{
+            //    num = versionIDMap[product.Id]++;
+            //}
+            //else
+            //{
+            //    versionIDMap.Add(product.Id, num);
+            //}
+            return num.ToString().PadLeft(3, '0');
         }
 
         /// <summary>

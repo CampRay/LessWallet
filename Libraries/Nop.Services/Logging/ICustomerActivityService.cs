@@ -105,7 +105,7 @@ namespace Nop.Services.Logging
         /// <param name="customerId">Customer identifier; null to load all activities</param>
         /// <param name="logTypeIds">Activity log type identifier</param>        
         /// <returns>Activity log items</returns>
-        IList<ActivityLog> GetLesswalletLogs(int customerId, int[] logTypeIds);
+        IList<ActivityLog> GetLesswalletLogs(int customerId, int[] logTypeIds, bool? readed);
 
         /// <summary>
         /// Gets an activity log item

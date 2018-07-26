@@ -34,6 +34,8 @@ using Nop.Web.Framework.Security;
 using Nop.Web.Framework.Security.Captcha;
 using Nop.Web.Framework.Security.Honeypot;
 using Nop.Web.Models.Customer;
+using Nop.Services.Security;
+using System.Text.RegularExpressions;
 
 namespace Nop.Web.Controllers
 {
@@ -71,12 +73,13 @@ namespace Nop.Web.Controllers
         private readonly IAddressAttributeService _addressAttributeService;
         private readonly IStoreService _storeService;
         private readonly IEventPublisher _eventPublisher;
-
+        private readonly HttpContextBase _httpContext;
         private readonly MediaSettings _mediaSettings;
         private readonly IWorkflowMessageService _workflowMessageService;
         private readonly LocalizationSettings _localizationSettings;
         private readonly CaptchaSettings _captchaSettings;
         private readonly StoreInformationSettings _storeInformationSettings;
+        private readonly IEncryptionService _encryptionService;
 
         #endregion
 
@@ -116,7 +119,9 @@ namespace Nop.Web.Controllers
             IWorkflowMessageService workflowMessageService,
             LocalizationSettings localizationSettings,
             CaptchaSettings captchaSettings,
-            StoreInformationSettings storeInformationSettings)
+            StoreInformationSettings storeInformationSettings,
+            HttpContextBase httpContext,
+            IEncryptionService encryptionService)
         {
             this._addressModelFactory = addressModelFactory;
             this._customerModelFactory = customerModelFactory;
@@ -153,6 +158,8 @@ namespace Nop.Web.Controllers
             this._localizationSettings = localizationSettings;
             this._captchaSettings = captchaSettings;
             this._storeInformationSettings = storeInformationSettings;
+            this._httpContext = httpContext;
+            this._encryptionService = encryptionService;
         }
 
         #endregion
@@ -253,6 +260,32 @@ namespace Nop.Web.Controllers
             return attributesXml;
         }
 
+        /// <summary>
+        /// 根据访问Token获取用户对象
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="device"></param>
+        /// <returns></returns>
+        protected Customer GetCustomerFromToken(string token, string device)
+        {
+            try
+            {
+                string text = _encryptionService.DecryptText(token);
+                string[] strArr = Regex.Split(text, ":::", RegexOptions.IgnoreCase);
+                if (strArr.Length == 2)
+                {
+                    if (strArr[1].Equals(device, StringComparison.OrdinalIgnoreCase))
+                    {
+                        int customerId = Convert.ToInt32(strArr[0]);
+                        var customer = _customerService.GetCustomerById(customerId);
+                        return customer;
+                    }
+                }
+            }
+            catch { }
+            return null;
+        }
+
         #endregion
 
         #region Login / logout
@@ -264,8 +297,26 @@ namespace Nop.Web.Controllers
         [PublicStoreAllowNavigation(true)]
         public virtual ActionResult Login(bool? checkoutAsGuest)
         {
-            var model = _customerModelFactory.PrepareLoginModel(checkoutAsGuest);
-            return View(model);
+            string authorization = _httpContext.Request.Headers["Authorization"];
+            string device = _httpContext.Request.Headers["Device"];
+            var customer = GetCustomerFromToken(authorization, device);
+            if (customer == null)
+            {
+                var model = _customerModelFactory.PrepareLoginModel(checkoutAsGuest);
+                return View(model);
+            }
+            else
+            {
+                //sign in new customer
+                _authenticationService.SignIn(customer, true);
+                //raise event       
+                _eventPublisher.Publish(new CustomerLoggedinEvent(customer));
+
+                //activity log
+                _customerActivityService.InsertActivity(customer, "PublicStore.Login", _localizationService.GetResource("ActivityLog.PublicStore.Login"));
+
+                return RedirectToRoute("HomePage");
+            }
         }
 
         [HttpPost]

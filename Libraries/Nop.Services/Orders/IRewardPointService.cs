@@ -46,6 +46,15 @@ namespace Nop.Services.Orders
         int GetRewardPointsBalance(int customerId, int storeId);
 
         /// <summary>
+        /// 获取从指定时间开始至今的累积积分
+        /// </summary>
+        /// <param name="customerId">Customer identifier</param>
+        /// <param name="storeId">Store identifier; pass </param>
+        /// <param name="startTime">Start time </param>
+        /// <returns>Balance</returns>
+        int GetRewardPointsCumulative(int customerId, int storeId, DateTime startTime);
+
+        /// <summary>
         /// Gets a reward point history entry
         /// </summary>
         /// <param name="rewardPointsHistoryId">Reward point history entry identifier</param>

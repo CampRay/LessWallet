@@ -1550,11 +1550,17 @@ namespace Nop.Web.Factories
                     switch (psa.AttributeType)
                     {
                         case SpecificationAttributeType.Option:
+                            m.ValueRaw = m.SpecificationAttributeName;
                             //设置ValueRaw为自定义的值，修改选项没有此值
                             //m.ValueRaw = HttpUtility.HtmlEncode(psa.SpecificationAttributeOption.GetLocalized(x => x.Name));
-                            if(m.SpecificationAttributeId==8|| m.SpecificationAttributeId==9 || m.SpecificationAttributeId == 10)
+                            if (m.SpecificationAttributeId==6|| m.SpecificationAttributeId==7 || m.SpecificationAttributeId == 8)
                             {
                                 m.ColorSquaresRgb = _pictureService.GetPictureUrl(Convert.ToInt32(m.ColorSquaresRgb), 150, false);
+                                m.ValueRaw = m.ColorSquaresRgb;
+                            }
+                            else if (m.SpecificationAttributeId == 5)//颜色选项
+                            {
+                                m.ValueRaw = m.ColorSquaresRgb;
                             }
                             break;
                         case SpecificationAttributeType.CustomText:
@@ -1570,7 +1576,7 @@ namespace Nop.Web.Factories
                             m.ValueRaw = psa.CustomValue;
                             break;
                         case SpecificationAttributeType.CustomImage:
-                            if (m.SpecificationAttributeId == 8 || m.SpecificationAttributeId == 9 || m.SpecificationAttributeId == 10)
+                            if (m.SpecificationAttributeId == 6 || m.SpecificationAttributeId == 7 || m.SpecificationAttributeId == 8)
                             {
                                 m.ValueRaw = _pictureService.GetPictureUrl(Convert.ToInt32(psa.CustomValue), 150, false);
                             }

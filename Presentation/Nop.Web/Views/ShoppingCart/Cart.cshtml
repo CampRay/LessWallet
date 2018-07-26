@@ -9,10 +9,10 @@
     //page class
     Html.AppendPageCssClassParts("html-shopping-cart-page");
 }
-@if (!Model.OnePageCheckoutEnabled)
+@*@if (!Model.OnePageCheckoutEnabled)
 {
     @Html.Action("CheckoutProgress", "Checkout", new {step = CheckoutProgressStep.Cart})
-}
+}*@
 <div class="page shopping-cart-page">
     <div class="page-title">
         <h1>@T("ShoppingCart")</h1>

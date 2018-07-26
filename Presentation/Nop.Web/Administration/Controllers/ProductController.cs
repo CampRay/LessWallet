@@ -746,6 +746,7 @@ namespace Nop.Admin.Controllers
                 model.NotReturnable = true;//不能退货
                 model.Sku = "A0"; //卡卷前缀
                 model.ManufacturerPartNumber = "001";//批次编号
+                model.ManageInventoryMethodId = (int)ManageInventoryMethod.ManageStock;
             }
 
            
@@ -977,7 +978,7 @@ namespace Nop.Admin.Controllers
                 productModel.ProductTypeName = x.ProductType.GetLocalizedEnum(_localizationService, _workContext);
                 //friendly stock qantity
                 //if a simple product AND "manage inventory" is "Track inventory", then display
-                if (x.ProductType == ProductType.SimpleProduct && x.ManageInventoryMethod == ManageInventoryMethod.ManageStock)
+                if (x.ProductType <= ProductType.WiCard && x.ManageInventoryMethod == ManageInventoryMethod.ManageStock)
                     productModel.StockQuantityStr = x.GetTotalStockQuantity().ToString();
                 return productModel;
             });
@@ -1071,6 +1072,7 @@ namespace Nop.Admin.Controllers
                 
                 //product
                 var product = model.ToEntity();
+                product.ManufacturerPartNumber = "001";//默认批次号
                 product.CreatedOnUtc = DateTime.UtcNow;
                 product.UpdatedOnUtc = DateTime.UtcNow;
                 _productService.InsertProduct(product);

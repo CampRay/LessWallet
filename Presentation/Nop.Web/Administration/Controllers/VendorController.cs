@@ -15,6 +15,7 @@ using Nop.Services.Logging;
 using Nop.Services.Media;
 using Nop.Services.Security;
 using Nop.Services.Seo;
+using Nop.Services.Stores;
 using Nop.Services.Vendors;
 using Nop.Web.Framework.Controllers;
 using Nop.Web.Framework.Kendoui;
@@ -40,6 +41,8 @@ namespace Nop.Admin.Controllers
         private readonly IAddressService _addressService;
         private readonly ICountryService _countryService;
         private readonly IStateProvinceService _stateProvinceService;
+        private readonly IStoreService _storeService;
+        private readonly IStoreMappingService _storeMappingService;
 
         #endregion
 
@@ -58,7 +61,9 @@ namespace Nop.Admin.Controllers
             ICustomerActivityService customerActivityService,
             IAddressService addressService,
             ICountryService countryService,
-            IStateProvinceService stateProvinceService)
+            IStateProvinceService stateProvinceService,
+            IStoreService storeService,
+            IStoreMappingService storeMappingService)
         {
             this._customerService = customerService;
             this._localizationService = localizationService;
@@ -74,6 +79,8 @@ namespace Nop.Admin.Controllers
             this._addressService = addressService;
             this._countryService = countryService;
             this._stateProvinceService = stateProvinceService;
+            this._storeService = storeService;
+            this._storeMappingService = storeMappingService;
         }
 
         #endregion
@@ -180,6 +187,28 @@ namespace Nop.Admin.Controllers
             }
         }
 
+        [NonAction]
+        protected virtual void PrepareStoresModel(VendorModel model)
+        {
+            if (model == null)
+                throw new ArgumentNullException("model");
+
+            model.AvailableStores.Add(new SelectListItem
+            {
+                Text = _localizationService.GetResource("Admin.Common.All"),
+                Value = "0"
+            });
+            var stores = _storeService.GetAllStores();
+            foreach (var store in stores)
+            {
+                model.AvailableStores.Add(new SelectListItem
+                {
+                    Text = store.Name,
+                    Value = store.Id.ToString()
+                });
+            }
+        }
+
         #endregion
 
         #region Vendors
@@ -236,7 +265,8 @@ namespace Nop.Admin.Controllers
             model.Active = true;
             model.AllowCustomersToSelectPageSize = true;
             model.PageSizeOptions = _vendorSettings.DefaultVendorPageSizeOptions;
-
+            //Stores
+            PrepareStoresModel(model);
             //default value
             model.Active = true;
             return View(model);
@@ -259,7 +289,7 @@ namespace Nop.Admin.Controllers
 
                 //search engine name
                 model.SeName = vendor.ValidateSeName(model.SeName, vendor.Name, true);
-                _urlRecordService.SaveSlug(vendor, model.SeName, 0);
+                _urlRecordService.SaveSlug(vendor, model.SeName, 0);                
 
                 //address
                 var address = model.Address.ToEntity();
@@ -320,6 +350,9 @@ namespace Nop.Admin.Controllers
                 locale.SeName = vendor.GetSeName(languageId, false, false);
             });
 
+            //Stores
+            PrepareStoresModel(model);
+
             return View(model);
         }
 
@@ -345,7 +378,7 @@ namespace Nop.Admin.Controllers
 
                 //search engine name
                 model.SeName = vendor.ValidateSeName(model.SeName, vendor.Name, true);
-                _urlRecordService.SaveSlug(vendor, model.SeName, 0);
+                _urlRecordService.SaveSlug(vendor, model.SeName, 0);                
 
                 //address
                 var address = _addressService.GetAddressById(vendor.AddressId);

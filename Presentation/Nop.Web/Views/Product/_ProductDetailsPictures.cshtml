@@ -13,26 +13,26 @@
     var timeStr = Model.StartDateTime + (string.IsNullOrEmpty(Model.EndDateTime) ? "" : " - " + Model.EndDateTime);
     foreach (var specificationAttribute in Model.ProductSpecifications)
     {
-        var sid = specificationAttribute.SpecificationAttributeId;
-        var selectValue = specificationAttribute.ColorSquaresRgb;
-        var customValue = specificationAttribute.ValueRaw;
-        var value = (string.IsNullOrEmpty(selectValue) && string.IsNullOrEmpty(customValue)) ? specificationAttribute.SpecificationAttributeName : (string.IsNullOrEmpty(selectValue) ? customValue : selectValue);
+        var sid = specificationAttribute.SpecificationAttributeId;        
+        var value = specificationAttribute.ValueRaw;        
         switch (sid)
         {
-            case 7:
+            case 1:
+                benefit = value;
+                break;
+            case 5:
                 bgColor = value;
                 break;
-            case 8:
+            case 6:
                 shadingUrl = value;
                 break;
-            case 9:
+            case 7:
                 customPicUrl = value;
                 break;
-            case 10:
+            case 8:
                 logoUrl = value;
                 break;
             default:
-                benefit = value;
                 break;
 
         }
@@ -45,7 +45,7 @@
         <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;height:auto;">
             <table border="0">
                 <tr>
-                    <td width="40%" style="padding: 10px;"><img src="@logoUrl" style="width:100%;" /></td>
+                    <td width="40%" style="padding: 10px;"><img src="@logoUrl" style="width:auto;height:100px;" /></td>
                     <td width="60%" height="50%" valign="middle" align="right" style="padding: 10px;color:white;font-size:48px;font-family: fantasy;">@Html.Raw(benefit)</td>
                 </tr>
                 <tr>
@@ -81,6 +81,26 @@
         }
         else if (Model.ProductType == ProductType.WiCard)
         {
+            if (string.IsNullOrEmpty(customPicUrl))
+            {
+            <div class="wicard" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;border-radius: 10px;">
+                <div class="card-top">
+                    <div class="card-logo"><img src="@logoUrl" style="height:100px;max-width:100%;float: left;" /></div>
+                    <div class="card-benefit">@Html.Raw(benefit)</div>
+                </div>
+                <div class="card-title">
+                    @Html.Raw(Model.Name)
+                </div>
+                <div class="card-bottom">
+                    <div class="card-bottom-left"><div style="display:table-cell;vertical-align:bottom;">@timeStr</div></div>
+                    <div class="card-bottom-right"><div style="display:table-cell;vertical-align:bottom;">@Model.ProductPrice.Price </div></div>
+                </div>
+            </div>
+            }
+            else
+            {
+                <div class="wicard" style="background:url('@customPicUrl') no-repeat;background-size:100% 100%;border-radius: 10px;"></div>
+            }
         }
     </div>    
     <div style="text-align:center;">使用移动端APP扫码获取</div>

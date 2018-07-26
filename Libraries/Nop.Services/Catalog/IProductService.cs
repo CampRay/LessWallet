@@ -559,6 +559,15 @@ namespace Nop.Services.Catalog
         IPagedList<StockQuantityHistory> GetStockQuantityHistory(Product product, int warehouseId = 0, int combinationId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue);
 
+        /// <summary>
+        /// 获取第一条添加库存记录
+        /// </summary>
+        /// <param name="product"></param>
+        /// <param name="warehouseId"></param>
+        /// <param name="combinationId"></param>
+        /// <returns>StockQuantityHistory</returns>
+        StockQuantityHistory GetFirstStockQuantityHistory(Product product, int warehouseId = 0, int combinationId = 0);
+
         #endregion
     }
 }

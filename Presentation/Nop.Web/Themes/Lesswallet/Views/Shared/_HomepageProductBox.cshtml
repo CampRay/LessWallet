@@ -31,25 +31,27 @@
     foreach (var specificationAttribute in Model.SpecificationAttributeModels)
     {
         var sid = specificationAttribute.SpecificationAttributeId;
-        var selectValue = specificationAttribute.ColorSquaresRgb;
-        var customValue = specificationAttribute.ValueRaw;
-        var value=(string.IsNullOrEmpty(selectValue)&& string.IsNullOrEmpty(customValue))? specificationAttribute.SpecificationAttributeName: (string.IsNullOrEmpty(selectValue)?customValue : selectValue);
+        //var selectValue = specificationAttribute.ColorSquaresRgb;
+        var value = specificationAttribute.ValueRaw;
+        //var value=(string.IsNullOrEmpty(selectValue)&& string.IsNullOrEmpty(customValue))? specificationAttribute.SpecificationAttributeName: (string.IsNullOrEmpty(selectValue)?customValue : selectValue);
         switch (sid)
         {
-            case 7:
+            case 1:
+                benefit = value;
+                break;
+            case 5:
                 bgColor = value;
                 break;
-            case 8:
+            case 6:
                 shadingUrl = value;
                 break;
-            case 9:
+            case 7:
                 customPicUrl = value;
                 break;
-            case 10:
+            case 8:
                 logoUrl = value;
                 break;
-            default:
-                benefit = value;
+            default:                
                 break;
 
         }
@@ -96,19 +98,26 @@
             }
             else if (Model.ProductType == ProductType.WiCard)
             {
-            <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;">
-                <div class="coupon-top">
-                    <div class="coupon-logo"><img src="@logoUrl" style="height:60px;max-width:100%;float: left;" /></div>
-                    <div class="coupon-benefit">@Html.Raw(benefit)</div>
+                if (string.IsNullOrEmpty(customPicUrl))
+                {
+                <div class="wicard" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;border-radius: 10px;">
+                    <div class="card-top">
+                        <div class="card-logo"><img src="@logoUrl" style="height:50px;max-width:100%;float: left;" /></div>
+                        <div class="card-benefit">@Html.Raw(benefit)</div>
+                    </div>
+                    <div class="card-title">
+                        @Html.Raw(Model.Name)
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-bottom-left"><div style="display:table-cell;vertical-align:bottom;">@timeStr</div></div>
+                        <div class="card-bottom-right"><div style="display:table-cell;vertical-align:bottom;">@Model.ProductPrice.Price </div></div>
+                    </div> 
                 </div>
-                <div class="coupon-title">
-                    @Html.Raw(Model.Name)
-                </div>
-            </div>
-            <div class="coupon-bottom">
-                <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;padding-left:30px;">@timeStr</div></div>
-                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;padding-right:10px;">@Model.ProductPrice.Price </div></div>
-            </div>
+                }
+                else
+                {
+                    <div class="wicard" style="background:url('@customPicUrl') no-repeat;background-size:100% 100%;border-radius: 10px;"></div>
+                }
             }
         </a>
     </div>

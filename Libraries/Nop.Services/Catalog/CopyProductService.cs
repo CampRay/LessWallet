@@ -134,8 +134,7 @@ namespace Nop.Services.Catalog
             var newSku = !String.IsNullOrWhiteSpace(product.Sku)
                 ? string.Format(_localizationService.GetResource("Admin.Catalog.Products.Copy.SKU.New"), product.Sku) :
                 product.Sku;
-            //生成新的批次号
-            string versionId = Convert.ToString(product.BuileProductVersionNumber());                        
+                                 
             // product
             var productCopy = new Product
             {
@@ -155,7 +154,7 @@ namespace Nop.Services.Catalog
                 AllowCustomerReviews = product.AllowCustomerReviews,
                 LimitedToStores = product.LimitedToStores,
                 Sku = newSku,
-                ManufacturerPartNumber = versionId.PadLeft(3, '0'),
+                ManufacturerPartNumber = product.BuileProductVersionNumber(),//生成新的批次号
                 Gtin = product.Gtin,
                 IsGiftCard = product.IsGiftCard,
                 GiftCardType = product.GiftCardType,

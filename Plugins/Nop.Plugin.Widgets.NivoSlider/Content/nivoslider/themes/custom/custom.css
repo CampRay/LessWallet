@@ -108,9 +108,8 @@
 /* RESPONSIVE */
 
 @media all and (max-width: 1000px) {
-.theme-custom {
-	max-width: 600px;
-	margin: -20px auto 40px;
+.theme-custom {	
+	margin: 0 auto;
 }
 .theme-custom .nivo-directionNav {
 	display: none;

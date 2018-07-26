@@ -29,5 +29,10 @@ namespace Nop.Plugin.Payments.PayPalStandard
         /// Enable PayPal address override
         /// </summary>
         public bool AddressOverride { get; set; }
+
+        public string MerchantId { get; set; }
+        public string PublicKey { get; set; }
+        public string PrivateKey { get; set; }
+        public string MerchantAccountId { get; set; }
     }
 }

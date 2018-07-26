@@ -1424,6 +1424,10 @@ label, label + * {
     border: 1px solid #b5b5b5;
 }
 
+.home-item-box{
+    min-width:280px;
+}
+
 .item-box {
 	position: relative;
 	width: 100%;
@@ -1572,7 +1576,7 @@ label, label + * {
 .home-coupon-picture .coupon-bottom{
     height:40px;
     margin-right:10px;
-    margin-bottom:10px; 
+    
     background:#e2e2e2;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -1596,8 +1600,126 @@ label, label + * {
     height:40px;
     color:black;
     font-size:12px;
-    text-align:right;    
+    text-align:right;
+        
 }
+
+
+.coupon-picture .wicard{
+    height:280px;
+    margin-right:10px;
+    box-shadow: 3px 3px 5px 0px grey;
+    border-radius:10px;
+    padding:15px;
+}
+
+.coupon-picture .wicard .card-top{
+    display:table;
+    height:100px;
+    width:100%;    
+}
+.coupon-picture .wicard .card-logo{
+    display:table-cell;    
+    width:50%;
+    vertical-align:middle;    
+}
+.coupon-picture .wicard .card-benefit{
+    display:table-cell;
+    width:50%; 
+    color:white;
+    font-size:36px;
+    font-family:fantasy;
+    text-align:right;    
+    vertical-align:middle
+}
+.coupon-picture .wicard .card-title{    
+    color:white;
+    font-size:32px;
+    text-align:center;
+    padding-top:5px;
+    height:120px;
+}
+.coupon-picture .card-bottom{
+    height:30px;    
+}
+.coupon-picture .card-bottom .card-bottom-left{
+    float:left;
+    width:50%;
+    display:table;
+    height:30px;        
+    color:white;
+    font-size:18px;
+    text-align:left;    
+}
+.coupon-picture .card-bottom .card-bottom-right{
+    float:right;
+    width:50%;
+    display:table;
+    height:30px;
+    color:white;
+    font-size:18px;
+    text-align:right;
+        
+}
+
+
+.home-coupon-picture .wicard{
+    height:150px;
+    margin-right:10px;
+    box-shadow: 3px 3px 5px 0px grey;
+    border-radius:10px;
+    padding:10px;
+}
+
+.home-coupon-picture .wicard .card-top{
+    display:table;
+    height:50px;
+    width:100%;    
+}
+.home-coupon-picture .wicard .card-logo{
+    display:table-cell;    
+    width:50%;
+    vertical-align:middle;    
+}
+.home-coupon-picture .wicard .card-benefit{
+    display:table-cell;
+    width:50%; 
+    color:white;
+    font-size:32px;
+    font-family:fantasy;
+    text-align:right;    
+    vertical-align:middle
+}
+.home-coupon-picture .wicard .card-title{    
+    color:white;
+    font-size:20px;
+    text-align:center;
+    padding-top:5px;
+    height:45px;
+}
+.home-coupon-picture .card-bottom{
+    height:25px;    
+}
+.home-coupon-picture .card-bottom .card-bottom-left{
+    float:left;
+    width:50%;
+    display:table;
+    height:25px;        
+    color:white;
+    font-size:14px;
+    text-align:left;    
+}
+.home-coupon-picture .card-bottom .card-bottom-right{
+    float:right;
+    width:50%;
+    display:table;
+    height:25px;
+    color:white;
+    font-size:14px;
+    text-align:right;
+        
+}
+
 
 
 .coupon-picture .left-arc{
@@ -5237,7 +5359,6 @@ pre {
 
 /*** GLOBAL TABLES ***/
 
-
 .cart {
 	display: block;
 }
@@ -5323,7 +5444,6 @@ pre {
 
 /*** MOBILE NAVIGATION ***/
 
-
 .header-menu {
 	position: relative;
 	z-index: 1;
@@ -5332,7 +5452,7 @@ pre {
 	margin: 0 auto 40px;
 }
 .menu-toggle {
-	background: #4ab2f1 url('../images/menu-icon.png') right center no-repeat;
+	background: #ec6422 url('../images/menu-icon.png') right center no-repeat;
 	padding: 15px;
 	font-size: 15px;
 	font-weight: bold;
@@ -5346,56 +5466,40 @@ pre {
 }
 .top-menu > li {
 	position: relative;
-	margin: 1px 0;
-	background-color: #f6f6f6;
+	margin: 0;
+	background-color: #ff5500;
+    text-align:left;
+    padding-left:40px;
 }
 .top-menu > li > a {
 	display: block;
 	min-height: 55px;
 	padding: 18px;
-	font-size: 15px;
-	color: #555;
+	font-size: 16px;
+	color: #ffff00;
 }
-.top-menu .sublist {
-	display: none;
-	background-color: #fff;
-	padding: 5px 0;
+
+.top-menu > li>ul {
+	padding-left:40px;
+    color:white;
+}
+.top-menu > li>ul >li{
+    min-height:36px;
+	line-height:36px;    
+}
+
+.top-menu .sublist {		
+	padding-left:40px;
 }
 .top-menu .sublist li {
-	position: relative;
-	margin: 1px 0 1px 20px;
+	min-height:36px;
+	line-height:36px;
 }
-.top-menu .sublist li a {
-	display: block;
-	padding: 15px 18px;
+.top-menu .sublist li a {	
 	font-size: 15px;
 }
 
-.sublist-toggle {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 55px;
-	height: 55px;
-	border-left: 1px solid #fff;
-	background: url('../images/toggle-black.png') center no-repeat;
-	padding: 15px;
-	font-size: 15px;
-	font-weight: bold;
-	color: #fff;
-	text-transform: uppercase;
-	cursor: pointer;
-}
 
-.sublist .sublist-toggle {
-	height: 49px;
-}
-.sublist .sublist li {
-	background-color: #f6f6f6;
-}
-.sublist .sublist .sublist li {
-	background-color: #fff;
-}
 
 .block-category-navigation {
 	display: none;
@@ -5405,10 +5509,65 @@ pre {
 	margin: auto !important;
 }
 
+
+/**Home Product**/
+.td-coupon{
+    width:350px;
+    border-right:1px dashed #ec6422;
+    padding:15px;
+}
+.td-info{
+    display:none;
+}
+.td-button{
+    width:180px;
+    padding:10px;
+}
+.td-button .td-btn-img{
+    width:auto;
+    height:104px;
+}
+
 }
 
 
+@media all and (min-width: 360px) {
+    .header{
+        height:auto;
+        width:100%;        
+    }
+    .right-box{
+        margin-bottom:42px;
+    }
+    .header-upper{
+        float:left;
+    }
+    .header-lower{
+        float:right;
+    }
+    .header-links-wrapper{
+        padding:5px 0;
+    }
+    .master-wrapper-content,.header-menu{
+        width:100%;
+        margin:0 auto;
+    }  
+    .top-menu > li > a{
+        min-height:36px;
+        padding:0;
+        line-height:36px;
+        color:yellow;
+    }  
+}
 
+@media all and (max-width: 540px) {
+    .td-coupon{
+        width:100%;
+    }
+    .td-button{
+        display:none;
+    }
+}
 
 
 @media all and (min-width: 481px) {
@@ -5416,9 +5575,14 @@ pre {
 
 /*** GLOBAL ***/
 
-
-.master-wrapper-content,
-.header-menu {
+.header{
+    width:92.5%;
+}
+.header-menu{
+    width:100%;
+    max-width:100%;
+}
+.master-wrapper-content {
 	width: 92.5%;
 }
 
@@ -5499,7 +5663,7 @@ pre {
 }
 
 .item-box {
-	width: 49%;
+	width: 100%;
 	margin: 0 0.5% 5px;
 }
 .item-box:nth-child(2n+1) {
@@ -5608,8 +5772,13 @@ pre {
 
 
 /**** GLOBAL ***/
-
-
+.header{
+    width:94%;
+}
+.header-menu{
+    width:100%;
+    max-width:100%;
+}
 .master-wrapper-content {
 	width: 94%;
 }
@@ -6197,7 +6366,6 @@ pre {
 
 /*** GLOBAL STYLES ***/
 
-
 .master-wrapper-content {
 	width: 980px;
 	margin: auto;
@@ -6270,9 +6438,17 @@ pre {
 
 
 .header {
+    height:144px;
 	width: 980px;
 	margin: auto;    
 }
+.header-upper{
+    float:none;
+}
+.header-lower{
+    float:none;
+}
+
 .header-upper:after {
 	content: "";
 	display: block;
@@ -6430,6 +6606,7 @@ pre {
 .right-box{
     float:right;
     padding-top: 50px;
+    margin-bottom:0;
 }
 
 
@@ -6676,6 +6853,24 @@ pre {
 	clear: both;
 }
 
+
+/**Home Product**/
+.td-coupon{
+    width:350px;
+    border-right:1px dashed #ec6422;
+    padding:15px;
+}
+.td-info{
+    padding:15px;
+}
+.td-button{
+    width:180px;
+    padding:10px;
+}
+.td-button .td-btn-img{
+    width:auto;
+    height:104px;
+}
 
 /*** PRODUCT PAGE ***/
 

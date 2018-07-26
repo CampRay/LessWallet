@@ -9,6 +9,8 @@ using Nop.Services.Localization;
 using Nop.Services.Media;
 using Nop.Services.Stores;
 using Nop.Web.Framework.Controllers;
+using Nop.Web.Framework.Kendoui;
+using System.Collections;
 
 namespace Nop.Plugin.Widgets.NivoSlider.Controllers
 {
@@ -212,6 +214,67 @@ namespace Nop.Plugin.Widgets.NivoSlider.Controllers
 
 
             return View("~/Plugins/Widgets.NivoSlider/Views/PublicInfo.cshtml", model);
+        }
+
+        /// <summary>
+        /// 获取广告图片数据接口
+        /// </summary>
+        /// <returns></returns>    
+        [System.Web.Mvc.HttpPost]
+        public ActionResult GetSliderData()
+        {
+            var result = new DataSourceResult();
+            try
+            {
+                var nivoSliderSettings = _settingService.LoadSetting<NivoSliderSettings>(_storeContext.CurrentStore.Id);
+                IList dataList = new ArrayList();
+                var data1 = new
+                {
+                    id=1,
+                    picUrl = GetPictureUrl(nivoSliderSettings.Picture1Id),
+                    text = nivoSliderSettings.Text1,
+                    link = nivoSliderSettings.Link1,                    
+                };
+                dataList.Add(data1);
+                var data2 = new
+                {
+                    id = 2,
+                    picUrl = GetPictureUrl(nivoSliderSettings.Picture2Id),
+                    text = nivoSliderSettings.Text2,
+                    link = nivoSliderSettings.Link2,
+                };
+                dataList.Add(data2);
+                var data3 = new
+                {
+                    id = 3,
+                    picUrl = GetPictureUrl(nivoSliderSettings.Picture3Id),
+                    text = nivoSliderSettings.Text3,
+                    link = nivoSliderSettings.Link3,
+                };
+                dataList.Add(data3);
+                var data4 = new
+                {
+                    id = 4,
+                    picUrl = GetPictureUrl(nivoSliderSettings.Picture4Id),
+                    text = nivoSliderSettings.Text4,
+                    link = nivoSliderSettings.Link4,
+                };
+                dataList.Add(data4);
+                var data5 = new
+                {
+                    id = 5,
+                    picUrl = GetPictureUrl(nivoSliderSettings.Picture5Id),
+                    text = nivoSliderSettings.Text5,
+                    link = nivoSliderSettings.Link5,
+                };
+                dataList.Add(data5);
+                result.Data = dataList;
+            }
+            catch
+            {
+                result.Errors = "E_1003";
+            }
+            return Json(result);
         }
     }
 }

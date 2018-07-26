@@ -1187,6 +1187,12 @@
     <Content Include="Themes\DefaultClean\Views\Catalog\VendorAll.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Catalog\VendorNavigation.cshtml" />
     <Content Include="Themes\Lesswallet\Views\Shared\_HomepageProductBox.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Checkout\Completed.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Checkout\Confirm.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Checkout\PaymentInfo.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Checkout\PaymentMethod.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Checkout\ShippingAddress.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Checkout\ShippingMethod.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />

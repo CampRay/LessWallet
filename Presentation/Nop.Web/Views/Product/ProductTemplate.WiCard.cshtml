@@ -103,7 +103,7 @@
                                 @Html.Partial("_AddToWishlist", Model.AddToCart, dataDictAddToWishlist)                                
                             }*@  
                             <div class="add-to-wishlist">
-                                <input type="button" id="add-to-user-button-@Model.Id" class="button-2 add-to-cart-button" value="@T("Products.Coupon.AddToUser")" data-productid="@Model.Id" onclick="AjaxCart.addcoupontouser_details('@Url.RouteUrl("AddCouponToUser-Details", new {productId = Model.Id})');return false;" />
+                                <input type="button" id="add-to-user-button-@Model.Id" class="button-2 add-to-cart-button" value="@T("Products.Coupon.AddToUser")" data-productid="@Model.Id" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddCouponToUser-Details", new {productId = Model.Id})', '#product-details-form');return false;" />
                             </div>                                                      
                             @Html.Widget("productdetails_inside_overview_buttons_after", Model.Id)
                         </div>                        
@@ -118,11 +118,9 @@
                 </div>
                 @Html.Widget("productdetails_before_collateral", Model.Id)
                 <div class="product-collateral">
-                    @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)
-                    @Html.Partial("_ProductTags", Model.ProductTags)
+                    @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)                    
                 </div>
-                @Html.Action("ProductsAlsoPurchased", "Product", new { productId = Model.Id })
-                @Html.Action("RelatedProducts", "Product", new { productId = Model.Id })
+                
             </div>
         }
         @Html.Widget("productdetails_bottom", Model.Id)

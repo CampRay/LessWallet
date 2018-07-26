@@ -7,6 +7,7 @@ Payments.PayPalDirect
 Payments.Manual
 Payments.PayPalStandard
 Payments.PurchaseOrder
+Payments.AliPay
 Pickup.PickupInStore
 PromotionFeed.Froogle
 Shipping.AustraliaPost

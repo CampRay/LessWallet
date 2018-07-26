@@ -8,4 +8,3 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.USPS\Nop.Plugin.Shipp
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.USPS\obj\Debug\Nop.Plugin.Shipping.USPS.csproj.App.config
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.USPS\obj\Debug\Nop.Plugin.Shipping.USPS.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.USPS\obj\Debug\Nop.Plugin.Shipping.USPS.pdb
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.USPS\obj\Debug\Nop.Plugin.Shipping.USPS.csprojResolveAssemblyReference.cache

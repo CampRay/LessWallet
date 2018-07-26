@@ -71,6 +71,11 @@ namespace Nop.Admin.Models.Vendors
         [AllowHtml]
         public string SeName { get; set; }
 
+        //store mapping
+        [NopResourceDisplayName("Admin.Vendors.Fields.LimitedToStores")]        
+        public int StoreId { get; set; }        
+        public IList<SelectListItem> AvailableStores { get; set; }
+
         [NopResourceDisplayName("Admin.Vendors.Fields.PageSize")]
         public int PageSize { get; set; }
 
@@ -91,7 +96,6 @@ namespace Nop.Admin.Models.Vendors
         [NopResourceDisplayName("Admin.Vendors.VendorNotes.Fields.Note")]
         [AllowHtml]
         public string AddVendorNoteMessage { get; set; }
-
 
 
 

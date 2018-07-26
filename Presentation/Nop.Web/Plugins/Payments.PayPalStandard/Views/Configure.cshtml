@@ -149,6 +149,48 @@
                         @Html.ValidationMessageFor(model => model.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage)
                     </div>
                 </div>
+                <hr />
+                @T("Plugins.Payments.PayPalStandard.Instructions.Mobile")
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.MerchantId_OverrideForStore, model => model.MerchantId, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.MerchantId)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.MerchantId)
+                        @Html.ValidationMessageFor(model => model.MerchantId)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.PublicKey_OverrideForStore, model => model.PublicKey, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.PublicKey)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.PublicKey)
+                        @Html.ValidationMessageFor(model => model.PublicKey)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.PrivateKey_OverrideForStore, model => model.PrivateKey, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.PrivateKey)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.PrivateKey)
+                        @Html.ValidationMessageFor(model => model.PrivateKey)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        @Html.OverrideStoreCheckboxFor(model => model.MerchantAccountId_OverrideForStore, model => model.MerchantAccountId, Model.ActiveStoreScopeConfiguration)
+                        @Html.NopLabelFor(model => model.MerchantAccountId)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.NopEditorFor(model => model.MerchantAccountId)
+                        @Html.ValidationMessageFor(model => model.MerchantAccountId)
+                    </div>
+                </div>
                 <div class="form-group">
                     <div class="col-md-3">
                         &nbsp;

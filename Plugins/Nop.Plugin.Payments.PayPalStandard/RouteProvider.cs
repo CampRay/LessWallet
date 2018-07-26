@@ -26,6 +26,19 @@ namespace Nop.Plugin.Payments.PayPalStandard
                  new { controller = "PaymentPayPalStandard", action = "CancelOrder" },
                  new[] { "Nop.Plugin.Payments.PayPalStandard.Controllers" }
             );
+            //clientToken
+            routes.MapRoute("Plugin.Payments.PayPalStandard.GetClientToken",
+                 "Plugins/PaymentPayPalStandard/GetClientToken",
+                 new { controller = "PaymentPayPalStandard", action = "GetClientToken" },
+                 new[] { "Nop.Plugin.Payments.PayPalStandard.Controllers" }
+            );
+
+            //Create Transaction
+            routes.MapRoute("Plugin.Payments.PayPalStandard.CreateTransaction",
+                 "Plugins/PaymentPayPalStandard/CreateTransaction",
+                 new { controller = "PaymentPayPalStandard", action = "CreateTransaction" },
+                 new[] { "Nop.Plugin.Payments.PayPalStandard.Controllers" }
+            );
         }
         public int Priority
         {

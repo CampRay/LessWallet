@@ -16,6 +16,14 @@ using Nop.Services.Orders;
 using Nop.Services.Payments;
 using Nop.Services.Stores;
 using Nop.Web.Framework.Controllers;
+using System.Text.RegularExpressions;
+using Nop.Services.Security;
+using Nop.Services.Customers;
+using System.Web;
+using Nop.Web.Framework.Kendoui;
+using Braintree;
+using Nop.Services.Catalog;
+using System.Collections;
 
 namespace Nop.Plugin.Payments.PayPalStandard.Controllers
 {
@@ -35,6 +43,11 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
         private readonly PaymentSettings _paymentSettings;
         private readonly PayPalStandardPaymentSettings _payPalStandardPaymentSettings;
         private readonly ShoppingCartSettings _shoppingCartSettings;
+        private readonly IEncryptionService _encryptionService;
+        private readonly ICustomerService _customerService;
+        private readonly HttpContextBase _httpContext;
+        private readonly IShoppingCartService _shoppingCartService;
+        private readonly IProductService _productService;
 
         public PaymentPayPalStandardController(IWorkContext workContext,
             IStoreService storeService, 
@@ -49,7 +62,10 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
             IWebHelper webHelper,
             PaymentSettings paymentSettings,
             PayPalStandardPaymentSettings payPalStandardPaymentSettings,
-            ShoppingCartSettings shoppingCartSettings)
+            ShoppingCartSettings shoppingCartSettings,
+            IEncryptionService encryptionService,
+            ICustomerService customerService,
+            HttpContextBase httpContext, IShoppingCartService shoppingCartService, IProductService productService)
         {
             this._workContext = workContext;
             this._storeService = storeService;
@@ -65,6 +81,11 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
             this._paymentSettings = paymentSettings;
             this._payPalStandardPaymentSettings = payPalStandardPaymentSettings;
             this._shoppingCartSettings = shoppingCartSettings;
+            this._encryptionService = encryptionService;
+            this._customerService = customerService;
+            this._httpContext = httpContext;
+            this._shoppingCartService = shoppingCartService;
+            this._productService = productService;
         }
         
         [AdminAuthorize]
@@ -88,6 +109,11 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
             model.AddressOverride = payPalStandardPaymentSettings.AddressOverride;
             model.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage = payPalStandardPaymentSettings.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage;
 
+            model.MerchantId = payPalStandardPaymentSettings.MerchantId;
+            model.PublicKey = payPalStandardPaymentSettings.PublicKey;
+            model.PrivateKey = payPalStandardPaymentSettings.PrivateKey;
+            model.MerchantAccountId = payPalStandardPaymentSettings.MerchantAccountId;
+
             model.ActiveStoreScopeConfiguration = storeScope;
             if (storeScope > 0)
             {
@@ -102,6 +128,12 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
                 model.IpnUrl_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.IpnUrl, storeScope);
                 model.AddressOverride_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.AddressOverride, storeScope);
                 model.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage, storeScope);
+
+                model.MerchantId_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.MerchantId, storeScope);
+                model.PublicKey_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.PublicKey, storeScope);
+                model.PrivateKey_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.PrivateKey, storeScope);
+                model.MerchantAccountId_OverrideForStore = _settingService.SettingExists(payPalStandardPaymentSettings, x => x.MerchantAccountId, storeScope);
+
             }
 
             return View("~/Plugins/Payments.PayPalStandard/Views/Configure.cshtml", model);
@@ -132,6 +164,11 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
             payPalStandardPaymentSettings.AddressOverride = model.AddressOverride;
             payPalStandardPaymentSettings.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage = model.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage;
 
+            payPalStandardPaymentSettings.MerchantId = model.MerchantId;
+            payPalStandardPaymentSettings.PublicKey = model.PublicKey;
+            payPalStandardPaymentSettings.PrivateKey = model.PrivateKey;
+            payPalStandardPaymentSettings.MerchantAccountId = model.MerchantAccountId;
+
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
              * and loaded from database after each update */
@@ -146,7 +183,12 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
             _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.IpnUrl, model.IpnUrl_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.AddressOverride, model.AddressOverride_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage, model.ReturnFromPayPalWithoutPaymentRedirectsToOrderDetailsPage_OverrideForStore, storeScope, false);
-            
+
+            _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.MerchantId, model.MerchantId_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.PublicKey, model.PublicKey_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.PrivateKey, model.PrivateKey_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(payPalStandardPaymentSettings, x => x.MerchantAccountId, model.MerchantAccountId_OverrideForStore, storeScope, false);
+
             //now clear settings cache
             _settingService.ClearCache();
 
@@ -642,6 +684,184 @@ namespace Nop.Plugin.Payments.PayPalStandard.Controllers
             }
 
             return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+
+        /// <summary>
+        /// 根据访问Token获取用户对象
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="device"></param>
+        /// <returns></returns>
+        protected Nop.Core.Domain.Customers.Customer GetCustomerFromToken(string token, string device)
+        {
+            try
+            {
+                string text = _encryptionService.DecryptText(token);
+                string[] strArr = Regex.Split(text, ":::", RegexOptions.IgnoreCase);
+                if (strArr.Length == 2)
+                {
+                    if (strArr[1].Equals(device, StringComparison.OrdinalIgnoreCase))
+                    {
+                        int customerId = Convert.ToInt32(strArr[0]);
+                        var customer = _customerService.GetCustomerById(customerId);
+                        return customer;
+                    }
+                }
+            }
+            catch { }
+            return null;
+        }
+
+        /// <summary>
+        /// Paypal的Braintree支付使用SDK时需要获取Client Token
+        /// </summary>           
+        /// <param name="device"></param>
+        /// <returns></returns>
+        [System.Web.Mvc.HttpPost]
+        public ActionResult GetClientToken(string device)
+        {
+            try
+            {                
+                string authorization = _httpContext.Request.Headers["Authorization"];
+                var customer = GetCustomerFromToken(authorization, device);
+                if (customer != null)
+                {
+                    var payPalStandardPaymentSettings = _settingService.LoadSetting<PayPalStandardPaymentSettings>(_storeContext.CurrentStore.Id);
+                    string environment = payPalStandardPaymentSettings.UseSandbox ? "sandbox" : "product";
+                    string merchantId = payPalStandardPaymentSettings.MerchantId;
+                    string publicKey = payPalStandardPaymentSettings.PublicKey;
+                    string privateKey = payPalStandardPaymentSettings.PrivateKey;
+                    string merchantAccountId = payPalStandardPaymentSettings.MerchantAccountId;
+
+                    var braintreeGateway = new BraintreeGateway(environment, merchantId, publicKey, privateKey);
+                    var clientTokenRequest = new ClientTokenRequest();                    
+                    clientTokenRequest.MerchantAccountId = merchantAccountId;
+                    string token = braintreeGateway.ClientToken.Generate(clientTokenRequest);
+                    //string token = braintreeGateway.ClientToken.Generate();
+                    return Json(new { Data = token });
+                }
+            }
+            catch (Exception e) { }            
+            return Json(new { Errors = "E_1000" });
+        }
+
+        /// <summary>
+        /// 确认支付，在Braintree服务端创建支付事务
+        /// </summary>
+        /// <param name="productId"></param>     
+        /// <param name="nonce"></param>  
+        /// <param name="device"></param>  
+        /// <returns></returns>
+        [System.Web.Mvc.HttpPost]
+        public ActionResult CreateTransaction(int productId, string nonce,string device)
+        {
+            var resp = new DataSourceResult();
+            string authorization = _httpContext.Request.Headers["Authorization"];
+            var customer = GetCustomerFromToken(authorization, device);
+            if (customer != null)
+            {
+                var payPalStandardPaymentSettings = _settingService.LoadSetting<PayPalStandardPaymentSettings>(_storeContext.CurrentStore.Id);
+                string environment = payPalStandardPaymentSettings.UseSandbox ? "sandbox" : "product";
+                string merchantId = payPalStandardPaymentSettings.MerchantId;
+                string publicKey = payPalStandardPaymentSettings.PublicKey;
+                string privateKey = payPalStandardPaymentSettings.PrivateKey;
+                var braintreeGateway = new BraintreeGateway(environment, merchantId, publicKey, privateKey);
+
+                //清空购物车中的数据          
+                if (customer.ShoppingCartItems.Count > 0)
+                {
+                    var itemList = customer.ShoppingCartItems.ToList();
+                    foreach (var item in itemList)
+                    {
+                        _shoppingCartService.DeleteShoppingCartItem(item);
+                    }
+                }
+                //添加当前优惠卷到购物车
+                var product = _productService.GetProductById(productId);
+                var warnings = _shoppingCartService.AddToCart(customer,
+                product, ShoppingCartType.ShoppingCart, _storeContext.CurrentStore.Id);
+                if (warnings.Count > 0)
+                {
+                    return Json(resp);
+                }
+
+                var processPaymentRequest = new ProcessPaymentRequest();
+                processPaymentRequest.StoreId = _storeContext.CurrentStore.Id;
+                processPaymentRequest.CustomerId = customer.Id;
+                processPaymentRequest.PaymentMethodSystemName = "Payments.PayPalStandard";
+                var placeOrderResult = _orderProcessingService.PlaceOrder(processPaymentRequest);
+                if (placeOrderResult.Success)
+                {
+                    var request = new TransactionRequest
+                    {
+                        Amount = placeOrderResult.PlacedOrder.OrderTotal,
+                        PaymentMethodNonce = nonce,
+                        Options = new TransactionOptionsRequest
+                        {
+                            SubmitForSettlement = true
+                        }
+                    };
+
+                    Result<Transaction> result = braintreeGateway.Transaction.Sale(request);
+                    if (result.IsSuccess())
+                    {
+                        Transaction transaction = result.Target;
+                        resp.ExtraData = transaction.Id;
+                        if (_orderProcessingService.CanMarkOrderAsPaid(placeOrderResult.PlacedOrder))
+                        {
+                            placeOrderResult.PlacedOrder.AuthorizationTransactionId = transaction.Id;
+                            //_orderService.UpdateOrder(placeOrderResult.PlacedOrder);
+
+                            _orderProcessingService.MarkOrderAsPaid(placeOrderResult.PlacedOrder);
+
+                            IList dataList = new ArrayList();
+                            foreach (var item in placeOrderResult.PlacedOrder.OrderItems)
+                            {
+                                var coupon = new
+                                {
+                                    orderId = item.OrderId,
+                                    cid = item.CustomOrderItemNumber,
+                                    productId = item.Product.Id,
+                                    userName = customer.Username,
+                                    orderTotal = placeOrderResult.PlacedOrder.OrderTotal,
+                                    paymentStatus = placeOrderResult.PlacedOrder.PaymentStatusId,
+                                    startTime = placeOrderResult.PlacedOrder.PaidDateUtc.HasValue ? placeOrderResult.PlacedOrder.PaidDateUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : product.CreatedOnUtc.ToString("yyyy-MM-dd HH:mm:ss"),
+                                    endTime = product.AvailableEndDateTimeUtc.HasValue ? product.AvailableEndDateTimeUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : "",
+                                    deleted = placeOrderResult.PlacedOrder.Deleted
+                                };
+                                dataList.Add(coupon);
+                            }
+                            resp.Data = dataList;
+
+                        }
+                    }
+                    else if (result.Transaction != null)
+                    {
+                        resp.ExtraData = result.Transaction.Id;                        
+                    }
+                    else
+                    {
+                        string errorMessages = "";
+                        foreach (ValidationError error in result.Errors.DeepAll())
+                        {
+                            errorMessages += "Error: " + (int)error.Code + " - " + error.Message + "\n";
+                        }
+                        resp.Errors = errorMessages;
+                    }
+
+                }
+                else
+                {
+                    resp.Errors = "E_3000";
+                }
+                               
+            }
+            else
+            {
+                resp.Errors = "E_1002";
+            }
+            return Json(resp);
         }
     }
 }

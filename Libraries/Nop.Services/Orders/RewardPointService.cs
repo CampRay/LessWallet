@@ -191,6 +191,34 @@ namespace Nop.Services.Orders
             return lastRph != null && lastRph.PointsBalance.HasValue ? lastRph.PointsBalance.Value : 0;
         }
 
+        /// <summary>
+        /// 获取从指定时间开始至今的累积积分
+        /// </summary>
+        /// <param name="customerId">Customer identifier</param>
+        /// <param name="storeId">Store identifier; pass </param>
+        /// <param name="startTime">Start time </param>
+        /// <returns>Balance</returns>
+        public virtual int GetRewardPointsCumulative(int customerId, int storeId,DateTime startTime)
+        {
+            var query = _rphRepository.Table;
+            if (customerId > 0)
+                query = query.Where(rph => rph.CustomerId == customerId);
+            if (!_rewardPointsSettings.PointsAccumulatedForAllStores)
+                query = query.Where(rph => rph.StoreId == storeId);
+
+            //show only the points that already activated
+            //The function 'CurrentUtcDateTime' is not supported by SQL Server Compact. 
+            //That's why we pass the date value
+            var nowUtc = DateTime.UtcNow;
+            query = query.Where(rph => rph.CreatedOnUtc < nowUtc);
+
+            //first update points balance
+            UpdateRewardPointsBalance(query);
+
+            query = query.Where(rph => rph.CreatedOnUtc > startTime&& rph.Points>0); 
+            return query.Sum(rph => rph.Points);
+        }
+
 
         /// <summary>
         /// Gets a reward point history entry

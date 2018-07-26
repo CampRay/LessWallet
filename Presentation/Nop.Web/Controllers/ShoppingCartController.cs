@@ -941,11 +941,8 @@ namespace Nop.Web.Controllers
             var addToUserWarnings = new List<string>();
             //清空购物车中的数据          
             if (_workContext.CurrentCustomer.ShoppingCartItems.Count > 0)
-            {
-                foreach (var item in _workContext.CurrentCustomer.ShoppingCartItems)
-                {
-                    _shoppingCartService.DeleteShoppingCartItem(item);
-                }
+            {                
+                _workContext.CurrentCustomer.ShoppingCartItems.ToList().ForEach(sci => _shoppingCartService.DeleteShoppingCartItem(sci));                
             }            
 
             //分析用户提交的商品属性

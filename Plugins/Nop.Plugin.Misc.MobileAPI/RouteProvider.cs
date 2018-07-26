@@ -72,6 +72,39 @@ namespace Nop.Plugin.Misc.MobileAPI
                  new { controller = "UserAPI", action = "GetProduct" },                 
                  new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
             );
+            //根据商家ID查询商家所有已发布的卡卷商品
+            routes.MapRoute("Plugin.Misc.UserAPI.GetAllMerchantProducts",
+                 "Plugins/API/GetAllMerchantProducts",
+                 new { controller = "UserAPI", action = "GetAllMerchantProducts" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+            //根据商家ID查询商家所有已发布的卡卷商品ID列表
+            routes.MapRoute("Plugin.Misc.UserAPI.GetAllMerchantProductIds",
+                 "Plugins/API/GetAllMerchantProductIds",
+                 new { controller = "UserAPI", action = "GetAllMerchantProductIds" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+
+            //商家添加或减少用户积分
+            routes.MapRoute("Plugin.Misc.UserAPI.ModifyPoints",
+                 "Plugins/API/ModifyPoints",
+                 new { controller = "UserAPI", action = "ModifyPoints" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+            //商家添加或减少卡卷金额
+            routes.MapRoute("Plugin.Misc.UserAPI.ModifyBenefit",
+                 "Plugins/API/ModifyBenefit",
+                 new { controller = "UserAPI", action = "ModifyBenefit" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+            //商户发送单个卡卷给用户
+            routes.MapRoute("Plugin.Misc.UserAPI.SendProductToUser",
+                 "Plugins/API/SendProductToUser",
+                 new { controller = "UserAPI", action = "SendProductToUser" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+
+
             //确认购买或获取单个电子卷API
             routes.MapRoute("Plugin.Misc.UserAPI.CreateOrder",
                  "Plugins/API/CreateOrder",
@@ -103,15 +136,7 @@ namespace Nop.Plugin.Misc.MobileAPI
                  "Plugins/API/SentCoupon",
                  new { controller = "UserAPI", action = "sentOrderToFriend" },
                  new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
-            );
-
-
-            //消息同步
-            routes.MapRoute("Plugin.Misc.UserAPI.MsgSync",
-                 "Plugins/API/MsgSync",
-                 new { controller = "UserAPI", action = "MsgSync" },
-                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
-            );
+            );            
            
 
             //查询国家表数据
@@ -136,6 +161,25 @@ namespace Nop.Plugin.Misc.MobileAPI
             routes.MapRoute("Plugin.Misc.UserAPI.GetAllUserAttrs",
                  "Plugins/API/GetAllUserAttrs",
                  new { controller = "UserAPI", action = "GetAllUserAttrs" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+
+            //查询用户所有的日志记录
+            routes.MapRoute("Plugin.Misc.UserAPI.GetAllLogs",
+                 "Plugins/API/GetAllLogs",
+                 new { controller = "UserAPI", action = "GetAllLogs" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+            //消息同步
+            routes.MapRoute("Plugin.Misc.UserAPI.MsgSync",
+                 "Plugins/API/MsgSync",
+                 new { controller = "UserAPI", action = "MsgSync" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
+            //删除日志
+            routes.MapRoute("Plugin.Misc.UserAPI.DelLogs",
+                 "Plugins/API/DelLogs",
+                 new { controller = "UserAPI", action = "DelLogs" },
                  new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
             );
         }
