@@ -379,7 +379,7 @@ namespace Nop.Services.ExportImport
                 tempProperty = manager.GetProperty("Manufacturers");
                 var manufacturerCellNum = tempProperty.Return(p => p.PropertyOrderPosition, -1);
 
-                manager.SetSelectList("ProductType", ProductType.SimpleProduct.ToSelectList(useLocalization: false));
+                manager.SetSelectList("ProductType", ProductType.WiCoupon.ToSelectList(useLocalization: false));
                 manager.SetSelectList("GiftCardType", GiftCardType.Virtual.ToSelectList(useLocalization: false));
                 manager.SetSelectList("DownloadActivationType", DownloadActivationType.Manually.ToSelectList(useLocalization: false));
                 manager.SetSelectList("ManageInventoryMethod", ManageInventoryMethod.DontManageStock.ToSelectList(useLocalization: false));
@@ -926,7 +926,7 @@ namespace Nop.Services.ExportImport
 
                     //set some default default values if not specified
                     if (isNew && properties.All(p => p.PropertyName != "ProductType"))
-                        product.ProductType = ProductType.SimpleProduct;
+                        product.ProductType = ProductType.WiCoupon;
                     if (isNew && properties.All(p => p.PropertyName != "VisibleIndividually"))
                         product.VisibleIndividually = true;
                     if (isNew && properties.All(p => p.PropertyName != "Published"))

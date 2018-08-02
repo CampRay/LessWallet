@@ -152,7 +152,7 @@ namespace Nop.Plugin.DiscountRules.HasOneProduct.Controllers
                 model.AvailableVendors.Add(new SelectListItem { Text = v.Name, Value = v.Id.ToString() });
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
 

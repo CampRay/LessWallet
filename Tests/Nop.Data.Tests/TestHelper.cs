@@ -189,7 +189,7 @@ namespace Nop.Data.Tests
         {
             return new Product
             {
-                ProductType = ProductType.GroupedProduct,
+                ProductType = ProductType.WiCoupon,
                 ParentGroupedProductId = 2,
                 VisibleIndividually = true,
                 Name = "Name 1",

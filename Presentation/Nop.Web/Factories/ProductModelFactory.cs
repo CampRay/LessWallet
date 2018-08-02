@@ -208,106 +208,9 @@ namespace Nop.Web.Factories
 
             switch (product.ProductType)
             {
-                case ProductType.GroupedProduct:
-                {
-                    #region Grouped product
-
-                    var associatedProducts = _productService.GetAssociatedProducts(product.Id,
-                        _storeContext.CurrentStore.Id);
-
-                    //add to cart button (ignore "DisableBuyButton" property for grouped products)
-                    priceModel.DisableBuyButton =
-                        !_permissionService.Authorize(StandardPermissionProvider.EnableShoppingCart) ||
-                        !_permissionService.Authorize(StandardPermissionProvider.DisplayPrices);
-
-                    //add to wishlist button (ignore "DisableWishlistButton" property for grouped products)
-                    priceModel.DisableWishlistButton =
-                        !_permissionService.Authorize(StandardPermissionProvider.EnableWishlist) ||
-                        !_permissionService.Authorize(StandardPermissionProvider.DisplayPrices);
-
-                    //compare products
-                    priceModel.DisableAddToCompareListButton = !_catalogSettings.CompareProductsEnabled;
-                    switch (associatedProducts.Count)
-                    {
-                        case 0:
-                        {
-                            //no associated products
-                        }
-                            break;
-                        default:
-                        {
-                            //we have at least one associated product
-                            //compare products
-                            priceModel.DisableAddToCompareListButton = !_catalogSettings.CompareProductsEnabled;
-                            //priceModel.AvailableForPreOrder = false;
-
-                            if (_permissionService.Authorize(StandardPermissionProvider.DisplayPrices))
-                            {
-                                //find a minimum possible price
-                                decimal? minPossiblePrice = null;
-                                Product minPriceProduct = null;
-                                foreach (var associatedProduct in associatedProducts)
-                                {
-                                    var tmpMinPossiblePrice = _priceCalculationService.GetFinalPrice(associatedProduct, _workContext.CurrentCustomer);
-
-                                    if (associatedProduct.HasTierPrices)
-                                    {
-                                        //calculate price for the maximum quantity if we have tier prices, and choose minimal
-                                        tmpMinPossiblePrice = Math.Min(tmpMinPossiblePrice, 
-                                            _priceCalculationService.GetFinalPrice(associatedProduct, _workContext.CurrentCustomer, quantity: int.MaxValue));
-                                    }
-
-                                    if (!minPossiblePrice.HasValue || tmpMinPossiblePrice < minPossiblePrice.Value)
-                                    {
-                                        minPriceProduct = associatedProduct;
-                                        minPossiblePrice = tmpMinPossiblePrice;
-                                    }
-                                }
-                                if (minPriceProduct != null && !minPriceProduct.CustomerEntersPrice)
-                                {
-                                    if (minPriceProduct.CallForPrice)
-                                    {
-                                        priceModel.OldPrice = null;
-                                        priceModel.Price = _localizationService.GetResource("Products.CallForPrice");
-                                    }
-                                    else if (minPossiblePrice.HasValue)
-                                    {
-                                        //calculate prices
-                                        decimal taxRate;
-                                        decimal finalPriceBase = _taxService.GetProductPrice(minPriceProduct, minPossiblePrice.Value, out taxRate);
-                                        decimal finalPrice = _currencyService.ConvertFromPrimaryStoreCurrency(finalPriceBase, _workContext.WorkingCurrency);
-
-                                        priceModel.OldPrice = null;
-                                        priceModel.Price = String.Format(_localizationService.GetResource("Products.PriceRangeFrom"), _priceFormatter.FormatPrice(finalPrice));
-                                        priceModel.PriceValue = finalPrice;
-
-                                        //PAngV baseprice (used in Germany)
-                                        priceModel.BasePricePAngV = product.FormatBasePrice(finalPrice,
-                                            _localizationService, _measureService, _currencyService, _workContext,
-                                            _priceFormatter);
-                                    }
-                                    else
-                                    {
-                                        //Actually it's not possible (we presume that minimalPrice always has a value)
-                                        //We never should get here
-                                        Debug.WriteLine("Cannot calculate minPrice for product #{0}", product.Id);
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                //hide prices
-                                priceModel.OldPrice = null;
-                                priceModel.Price = null;
-                            }
-                        }
-                            break;
-                    }
-
-                    #endregion
-                }
-                    break;
-                case ProductType.SimpleProduct:
+                case ProductType.WiCoupon:
+                case ProductType.WiTicket:
+                case ProductType.WiCard:
                 default:
                 {
                     #region Simple product
@@ -1124,10 +1027,21 @@ namespace Nop.Web.Factories
         {
             if (products == null)
                 throw new ArgumentNullException("products");
-
+            var vendorDict = new Dictionary<int, VendorBriefInfoModel>();
+            var vendors = _vendorService.GetAllVendors();
+            foreach (var vendor in vendors)
+            {
+                var vendorModel = new VendorBriefInfoModel
+                {
+                    Id = vendor.Id,
+                    Name = vendor.GetLocalized(x => x.Name),
+                    SeName = vendor.GetSeName(),
+                };
+                vendorDict.Add(vendor.Id, vendorModel);
+            }            
             var models = new List<ProductOverviewModel>();
             foreach (var product in products)
-            {
+            {                
                 var model = new ProductOverviewModel
                 {
                     Id = product.Id,
@@ -1136,6 +1050,7 @@ namespace Nop.Web.Factories
                     FullDescription = product.GetLocalized(x => x.FullDescription),
                     SeName = product.GetSeName(),
                     Sku = product.Sku,
+                    VendorModel = vendorDict[product.VendorId],
                     ProductType = product.ProductType,
                     MarkAsNew = product.MarkAsNew &&
                         (!product.MarkAsNewStartDateTimeUtc.HasValue || product.MarkAsNewStartDateTimeUtc.Value < DateTime.UtcNow) &&
@@ -1365,19 +1280,7 @@ namespace Nop.Web.Factories
                     model.RentalStartDate = updatecartitem.RentalStartDateUtc;
                     model.RentalEndDate = updatecartitem.RentalEndDateUtc;
                 }
-            }
-
-            //associated products
-            if (product.ProductType == ProductType.GroupedProduct)
-            {
-                //ensure no circular references
-                if (!isAssociatedProduct)
-                {
-                    var associatedProducts = _productService.GetAssociatedProducts(product.Id, _storeContext.CurrentStore.Id);
-                    foreach (var associatedProduct in associatedProducts)
-                        model.AssociatedProducts.Add(PrepareProductDetailsModel(associatedProduct, null, true));
-                }
-            }
+            }            
 
             return model;
         }
@@ -1555,7 +1458,7 @@ namespace Nop.Web.Factories
                             //m.ValueRaw = HttpUtility.HtmlEncode(psa.SpecificationAttributeOption.GetLocalized(x => x.Name));
                             if (m.SpecificationAttributeId==6|| m.SpecificationAttributeId==7 || m.SpecificationAttributeId == 8)
                             {
-                                m.ColorSquaresRgb = _pictureService.GetPictureUrl(Convert.ToInt32(m.ColorSquaresRgb), 150, false);
+                                m.ColorSquaresRgb = _pictureService.GetPictureUrl(Convert.ToInt32(m.ColorSquaresRgb), 0, false);
                                 m.ValueRaw = m.ColorSquaresRgb;
                             }
                             else if (m.SpecificationAttributeId == 5)//颜色选项

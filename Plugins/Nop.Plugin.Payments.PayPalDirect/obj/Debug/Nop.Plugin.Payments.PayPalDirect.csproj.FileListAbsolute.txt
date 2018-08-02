@@ -6,6 +6,7 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalDirect\logo.jpg
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalDirect\Nop.Plugin.Payments.PayPalDirect.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalDirect\Nop.Plugin.Payments.PayPalDirect.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Payments.PayPalDirect\Nop.Plugin.Payments.PayPalDirect.pdb
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalDirect\obj\Debug\Nop.Plugin.Payments.PayPalDirect.csprojResolveAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalDirect\obj\Debug\Nop.Plugin.Payments.PayPalDirect.csproj.CoreCompileInputs.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalDirect\obj\Debug\Nop.Plugin.Payments.PayPalDirect.csproj.CopyComplete
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalDirect\obj\Debug\Nop.Plugin.Payments.PayPalDirect.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Payments.PayPalDirect\obj\Debug\Nop.Plugin.Payments.PayPalDirect.pdb

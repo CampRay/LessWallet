@@ -272,15 +272,15 @@ namespace Nop.Services.Customers
             if (guestRole != null)
                 request.Customer.CustomerRoles.Remove(guestRole);
             
-            //Add reward points for customer registration (if enabled)
-            if (_rewardPointsSettings.Enabled &&
-                _rewardPointsSettings.PointsForRegistration > 0)
-            {
-                _rewardPointService.AddRewardPointsHistoryEntry(request.Customer, 
-                    _rewardPointsSettings.PointsForRegistration,
-                    request.StoreId,
-                    _localizationService.GetResource("RewardPoints.Message.EarnedForRegistration"));
-            }
+            ////Add reward points for customer registration (if enabled)
+            //if (_rewardPointsSettings.Enabled &&
+            //    _rewardPointsSettings.PointsForRegistration > 0)
+            //{
+            //    _rewardPointService.AddRewardPointsHistoryEntry(request.Customer, 
+            //        _rewardPointsSettings.PointsForRegistration,
+            //        request.StoreId,
+            //        _localizationService.GetResource("RewardPoints.Message.EarnedForRegistration"));
+            //}
 
             _customerService.UpdateCustomer(request.Customer);
 

@@ -254,7 +254,7 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                             if (m.SpecificationAttributeId == 6 || m.SpecificationAttributeId == 7 || m.SpecificationAttributeId == 8)
                             {
                                 //对于相应的图片属性选项，则生成图片URL
-                                m.ColorSquaresRgb = _pictureService.GetPictureUrl(Convert.ToInt32(m.ColorSquaresRgb), 150, false);
+                                m.ColorSquaresRgb = _pictureService.GetPictureUrl(Convert.ToInt32(m.ColorSquaresRgb), 0, false);
                                 m.ValueRaw = m.ColorSquaresRgb;
                             }
                             else if(m.SpecificationAttributeId == 5)//颜色选项
@@ -579,33 +579,29 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                             }
                             //如果申请登录的是Vender，但客户角色不是Vender，则判定登录失败
                             Vendor vendor = new Vendor();
-                            if (vender)
-                            {
-                                if (!customer.IsVendor())
-                                {
-                                    vendor = _vendorService.GetVendorById(customer.VendorId);
-                                }
-                                else
-                                {
-                                    errors = "E_2000";
-                                    break;
-                                }
-                                
-                            }
+                            if (vender&& !customer.IsVendor())
+                            {                                
+                                errors = "E_2000";
+                                break;                                                             
+                            }                            
                             //生成移动端的访问Token
                             string text = customer.Id + ":::" + device;
                             string encryptedToken = _encryptionService.EncryptText(text, _mobileAPISettings.EncryptionKey);
 
-                            Dictionary<int, int> storePoints = new Dictionary<int, int>();
+                            Dictionary<string, int> storePoint = new Dictionary<string, int>();
+                            Dictionary<string, decimal> storeCashs = new Dictionary<string, decimal>();
                             IList<Store> storeList = _storeService.GetAllStores();
                             foreach (var item in storeList)
                             {
                                 int rewardPointsBalance = _rewardPointService.GetRewardPointsBalance(customer.Id, item.Id);
-                                storePoints.Add(item.Id, rewardPointsBalance);
+                                storePoint.Add(item.Id.ToString(), rewardPointsBalance);
+                                var prepaidCash = customer.GetAttribute<decimal?>("PrepaidCash", item.Id);
+                                decimal cashBalance = 0;
+                                if (prepaidCash.HasValue) cashBalance = prepaidCash.Value;
+                                storeCashs.Add(item.Id.ToString(), cashBalance);
                             }
-                            string avatarUrl = _pictureService.GetPictureUrl(customer.GetAttribute<int>(SystemCustomerAttributeNames.AvatarPictureId), 50, false);
+                            string avatarUrlStr = _pictureService.GetPictureUrl(customer.GetAttribute<int>(SystemCustomerAttributeNames.AvatarPictureId), 50, false);
                             //int rewardPointsBalance = _rewardPointService.GetRewardPointsBalance(_workContext.CurrentCustomer.Id, _storeContext.CurrentStore.Id);                            
-                            
                             var customerData = new
                             {
                                 id= customer.Id,
@@ -618,17 +614,18 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                                 countryId = customer.BillingAddress.CountryId,
                                 address = customer.GetAttribute<string>(SystemCustomerAttributeNames.StreetAddress),
                                 token = encryptedToken,                                
-                                avatarUrl = avatarUrl,
-                                storePoints = storePoints,
-                                venderId= customer.VendorId,
-                                merchant = new
+                                avatarUrl = avatarUrlStr,
+                                storePoints = storePoint,
+                                storeCash = storeCashs,
+                                venderId = customer.VendorId,
+                                merchant = customer.IsVendor()? new
                                 {
                                     id = vendor.Id,
                                     name = vendor.Name,
                                     desc = vendor.Description,
                                     storeId = vendor.StoreId,
                                     pictureUrl = _pictureService.GetPictureUrl(vendor.PictureId, 200),
-                                }
+                                }:null
                             };                                                        
 
                             dataList.Add(customerData);
@@ -752,16 +749,21 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                 var user = _customerService.GetCustomerById(id);
                 IList dataList = new ArrayList();
                 if (user != null)
-                {
-                    Dictionary<int, int> storePoints = new Dictionary<int, int>();
+                {                    
+                    Dictionary<string, int> storePoint = new Dictionary<string, int>();
+                    Dictionary<string, decimal> storeCashs = new Dictionary<string, decimal>();
                     IList<Store> storeList = _storeService.GetAllStores();
                     foreach (var item in storeList)
                     {
                         int rewardPointsBalance = _rewardPointService.GetRewardPointsBalance(user.Id, item.Id);
-                        storePoints.Add(item.Id, rewardPointsBalance);
+                        storePoint.Add(item.Id.ToString(), rewardPointsBalance);
+                        var prepaidCash = customer.GetAttribute<decimal?>("PrepaidCash", item.Id);
+                        decimal cashBalance = 0;
+                        if (prepaidCash.HasValue) cashBalance = prepaidCash.Value;
+                        storeCashs.Add(item.Id.ToString(), cashBalance);
                     }
                     //int rewardPointsBalance = _rewardPointService.GetRewardPointsBalance(id, _storeContext.CurrentStore.Id);
-                    string avatarUrl = _pictureService.GetPictureUrl(user.GetAttribute<int>(SystemCustomerAttributeNames.AvatarPictureId), 50, false);
+                    string avatarUrlStr = _pictureService.GetPictureUrl(user.GetAttribute<int>(SystemCustomerAttributeNames.AvatarPictureId), 50, false);
                     var userData = new
                     {
                         id = user.Id,
@@ -772,9 +774,10 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                         lastName = user.GetAttribute<string>(SystemCustomerAttributeNames.LastName),
                         birthday = "",
                         countryId = user.BillingAddress.CountryId,
-                        address = user.GetAttribute<string>(SystemCustomerAttributeNames.StreetAddress),                        
-                        avatarUrl = avatarUrl,
-                        storePoints = storePoints
+                        address = user.GetAttribute<string>(SystemCustomerAttributeNames.StreetAddress),
+                        avatarUrl = avatarUrlStr,
+                        storePoints = storePoint,
+                        storeCash= storeCashs
                     };
                     dataList.Add(userData);
                     result.Data = dataList;
@@ -938,19 +941,19 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                 processPaymentRequest.PaymentMethodSystemName = customer.GetAttribute<string>(
                     SystemCustomerAttributeNames.SelectedPaymentMethod,
                     _genericAttributeService, _storeContext.CurrentStore.Id);
-                //保存Coupon的用户权益规则
-                var attrList = PrepareProductSpecificationModel(product);
-                foreach (var attr in attrList)
-                {
-                    if (attr.SpecificationAttributeId >= 1 && attr.SpecificationAttributeId <4)
-                    {
-                        processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), attr.ValueRaw);
-                    }
-                    else if (attr.SpecificationAttributeId == 4)
-                    {
-                        processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), "0");
-                    }
-                }
+                ////保存Coupon的用户权益规则
+                //var attrList = PrepareProductSpecificationModel(product);
+                //foreach (var attr in attrList)
+                //{
+                //    if (attr.SpecificationAttributeId >= 1 && attr.SpecificationAttributeId <4)
+                //    {
+                //        processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), attr.ValueRaw);
+                //    }
+                //    else if (attr.SpecificationAttributeId == 4)
+                //    {
+                //        processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), "0");
+                //    }
+                //}
                 
                 var placeOrderResult = _orderProcessingService.PlaceOrder(processPaymentRequest);
                 if (placeOrderResult.Success)
@@ -970,7 +973,7 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                             startTime= placeOrderResult.PlacedOrder.PaidDateUtc.HasValue? placeOrderResult.PlacedOrder.PaidDateUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : product.CreatedOnUtc.ToString("yyyy-MM-dd HH:mm:ss"),
                             //endTime = "",
                             deleted = placeOrderResult.PlacedOrder.Deleted,
-                            customValues = placeOrderResult.PlacedOrder.DeserializeCustomValues()
+                            //customValues = placeOrderResult.PlacedOrder.DeserializeCustomValues()
                         };
                         dataList.Add(coupon);
                     }                                        
@@ -1020,7 +1023,7 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                         startTime = order.PaidDateUtc.HasValue ? order.PaidDateUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : product.CreatedOnUtc.ToString("yyyy-MM-dd HH:mm:ss"),
                         //endTime = "",
                         deleted = order.Deleted,
-                        customValues = order.DeserializeCustomValues()
+                        //customValues = order.DeserializeCustomValues()
                         //values = ParseProductAttributeMappingIds(itme.AttributesXml)//用户选择或输入属性值集合
                     };
                     dataList.Add(coupon);
@@ -1075,7 +1078,7 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                         startTime = order.PaidDateUtc.HasValue ? order.PaidDateUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : product.CreatedOnUtc.ToString("yyyy-MM-dd HH:mm:ss"),
                         //endTime = "",
                         deleted = order.Deleted,
-                        customValues = order.DeserializeCustomValues()
+                        //customValues = order.DeserializeCustomValues()
                         //values = ParseProductAttributeMappingIds(itme.AttributesXml)//用户选择或输入属性值集合
                     };
                     dataList.Add(coupon);
@@ -1802,6 +1805,9 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                     {
                         var vendor = _vendorService.GetVendorById(customer.VendorId);
                         int rewardPointsBalance = _rewardPointService.GetRewardPointsBalance(user.Id, vendor.StoreId);
+                        var prepaidCash = user.GetAttribute<decimal?>("PrepaidCash", vendor.StoreId);
+                        decimal cashBalance = 0;
+                        if (prepaidCash.HasValue) cashBalance = prepaidCash.Value;
                         string avatarUrl = _pictureService.GetPictureUrl(user.GetAttribute<int>(SystemCustomerAttributeNames.AvatarPictureId), 50, false);
                         var userData = new
                         {
@@ -1815,7 +1821,8 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                             countryId = user.BillingAddress.CountryId,
                             address = user.GetAttribute<string>(SystemCustomerAttributeNames.StreetAddress),
                             avatarUrl = avatarUrl,
-                            points = rewardPointsBalance
+                            points = rewardPointsBalance,
+                            cash= cashBalance
                         };
                         dataList.Add(userData);
                         result.Data = dataList;
@@ -1913,11 +1920,11 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
         /// 修改预付金额(商户接口)
         /// </summary>
         /// <param name="device"></param>
-        /// <param name="orderId"></param>        
+        /// <param name="uid"></param>        
         /// <param name="value">要添加或减少的预付款的值</param>        
         /// <returns></returns>
         [System.Web.Mvc.HttpPost]
-        public virtual ActionResult ModifyCash(string device, int orderId,String key, string value)
+        public virtual ActionResult ModifyCash(string device, int uid, string value, string msg)
         {
             var result = new DataSourceResult();
             string authorization = _httpContext.Request.Headers["Authorization"];
@@ -1926,151 +1933,43 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
             {
                 if (customer.IsVendor())//如果是商户才能修改卡卷金额
                 {
-                    var order = _orderService.GetOrderById(orderId);
-                    if (order != null && order.PaymentStatus == PaymentStatus.Paid && !order.Deleted)
+                    var user = _customerService.GetCustomerById(uid);
+                    if (user != null)
                     {
-                        var itme = order.OrderItems.FirstOrDefault();
-                        var product = itme.Product;
-                        var attrDict = order.DeserializeCustomValues();
-                        string bval = null;
-                        foreach (var attr in attrDict)
+                        var vendor = _vendorService.GetVendorById(customer.VendorId);
+                        var prepaidCash = user.GetAttribute<decimal?>("PrepaidCash", vendor.StoreId);
+                        decimal cashBalance = 0;
+                        if (prepaidCash.HasValue) cashBalance = prepaidCash.Value;
+                        decimal amount = Decimal.Parse(value);
+                        decimal balance = cashBalance + amount;                        
+                        if (balance < 0)//如果余额不足
                         {
-                            if (attr.Key.Equals("cash"))
-                            {
-                                if (key.Equals("2"))
-                                {
-                                    decimal cash = Decimal.Parse((string)attr.Value);
-                                    decimal amount = Decimal.Parse(value);
-                                    decimal balance = cash + amount;
-                                    if (balance < 0)//如果余额不足
-                                    {
-                                        result.Errors = "E_3003";
-                                        return Json(result);
-                                    }
-                                    else
-                                    {
-                                        bval = balance.ToString("0.00");
-
-                                    }
-                                }
-                                else if (key.Equals("3"))
-                                {
-                                    int totalTime = int.Parse((string)attr.Value);
-                                    int time = int.Parse(value);
-                                    int balance = totalTime + time;
-                                    if (balance < 0)//如果次数不足
-                                    {
-                                        result.Errors = "E_3003";
-                                        return Json(result);
-                                    }
-                                    else
-                                    {
-                                        bval = balance.ToString();
-                                    }
-                                }
-                                else if (key.Equals("4"))
-                                {
-                                    int totalTime = int.Parse((string)attr.Value);
-                                    int time = int.Parse(value);
-                                    int balance = totalTime + time;
-                                    if (balance < 0)//如果购买次数不够减
-                                    {
-                                        result.Errors = "E_3003";
-                                        return Json(result);
-                                    }
-                                    else
-                                    {
-                                        bval = balance.ToString();
-                                    }
-                                }
-                                else
-                                {
-                                    result.Errors = "E_3004";
-                                    return Json(result);
-                                }
-
-                                break;
-                            }
-                        }
-                        attrDict.Remove(key);
-                        attrDict.Add(key, bval);
-
-                        var ds = new DictionarySerializer(attrDict);
-                        var xs = new XmlSerializer(typeof(DictionarySerializer));
-                        using (var textWriter = new StringWriter())
-                        {
-                            using (var xmlWriter = XmlWriter.Create(textWriter))
-                            {
-                                xs.Serialize(xmlWriter, ds);
-                            }
-                            order.CustomValuesXml = textWriter.ToString();
-                        }
-                        _orderService.UpdateOrder(order);
-
-                        IList dataList = new ArrayList();
-                        var coupon = new
-                        {
-                            orderId = itme.OrderId,
-                            cid = order.CustomOrderNumber,
-                            productId = product.Id,
-                            userId = customer.Id,
-                            orderTotal = order.OrderTotal,
-                            paymentStatus = order.PaymentStatusId,
-                            startTime = order.PaidDateUtc.HasValue ? order.PaidDateUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : product.CreatedOnUtc.ToString("yyyy-MM-dd HH:mm:ss"),
-                            endTime = product.AvailableEndDateTimeUtc.HasValue ? product.AvailableEndDateTimeUtc.Value.ToString("yyyy-MM-dd HH:mm:ss") : "",
-                            deleted = order.Deleted,
-                            customValues = order.DeserializeCustomValues()
-                            //values = ParseProductAttributeMappingIds(itme.AttributesXml)//用户选择或输入属性值集合
-                        };
-                        dataList.Add(coupon);
-                        result.Data = dataList;
-                        if (value.StartsWith("-"))
-                        {
-                            if (key.Equals("2"))
-                            {
-                                //添加商户扣减金额的活动日志
-                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Cash.Redeemed", order.Customer.Id + ":" + order.Id + ":" + value);
-                                _customerActivityService.InsertLog(order.Customer, "Lesswallet.User.Cash.Redeemed", customer.Id + ":" + order.Id + ":" + value);
-                            }
-                            else if (key.Equals("3"))
-                            {
-                                //添加商户扣减服务的活动日志
-                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Service.Redeemed", order.Customer.Id + ":" + order.Id + ":" + value);
-                                _customerActivityService.InsertLog(order.Customer, "Lesswallet.User.Service.Redeemed", customer.Id + ":" + order.Id + ":" + value);
-                            }
-                            else if (key.Equals("4"))
-                            {
-                                //添加商户扣减购买次数的活动日志
-                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Buy.Redeemed", order.Customer.Id + ":" + order.Id + ":" + value);
-                                _customerActivityService.InsertLog(order.Customer, "Lesswallet.User.Buy.Redeemed", customer.Id + ":" + order.Id + ":" + value);
-                            }
+                            result.Errors = "E_3003";                            
                         }
                         else
                         {
-                            if (key.Equals("2"))
+                            //保存用户预付余额到数据库
+                            _genericAttributeService.SaveAttribute(user, "PrepaidCash", balance, vendor.StoreId); 
+                            result.ExtraData = balance;
+                            if (amount >= 0)
                             {
                                 //添加商户送出金额的活动日志
-                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Cash.Added", order.Customer.Id + ":" + order.Id + ":" + value);
-                                _customerActivityService.InsertLog(order.Customer, "Lesswallet.User.Cash.Added", customer.Id + ":" + order.Id + ":" + value);
+                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Cash.Added", uid + ":" + value);
+                                _customerActivityService.InsertLog(user, "Lesswallet.User.Cash.Added", customer.Id + ":" + value);
                             }
-                            else if (key.Equals("3"))
+                            else
                             {
-                                //添加商户赠送服务的活动日志
-                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Service.Added", order.Customer.Id + ":" + order.Id + ":" + value);
-                                _customerActivityService.InsertLog(order.Customer, "Lesswallet.User.Service.Added", customer.Id + ":" + order.Id + ":" + value);
-                            }
-                            else if (key.Equals("4"))
-                            {
-                                //添加商户购买次数的活动日志
-                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Buy.Added", order.Customer.Id + ":" + order.Id + ":" + value);
-                                _customerActivityService.InsertLog(order.Customer, "Lesswallet.User.Buy.Added", customer.Id + ":" + order.Id + ":" + value);
+                                //添加商户扣减金额的活动日志
+                                _customerActivityService.InsertLog(customer, "Lesswallet.Merchant.Cash.Redeemed", uid + ":"  + value);
+                                _customerActivityService.InsertLog(user, "Lesswallet.User.Cash.Redeemed", customer.Id + ":"  + value);
                             }
                         }
+                        return Json(result);                        
                     }
                     else
                     {
-                        result.Errors = "E_3002";
-                    }
+                        result.Errors = "E_2015";
+                    }                    
                 }
                 else
                 {
@@ -2128,19 +2027,19 @@ namespace Nop.Plugin.Misc.MobileAPI.Controllers
                         var processPaymentRequest = new ProcessPaymentRequest();
                         processPaymentRequest.StoreId = _storeContext.CurrentStore.Id;
                         processPaymentRequest.CustomerId = user.Id;                        
-                        //保存Coupon的用户权益规则,主要为了以后修改服务次数和充值
-                        var attrList = PrepareProductSpecificationModel(product);
-                        foreach (var attr in attrList)
-                        {
-                            if (attr.SpecificationAttributeId >= 1 && attr.SpecificationAttributeId < 4)
-                            {
-                                processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), attr.ValueRaw);
-                            }
-                            else if (attr.SpecificationAttributeId == 4)
-                            {
-                                processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), "0");
-                            }
-                        }
+                        ////保存Coupon的用户权益规则,主要为了以后修改服务次数和充值
+                        //var attrList = PrepareProductSpecificationModel(product);
+                        //foreach (var attr in attrList)
+                        //{
+                        //    if (attr.SpecificationAttributeId >= 1 && attr.SpecificationAttributeId < 4)
+                        //    {
+                        //        processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), attr.ValueRaw);
+                        //    }
+                        //    else if (attr.SpecificationAttributeId == 4)
+                        //    {
+                        //        processPaymentRequest.CustomValues.Add(attr.SpecificationAttributeId.ToString(), "0");
+                        //    }
+                        //}
                         var placeOrderResult = _orderProcessingService.PlaceOrder(processPaymentRequest);
                         if (placeOrderResult.Success)
                         {

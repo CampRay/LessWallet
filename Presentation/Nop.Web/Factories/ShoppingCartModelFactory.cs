@@ -414,8 +414,7 @@ namespace Nop.Web.Factories
             //2. simple product?
             //3. has attribute or gift card?
             //4. visible individually?
-            cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing &&
-                                             sci.Product.ProductType == ProductType.SimpleProduct &&
+            cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing  &&
                                              (!String.IsNullOrEmpty(cartItemModel.AttributeInfo) ||
                                               sci.Product.IsGiftCard) &&
                                              sci.Product.VisibleIndividually;
@@ -552,8 +551,7 @@ namespace Nop.Web.Factories
             //2. simple product?
             //3. has attribute or gift card?
             //4. visible individually?
-            cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing &&
-                                             sci.Product.ProductType == ProductType.SimpleProduct &&
+            cartItemModel.AllowItemEditing = _shoppingCartSettings.AllowCartItemEditing  &&
                                              (!String.IsNullOrEmpty(cartItemModel.AttributeInfo) ||
                                               sci.Product.IsGiftCard) &&
                                              sci.Product.VisibleIndividually;

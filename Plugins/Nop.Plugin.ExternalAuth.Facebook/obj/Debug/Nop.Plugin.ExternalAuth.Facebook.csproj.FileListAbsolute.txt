@@ -9,6 +9,7 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExternalAuth.Facebook\Nop.Plug
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExternalAuth.Facebook\Nop.Plugin.ExternalAuth.Facebook.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\ExternalAuth.Facebook\Nop.Plugin.ExternalAuth.Facebook.pdb
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExternalAuth.Facebook\obj\Debug\Nop.Plugin.ExternalAuth.Facebook.csproj.App.config
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExternalAuth.Facebook\obj\Debug\Nop.Plugin.ExternalAuth.Facebook.csprojResolveAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExternalAuth.Facebook\obj\Debug\Nop.Plugin.ExternalAuth.Facebook.csproj.CoreCompileInputs.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExternalAuth.Facebook\obj\Debug\Nop.Plugin.ExternalAuth.Facebook.csproj.CopyComplete
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExternalAuth.Facebook\obj\Debug\Nop.Plugin.ExternalAuth.Facebook.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.ExternalAuth.Facebook\obj\Debug\Nop.Plugin.ExternalAuth.Facebook.pdb

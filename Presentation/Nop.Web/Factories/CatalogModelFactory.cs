@@ -516,7 +516,7 @@ namespace Nop.Web.Factories
                 orderBy: (ProductSortingEnum)command.OrderBy,
                 pageIndex: command.PageNumber - 1,
                 pageSize: command.PageSize);
-            model.Products = _productModelFactory.PrepareProductOverviewModels(products).ToList();
+            model.Products = _productModelFactory.PrepareProductOverviewModels(products, true, false, null, true).ToList();
 
             model.PagingFilteringContext.LoadPagedList(products);
 
@@ -867,7 +867,7 @@ namespace Nop.Web.Factories
                 orderBy: (ProductSortingEnum)command.OrderBy,
                 pageIndex: command.PageNumber - 1,
                 pageSize: command.PageSize);
-            model.Products = _productModelFactory.PrepareProductOverviewModels(products).ToList();
+            model.Products = _productModelFactory.PrepareProductOverviewModels(products, true, false, null, true).ToList();
 
             model.PagingFilteringContext.LoadPagedList(products);
 
@@ -1026,7 +1026,7 @@ namespace Nop.Web.Factories
                 orderBy: (ProductSortingEnum)command.OrderBy,
                 pageIndex: command.PageNumber - 1,
                 pageSize: command.PageSize);
-            model.Products = _productModelFactory.PrepareProductOverviewModels(products).ToList();
+            model.Products = _productModelFactory.PrepareProductOverviewModels(products, true, false, null, true).ToList();
 
             model.PagingFilteringContext.LoadPagedList(products);
 
@@ -1427,7 +1427,7 @@ namespace Nop.Web.Factories
                         pageIndex: command.PageNumber - 1,
                         pageSize: command.PageSize,
                         vendorId: vendorId);
-                    model.Products = _productModelFactory.PrepareProductOverviewModels(products).ToList();
+                    model.Products = _productModelFactory.PrepareProductOverviewModels(products, true, false, null, true).ToList();
 
                     model.NoResults = !model.Products.Any();
 

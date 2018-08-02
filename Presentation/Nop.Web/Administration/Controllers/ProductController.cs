@@ -699,19 +699,19 @@ namespace Nop.Admin.Controllers
                     model.AvailableVendors.Add(v);
             }
                         
-            //product tags
-            if (product != null)
-            {
-                var result = new StringBuilder();
-                for (int i = 0; i < product.ProductTags.Count; i++)
-                {
-                    var pt = product.ProductTags.ToList()[i];
-                    result.Append(pt.Name);
-                    if (i != product.ProductTags.Count - 1)
-                        result.Append(", ");
-                }
-                model.ProductTags = result.ToString();
-            }
+            ////product tags
+            //if (product != null)
+            //{
+            //    var result = new StringBuilder();
+            //    for (int i = 0; i < product.ProductTags.Count; i++)
+            //    {
+            //        var pt = product.ProductTags.ToList()[i];
+            //        result.Append(pt.Name);
+            //        if (i != product.ProductTags.Count - 1)
+            //            result.Append(", ");
+            //    }
+            //    model.ProductTags = result.ToString();
+            //}
             
             //last stock quantity
             if (product != null)
@@ -888,21 +888,21 @@ namespace Nop.Admin.Controllers
             foreach (var c in categories)
                 model.AvailableCategories.Add(c);
 
-            //manufacturers
-            model.AvailableManufacturers.Add(new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
-            var manufacturers = SelectListHelper.GetManufacturerList(_manufacturerService, _cacheManager, true);
-            foreach (var m in manufacturers)
-                model.AvailableManufacturers.Add(m);
+            ////manufacturers
+            //model.AvailableManufacturers.Add(new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
+            //var manufacturers = SelectListHelper.GetManufacturerList(_manufacturerService, _cacheManager, true);
+            //foreach (var m in manufacturers)
+            //    model.AvailableManufacturers.Add(m);
 
             //stores
             model.AvailableStores.Add(new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
             foreach (var s in _storeService.GetAllStores())
                 model.AvailableStores.Add(new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
 
-            //warehouses
-            model.AvailableWarehouses.Add(new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
-            foreach (var wh in _shippingService.GetAllWarehouses())
-                model.AvailableWarehouses.Add(new SelectListItem { Text = wh.Name, Value = wh.Id.ToString() });
+            ////warehouses
+            //model.AvailableWarehouses.Add(new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
+            //foreach (var wh in _shippingService.GetAllWarehouses())
+            //    model.AvailableWarehouses.Add(new SelectListItem { Text = wh.Name, Value = wh.Id.ToString() });
 
             //vendors
             model.AvailableVendors.Add(new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
@@ -911,7 +911,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableVendors.Add(v);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
             //"published" property
@@ -1069,7 +1069,11 @@ namespace Nop.Admin.Controllers
                 {
                     model.ShowOnHomePage = false;
                 }
-                
+                if (model.VendorId > 0)
+                {
+                    var vendor=_vendorService.GetVendorById(model.VendorId);
+                    model.SelectedStoreIds.Add(vendor.StoreId);
+                }
                 //product
                 var product = model.ToEntity();
                 product.ManufacturerPartNumber = "001";//默认批次号
@@ -1247,6 +1251,11 @@ namespace Nop.Admin.Controllers
                 if (_workContext.CurrentVendor != null)
                 {
                     model.VendorId = _workContext.CurrentVendor.Id;
+                }
+                if (model.VendorId > 0)
+                {
+                    var vendor = _vendorService.GetVendorById(model.VendorId);
+                    model.SelectedStoreIds.Add(vendor.StoreId);
                 }
 
                 //we do not validate maximum number of products per vendor when editing existing products (only during creation of new products)
@@ -1550,7 +1559,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableVendors.Add(v);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
 
@@ -1717,7 +1726,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableVendors.Add(v);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
             return View(model);
@@ -1894,7 +1903,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableVendors.Add(v);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
             return View(model);
@@ -2093,7 +2102,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableVendors.Add(v);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
             return View(model);
@@ -3002,7 +3011,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableManufacturers.Add(m);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
             return View(model);
@@ -4345,7 +4354,7 @@ namespace Nop.Admin.Controllers
                 model.AvailableVendors.Add(v);
 
             //product types
-            model.AvailableProductTypes = ProductType.SimpleProduct.ToSelectList(false).ToList();
+            model.AvailableProductTypes = ProductType.WiCoupon.ToSelectList(false).ToList();
             model.AvailableProductTypes.Insert(0, new SelectListItem { Text = _localizationService.GetResource("Admin.Common.All"), Value = "0" });
 
             return View(model);

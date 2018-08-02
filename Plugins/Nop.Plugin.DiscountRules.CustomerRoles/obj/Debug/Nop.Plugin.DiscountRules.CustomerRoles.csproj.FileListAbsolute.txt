@@ -6,6 +6,6 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\No
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.pdb
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.csproj.App.config
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.csprojResolveAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.csproj.CoreCompileInputs.cache
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.pdb

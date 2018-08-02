@@ -90,23 +90,26 @@
                                         </div>
                                     </div>
                                 }
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.NopLabelFor(model => model.SearchFirstName)
+                                @if (!Model.IsLoggedInAsVendor)
+                                {
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            @Html.NopLabelFor(model => model.SearchFirstName)
+                                        </div>
+                                        <div class="col-md-8">
+                                            @Html.NopEditorFor(model => model.SearchFirstName)
+                                        </div>
                                     </div>
-                                    <div class="col-md-8">
-                                        @Html.NopEditorFor(model => model.SearchFirstName)
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            @Html.NopLabelFor(model => model.SearchLastName)
+                                        </div>
+                                        <div class="col-md-8">
+                                            @Html.NopEditorFor(model => model.SearchLastName)
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.NopLabelFor(model => model.SearchLastName)
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.NopEditorFor(model => model.SearchLastName)
-                                    </div>
-                                </div>
-                                @if (Model.DateOfBirthEnabled)
+                                 }
+                                @if (Model.DateOfBirthEnabled&& !Model.IsLoggedInAsVendor)
                                 {
                                     <div class="form-group">
                                         <div class="col-md-4">
@@ -137,8 +140,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                                }
-                            </div>
+                                    }
+                                
+                                </div>
                             <div class="col-md-7">
                                 @if (Model.CompanyEnabled)
                                 {
@@ -173,7 +177,7 @@
                                         </div>
                                     </div>
                                 }
-                                <div class="form-group">
+                                <div class="form-group" @(Model.IsLoggedInAsVendor? Html.Raw("style=\"display:none\"") : null)>
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.SearchIpAddress)
                                     </div>
@@ -181,13 +185,15 @@
                                         @Html.NopEditorFor(model => model.SearchIpAddress)
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-4">
-                                        @Html.NopLabelFor(model => model.SearchCustomerRoleIds)
-                                    </div>
-                                    <div class="col-md-8">
-                                        @Html.EditorFor(model => model.SearchCustomerRoleIds, new { SelectList = Model.AvailableCustomerRoles })
-                                        <script>
+                                @if (!Model.IsLoggedInAsVendor)
+                                {
+                                    <div class="form-group">
+                                        <div class="col-md-4">
+                                            @Html.NopLabelFor(model => model.SearchCustomerRoleIds)
+                                        </div>
+                                        <div class="col-md-8">
+                                            @Html.EditorFor(model => model.SearchCustomerRoleIds, new { SelectList = Model.AvailableCustomerRoles })
+                                            <script>
                                             $(document).ready(function() {
                                                 var rolesIdsInput = $('#@Html.FieldIdFor(model => model.SearchCustomerRoleIds)').data("kendoMultiSelect");
                                                 rolesIdsInput.setOptions({
@@ -206,10 +212,11 @@
                                                 </text>
                                                 }
                                             });
-                                        </script>
+                                            </script>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                }
+                                </div>                               
                         </div>
                         <div class="row">
                             <div class="col-md-7 col-md-offset-5">
@@ -286,12 +293,15 @@
                                             field: "FullName",
                                             title: "@T("Admin.Customers.Customers.Fields.FullName")",
                                             width: 200
-                                        }, {
-                                            field: "CustomerRoleNames",
-                                            title: "@T("Admin.Customers.Customers.Fields.CustomerRoles")",
-                                            width: 200
                                         },
-
+                                        @if (!Model.IsLoggedInAsVendor)
+                                        {
+                                            <text>{
+                                            field: "CustomerRoleNames",
+                                                title: "@T("Admin.Customers.Customers.Fields.CustomerRoles")",
+                                                width: 200
+                                            },</text>
+                                        }
                                         @if (Model.CompanyEnabled)
                                         {
                                             <text>{

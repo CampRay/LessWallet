@@ -66,6 +66,12 @@ namespace Nop.Plugin.Misc.MobileAPI
                  new { controller = "UserAPI", action = "GetMerchant" },
                  new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
             );
+            //商家根据用户ID查询用户信息
+            routes.MapRoute("Plugin.Misc.UserAPI.GeMerchantUser",
+                 "Plugins/API/GeMerchantUser",
+                 new { controller = "UserAPI", action = "GeMerchantUser" },
+                 new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
+            );
             //根据卡卷商品ID查询获取单个卡卷商品信息API
             routes.MapRoute("Plugin.Misc.UserAPI.GetProduct",
                  "Plugins/API/GetProduct",
@@ -92,9 +98,9 @@ namespace Nop.Plugin.Misc.MobileAPI
                  new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
             );
             //商家添加或减少卡卷金额
-            routes.MapRoute("Plugin.Misc.UserAPI.ModifyBenefit",
-                 "Plugins/API/ModifyBenefit",
-                 new { controller = "UserAPI", action = "ModifyBenefit" },
+            routes.MapRoute("Plugin.Misc.UserAPI.ModifyCash",
+                 "Plugins/API/ModifyCash",
+                 new { controller = "UserAPI", action = "ModifyCash" },
                  new[] { "Nop.Plugin.Misc.MobileAPI.Controllers" }
             );
             //商户发送单个卡卷给用户

@@ -1,6 +1,6 @@
 ﻿@model CategoryModel
 @{
-    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
 
     //title
     Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
@@ -55,21 +55,9 @@
     }
 }
 <div class="page category-page">
-    <div class="page-title">
-        <h1>@Model.Name</h1>
-    </div>
+    
     <div class="page-body">
-        @Html.Widget("categorydetails_top", Model.Id)
-        @*description*@
-        @if (!String.IsNullOrWhiteSpace(Model.Description))
-        {
-            <div class="category-description">
-                @Html.Raw(Model.Description)
-            </div>
-        }
-        @Html.Widget("categorydetails_before_subcategories", Model.Id)
-        @*subcategories*@
-        @if (Model.SubCategories.Count > 0)
+        @*@if (Model.SubCategories.Count > 0)
         {
             <div class="category-grid sub-category-grid">
                 <div class="item-grid">
@@ -92,54 +80,40 @@
                     }
                 </div>
             </div>
-        }
-        @Html.Widget("categorydetails_before_featured_products", Model.Id)
-        @*featured products*@
-        @if (Model.FeaturedProducts.Count > 0)
-        {
-            <div class="product-grid featured-product-grid">
-                <div class="title">
-                    <strong>@T("Products.FeaturedProducts")</strong>
-                </div>
-                <div class="item-grid">
-                    @foreach (var item in Model.FeaturedProducts)
-                    {
-                        <div class="item-box">
-                            @Html.Partial("_ProductBox", item)
-                        </div>
-                    }
-                </div>
-            </div>
-        }
-        @Html.Widget("categorydetails_after_featured_products", Model.Id)
+        }*@
+        
         @if (Model.Products.Count > 0)
         {
-            @Html.Partial("_CatalogSelectors", Model.PagingFilteringContext, new ViewDataDictionary())
-        }
-        @Html.Widget("categorydetails_before_filters", Model.Id)
-        <div class="product-filters">
-            @*filtering*@
-            @if (Model.PagingFilteringContext.PriceRangeFilter.Enabled)
-            {
-                @Html.Partial("_FilterPriceBox", Model.PagingFilteringContext.PriceRangeFilter, new ViewDataDictionary())
-            }
-            @*filtering*@
-            @if (Model.PagingFilteringContext.SpecificationFilter.Enabled)
-            {
-                @Html.Partial("_FilterSpecsBox", Model.PagingFilteringContext.SpecificationFilter, new ViewDataDictionary())
-            }
-        </div>
-        @Html.Widget("categorydetails_before_product_list", Model.Id)
-
-        @if (Model.Products.Count > 0)
-        {
-            <div class="@(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")">
+            <div class="product-list">
                 <div class="item-grid">
-                    @foreach (var product in Model.Products)
+                    @foreach (var item in Model.Products)
                     {
-                        <div class="item-box">
-                            @Html.Partial("_ProductBox", product)
-                        </div>
+                        var timeStr = item.StartDateTime + (string.IsNullOrEmpty(item.EndDateTime) ? "" : " - " + item.EndDateTime);
+                        <table class="line-box1" width="100%" style="background:white;border:1px solid #b5b5b5;margin-bottom:20px;">
+                            <tr>
+                                <td class="td-coupon">
+                                    <div class="item-box home-item-box">
+                                        @Html.Partial("_HomepageProductBox", item)
+                                    </div>
+                                </td>
+                                <td class="td-info">
+                                    <table height="150" width="100%">
+                                        <tr>
+                                            <td valign="top" height="30px" colspan="2" style="font-size:18px;font-weight:bold;color:black;">@item.Name</td>
+                                            @*<td valign="top" height="30px" align="right" style="font-size:18px;font-weight:bold;color:black;">@item.ProductType</td>*@
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" height="90px" colspan="2" style="font-size:16px;color:black;">@item.ShortDescription</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="middle" height="30px" style="font-size:14px;color:black;position:relative;"><img style="position:absolute;top:5px;" src="~/Themes/Lesswallet/Content/images/date.png" width="20" height="20" /><span style="padding-left:25px;">@timeStr</span></td>
+                                            <td valign="middle" height="30px" width="150" align="right" style="font-size:14px;color:black;"><a href="@Url.RouteUrl("Vendor", new { SeName = item.VendorModel.SeName })">@item.VendorModel.Name</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="td-button"><a href="@Url.RouteUrl("Product", new { SeName = item.SeName })" title="@item.DefaultPictureModel.Title"><div style="width: 100%;height: 100%;background: #ec6422;text-align: center;padding: 10px;"><img class="td-btn-img" src="~/Themes/Lesswallet/Content/images/icon_get.png" /><div style="color:white;font-size:26px;font-weight:bold">Get it now</div></div></a></td>
+                            </tr>
+                        </table>
                     }
                 </div>
             </div>

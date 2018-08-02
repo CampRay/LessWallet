@@ -1232,7 +1232,7 @@ namespace Nop.Services.Common
                 productTable.AddCell(new Paragraph(HtmlHelper.StripTags(HtmlHelper.ConvertHtmlToPlainText(productDescription, decode: true)), font));
                 productTable.AddCell(new Paragraph(" "));
 
-                if (product.ProductType == ProductType.SimpleProduct)
+                if (true)
                 {
                     //simple product
                     //render its properties such as price, weight, etc
@@ -1282,52 +1282,7 @@ namespace Nop.Services.Common
 
                     productTable.AddCell(table);
                     productTable.AddCell(new Paragraph(" "));
-                }
-
-
-                if (product.ProductType == ProductType.GroupedProduct)
-                {
-                    //grouped product. render its associated products
-                    int pvNum = 1;
-                    foreach (var associatedProduct in _productService.GetAssociatedProducts(product.Id, showHidden: true))
-                    {
-                        productTable.AddCell(new Paragraph(String.Format("{0}-{1}. {2}", productNumber, pvNum, associatedProduct.GetLocalized(x => x.Name, lang.Id)), font));
-                        productTable.AddCell(new Paragraph(" "));
-
-                        //uncomment to render associated product description
-                        //string apDescription = associatedProduct.GetLocalized(x => x.ShortDescription, lang.Id);
-                        //if (!String.IsNullOrEmpty(apDescription))
-                        //{
-                        //    productTable.AddCell(new Paragraph(HtmlHelper.StripTags(HtmlHelper.ConvertHtmlToPlainText(apDescription)), font));
-                        //    productTable.AddCell(new Paragraph(" "));
-                        //}
-
-                        //uncomment to render associated product picture
-                        //var apPicture = _pictureService.GetPicturesByProductId(associatedProduct.Id).FirstOrDefault();
-                        //if (apPicture != null)
-                        //{
-                        //    var picBinary = _pictureService.LoadPictureBinary(apPicture);
-                        //    if (picBinary != null && picBinary.Length > 0)
-                        //    {
-                        //        var pictureLocalPath = _pictureService.GetThumbLocalPath(apPicture, 200, false);
-                        //        productTable.AddCell(Image.GetInstance(pictureLocalPath));
-                        //    }
-                        //}
-
-                        productTable.AddCell(new Paragraph(String.Format("{0}: {1} {2}", _localizationService.GetResource("PDFProductCatalog.Price", lang.Id), associatedProduct.Price.ToString("0.00"), _currencyService.GetCurrencyById(_currencySettings.PrimaryStoreCurrencyId).CurrencyCode), font));
-                        productTable.AddCell(new Paragraph(String.Format("{0}: {1}", _localizationService.GetResource("PDFProductCatalog.SKU", lang.Id), associatedProduct.Sku), font));
-
-                        if (associatedProduct.IsShipEnabled && associatedProduct.Weight > Decimal.Zero)
-                            productTable.AddCell(new Paragraph(String.Format("{0}: {1} {2}", _localizationService.GetResource("PDFProductCatalog.Weight", lang.Id), associatedProduct.Weight.ToString("0.00"), _measureService.GetMeasureWeightById(_measureSettings.BaseWeightId).Name), font));
-
-                        if (associatedProduct.ManageInventoryMethod == ManageInventoryMethod.ManageStock)
-                            productTable.AddCell(new Paragraph(String.Format("{0}: {1}", _localizationService.GetResource("PDFProductCatalog.StockQuantity", lang.Id), associatedProduct.GetTotalStockQuantity()), font));
-
-                        productTable.AddCell(new Paragraph(" "));
-
-                        pvNum++;
-                    }
-                }
+                }                
 
                 doc.Add(productTable);
 

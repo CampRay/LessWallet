@@ -120,6 +120,8 @@ namespace Nop.Admin.Models.Customers
         [NopResourceDisplayName("Admin.Customers.Customers.Fields.RegisteredInStore")]
         public string RegisteredInStore { get; set; }
 
+        public bool IsLoggedInAsVendor { get; set; }
+
 
 
         [NopResourceDisplayName("Admin.Customers.Customers.Fields.AdminComment")]

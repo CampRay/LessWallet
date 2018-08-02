@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Nop.Admin.Extensions;
 using Nop.Admin.Models.Vendors;
+using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Directory;
 using Nop.Core.Domain.Vendors;
 using Nop.Services.Common;
@@ -43,6 +44,9 @@ namespace Nop.Admin.Controllers
         private readonly IStateProvinceService _stateProvinceService;
         private readonly IStoreService _storeService;
         private readonly IStoreMappingService _storeMappingService;
+        private readonly IGenericAttributeService _genericAttributeService;
+        private readonly ICustomerRegistrationService _customerRegistrationService;
+        private readonly CustomerSettings _customerSettings;
 
         #endregion
 
@@ -63,7 +67,10 @@ namespace Nop.Admin.Controllers
             ICountryService countryService,
             IStateProvinceService stateProvinceService,
             IStoreService storeService,
-            IStoreMappingService storeMappingService)
+            IStoreMappingService storeMappingService,
+            IGenericAttributeService genericAttributeService,
+            ICustomerRegistrationService customerRegistrationService,
+            CustomerSettings customerSettings)
         {
             this._customerService = customerService;
             this._localizationService = localizationService;
@@ -81,6 +88,9 @@ namespace Nop.Admin.Controllers
             this._stateProvinceService = stateProvinceService;
             this._storeService = storeService;
             this._storeMappingService = storeMappingService;
+            this._genericAttributeService = genericAttributeService;
+            this._customerRegistrationService = customerRegistrationService;
+            this._customerSettings = customerSettings;
         }
 
         #endregion
@@ -155,7 +165,7 @@ namespace Nop.Admin.Controllers
                     .Select(c => new VendorModel.AssociatedCustomerInfo()
                     {
                         Id = c.Id,
-                        Email = c.Email
+                        Email = c.Username
                     })
                     .ToList();
             }
@@ -281,8 +291,80 @@ namespace Nop.Admin.Controllers
 
             if (ModelState.IsValid)
             {
+                var cust1 = _customerService.GetCustomerByEmail(model.Email);
+                if (cust1 != null)
+                {
+                    ModelState.AddModelError("Email", "Email is already registered");
+                }
+
+                var cust2 = _customerService.GetCustomerByUsername(model.AccountId);
+                if (cust2 != null)
+                {
+                    ModelState.AddModelError("AccountId", "Vendor account ID is already registered");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                
                 var vendor = model.ToEntity();
                 _vendorService.InsertVendor(vendor);
+                
+                var customer = new Customer
+                {
+                    CustomerGuid = Guid.NewGuid(),
+                    Email = model.Email,
+                    Username = model.AccountId,                    
+                    VendorId = vendor.Id,
+                    AdminComment = model.AdminComment,                    
+                    Active = model.Active,
+                    CreatedOnUtc = DateTime.UtcNow,
+                    LastActivityDateUtc = DateTime.UtcNow,
+                    RegisteredInStoreId = 0
+                };
+                _customerService.InsertCustomer(customer);
+                var allCustomerRoles = _customerService.GetAllCustomerRoles(true);
+                //customer roles
+                foreach (var customerRole in allCustomerRoles)
+                {
+                    //ensure that the current customer cannot add to "Administrators" system role if he's not an admin himself
+                    if (customerRole.SystemName == SystemCustomerRoleNames.Registered ||
+                        customerRole.SystemName == SystemCustomerRoleNames.Vendors) { 
+                        customer.CustomerRoles.Add(customerRole);
+                    }
+                }
+
+                //password
+                if (!String.IsNullOrWhiteSpace(model.Password))
+                {
+                    var changePassRequest = new ChangePasswordRequest(model.Email, false, _customerSettings.DefaultPasswordFormat, model.Password);
+                    var changePassResult = _customerRegistrationService.ChangePassword(changePassRequest);
+                    if (!changePassResult.Success)
+                    {
+                        foreach (var changePassError in changePassResult.Errors)
+                            ErrorNotification(changePassError);
+                    }
+                }                
+
+                if (string.IsNullOrWhiteSpace(model.Address.Address1))                                 
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.StreetAddress, model.Address.Address1);
+                if (string.IsNullOrWhiteSpace(model.Address.Address2))
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.StreetAddress2, model.Address.Address2);
+                if (string.IsNullOrWhiteSpace(model.Address.ZipPostalCode))
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.ZipPostalCode, model.Address.ZipPostalCode);
+                if (string.IsNullOrWhiteSpace(model.Address.City))
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.City, model.Address.City);
+                if (model.Address.CountryId>0)
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.CountryId, model.Address.CountryId);
+                if (model.Address.StateProvinceId > 0)
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.StateProvinceId, model.Address.StateProvinceId);
+                if (string.IsNullOrWhiteSpace(model.Address.PhoneNumber))
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.Phone, model.Address.PhoneNumber);
+                if (string.IsNullOrWhiteSpace(model.Address.FaxNumber))
+                    _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.Fax, model.Address.FaxNumber);
+
+                _customerService.UpdateCustomer(customer);
 
                 //activity log
                 _customerActivityService.InsertActivity("AddNewVendor", _localizationService.GetResource("ActivityLog.AddNewVendor"), vendor.Id);
@@ -307,6 +389,8 @@ namespace Nop.Admin.Controllers
                 UpdateLocales(vendor, model);
                 //update picture seo file name
                 UpdatePictureSeoNames(vendor);
+
+
 
                 SuccessNotification(_localizationService.GetResource("Admin.Vendors.Added"));
 

@@ -62,6 +62,8 @@ namespace Nop.Admin.Models.Customers
         public bool ZipPostalCodeEnabled { get; set; }
 
         [NopResourceDisplayName("Admin.Customers.Customers.List.SearchIpAddress")]
-        public string SearchIpAddress { get; set; }
+        public string SearchIpAddress { get; set; }                
+
+        public bool IsLoggedInAsVendor { get; set; }
     }
 }

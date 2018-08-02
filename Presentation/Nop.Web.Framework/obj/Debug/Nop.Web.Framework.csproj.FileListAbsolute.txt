@@ -1,3 +1,5 @@
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csproj.App.config
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csproj.CoreCompileInputs.cache
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Web.Framework.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Web.Framework.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Web.Framework.pdb
@@ -44,8 +46,11 @@ D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Microsoft.Data.Edm
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\System.Spatial.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Core.pdb
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Core.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Data.pdb
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Data.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Services.pdb
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Services.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Antlr3.Runtime.pdb
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Autofac.xml
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Autofac.Integration.Mvc.xml
@@ -132,12 +137,7 @@ D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\ko\System.Spatial.
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\ru\System.Spatial.resources.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\zh-Hans\System.Spatial.resources.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\zh-Hant\System.Spatial.resources.dll
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csproj.App.config
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csprojAssemblyReference.cache
+D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csproj.CopyComplete
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.pdb
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Core.dll.config
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Data.dll.config
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\bin\Debug\Nop.Services.dll.config
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csprojAssemblyReference.cache
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csproj.CoreCompileInputs.cache
-D:\NewGit\LessWallet\Presentation\Nop.Web.Framework\obj\Debug\Nop.Web.Framework.csproj.CopyComplete

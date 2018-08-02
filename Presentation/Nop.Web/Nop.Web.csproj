@@ -28,6 +28,7 @@
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>f94c814a</NuGetPackageImportStamp>
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1107,9 +1108,6 @@
     <Content Include="Views\Vendor\Info.cshtml" />
     <Content Include="Views\Common\Logo.cshtml" />
     <Content Include="Views\Customer\EmailRevalidation.cshtml" />
-    <Content Include="Views\Product\ProductTemplate.WiCoupon.cshtml" />
-    <Content Include="Views\Product\ProductTemplate.WiCard.cshtml" />
-    <Content Include="Views\Product\ProductTemplate.WiTicket.cshtml" />
     <Content Include="Themes\Lesswallet\theme.config" />
     <Content Include="Themes\Lesswallet\Views\Shared\Head.cshtml" />
     <Content Include="Themes\Lesswallet\Views\Web.config" />
@@ -1193,6 +1191,13 @@
     <Content Include="Themes\Lesswallet\Views\Checkout\PaymentMethod.cshtml" />
     <Content Include="Themes\Lesswallet\Views\Checkout\ShippingAddress.cshtml" />
     <Content Include="Themes\Lesswallet\Views\Checkout\ShippingMethod.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Product\ProductTemplate.WiCoupon.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Product\ProductTemplate.WiTicket.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Product\ProductTemplate.WiCard.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Product\_ProductDetailsPictures.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Product\_ProductPrice.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Product\_SKU_Man_GTIN_Ven.cshtml" />
+    <Content Include="Themes\Lesswallet\Views\Shared\_ColumnsTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />

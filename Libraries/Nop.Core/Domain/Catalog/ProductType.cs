@@ -8,7 +8,7 @@ namespace Nop.Core.Domain.Catalog
         WiCoupon = 1,        
         WiTicket = 2,
         WiCard = 3,
-        SimpleProduct =10,
-        GroupedProduct=100
+        //SimpleProduct =10,
+        //GroupedProduct=100
     }
 }

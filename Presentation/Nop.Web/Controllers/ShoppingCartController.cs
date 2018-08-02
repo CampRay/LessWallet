@@ -508,7 +508,7 @@ namespace Nop.Web.Controllers
                 });
 
             //we can add only simple products
-            if (product.ProductType != ProductType.SimpleProduct)
+            if (product.ProductType ==0)
             {
                 return Json(new
                 {
@@ -707,7 +707,7 @@ namespace Nop.Web.Controllers
             }
 
             //we can add only simple products
-            if (product.ProductType != ProductType.SimpleProduct)
+            if (product.ProductType ==0)
             {
                 return Json(new
                 {

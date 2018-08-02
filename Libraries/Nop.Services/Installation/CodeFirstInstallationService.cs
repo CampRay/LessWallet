@@ -455,7 +455,7 @@ namespace Nop.Services.Installation
                     CurrencyCode = "EUR",
                     Rate = 0.95M,
                     DisplayLocale = "",
-                    //CustomFormatting = "ˆ0.00",
+                    //CustomFormatting = "?.00",
                     CustomFormatting = string.Format("{0}0.00", "\u20ac"),
                     Published = true,
                     DisplayOrder = 6,
@@ -7094,7 +7094,7 @@ namespace Nop.Services.Installation
 
             var productBuildComputer = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Build your own computer",
                 Sku = "COMP_CUST",
@@ -7284,7 +7284,7 @@ namespace Nop.Services.Installation
 
             var productDigitalStorm = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Digital Storm VANQUISH 3 Custom Performance PC",
                 Sku = "DS_VA3_PC",
@@ -7335,7 +7335,7 @@ namespace Nop.Services.Installation
 
             var productLenovoIdeaCentre = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Lenovo IdeaCentre 600 All-in-One PC",
                 Sku = "LE_IC_600",
@@ -7389,7 +7389,7 @@ namespace Nop.Services.Installation
 
             var productAppleMacBookPro = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Apple MacBook Pro 13-inch",
                 Sku = "AP_MBP_13",
@@ -7486,12 +7486,12 @@ namespace Nop.Services.Installation
 
             var productAsusN551JK = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Asus N551JK-XO076H Laptop",
                 Sku = "AS_551_LP",
                 ShortDescription = "Laptop Asus N551JK Intel Core i7-4710HQ 2.5 GHz, RAM 16GB, HDD 1TB, Video NVidia GTX 850M 4GB, BluRay, 15.6, Full HD, Win 8.1",
-                FullDescription = "<p>The ASUS N550JX combines cutting-edge audio and visual technology to deliver an unsurpassed multimedia experience. A full HD wide-view IPS panel is tailor-made for watching movies and the intuitive touchscreen makes for easy, seamless navigation. ASUS has paired the N550JX’s impressive display with SonicMaster Premium, co-developed with Bang & Olufsen ICEpower® audio experts, for true surround sound. A quad-speaker array and external subwoofer combine for distinct vocals and a low bass that you can feel.</p>",
+                FullDescription = "<p>The ASUS N550JX combines cutting-edge audio and visual technology to deliver an unsurpassed multimedia experience. A full HD wide-view IPS panel is tailor-made for watching movies and the intuitive touchscreen makes for easy, seamless navigation. ASUS has paired the N550JX’s impressive display with SonicMaster Premium, co-developed with Bang & Olufsen ICEpower?audio experts, for true surround sound. A quad-speaker array and external subwoofer combine for distinct vocals and a low bass that you can feel.</p>",
                 ProductTemplateId = productTemplateSimple.Id,
                 //SeName = "asus-eee-pc-900ha-89-inch-netbook-black",
                 AllowCustomerReviews = true,
@@ -7568,7 +7568,7 @@ namespace Nop.Services.Installation
 
             var productSamsungSeries = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Samsung Series 9 NP900X4C Premium Ultrabook",
                 Sku = "SM_900_PU",
@@ -7651,7 +7651,7 @@ namespace Nop.Services.Installation
 
             var productHpSpectre = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "HP Spectre XT Pro UltraBook",
                 Sku = "HP_SPX_UB",
@@ -7744,11 +7744,11 @@ namespace Nop.Services.Installation
 
             var productHpEnvy = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "HP Envy 6-1180ca 15.6-Inch Sleekbook",
                 Sku = "HP_ESB_15",
-                ShortDescription = "HP ENVY 6-1202ea Ultrabook Beats Audio, 3rd generation Intel® CoreTM i7-3517U processor, 8GB RAM, 500GB HDD, Microsoft Windows 8, AMD Radeon HD 8750M (2 GB DDR3 dedicated)",
+                ShortDescription = "HP ENVY 6-1202ea Ultrabook Beats Audio, 3rd generation Intel?CoreTM i7-3517U processor, 8GB RAM, 500GB HDD, Microsoft Windows 8, AMD Radeon HD 8750M (2 GB DDR3 dedicated)",
                 FullDescription = "The UltrabookTM that's up for anything. Thin and light, the HP ENVY is the large screen UltrabookTM with Beats AudioTM. With a soft-touch base that makes it easy to grab and go, it's a laptop that's up for anything.<br /><br /><b>Features</b><br /><br />- Windows 8 or other operating systems available<br /><br /><b>Top performance. Stylish design. Take notice.</b><br /><br />- At just 19.8 mm (0.78 in) thin, the HP ENVY UltrabookTM is slim and light enough to take anywhere. It's the laptop that gets you noticed with the power to get it done.<br />- With an eye-catching metal design, it's a laptop that you want to carry with you. The soft-touch, slip-resistant base gives you the confidence to carry it with ease.<br /><br /><b>More entertaining. More gaming. More fun.</b><br /><br />- Own the UltrabookTM with Beats AudioTM, dual speakers, a subwoofer, and an awesome display. Your music, movies and photo slideshows will always look and sound their best.<br />- Tons of video memory let you experience incredible gaming and multimedia without slowing down. Create and edit videos in a flash. And enjoy more of what you love to the fullest.<br />- The HP ENVY UltrabookTM is loaded with the ports you'd expect on a world-class laptop, but on a Sleekbook instead. Like HDMI, USB, RJ-45, and a headphone jack. You get all the right connections without compromising size.<br /><br /><b>Only from HP.</b><br /><br />- Life heats up. That's why there's HP CoolSense technology, which automatically adjusts your notebook's temperature based on usage and conditions. It stays cool. You stay comfortable.<br />- With HP ProtectSmart, your notebook's data stays safe from accidental bumps and bruises. It senses motion and plans ahead, stopping your hard drive and protecting your entire digital life.<br />- Keep playing even in dimly lit rooms or on red eye flights. The optional backlit keyboard[1] is full-size so you don't compromise comfort. Backlit keyboard. Another bright idea.<br /><br />",
                 ProductTemplateId = productTemplateSimple.Id,
                 //SeName = "hp-pavilion-g60-230us-160-inch-laptop",
@@ -7834,7 +7834,7 @@ namespace Nop.Services.Installation
 
             var productLenovoThinkpad = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Lenovo Thinkpad X1 Carbon Laptop",
                 Sku = "LE_TX1_CL",
@@ -7917,7 +7917,7 @@ namespace Nop.Services.Installation
 
             var productAdobePhotoshop = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Adobe Photoshop CS4",
                 Sku = "AD_CS4_PH",
@@ -7969,7 +7969,7 @@ namespace Nop.Services.Installation
 
             var productWindows8Pro = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Windows 8 Pro",
                 Sku = "MS_WIN_8P",
@@ -8020,12 +8020,12 @@ namespace Nop.Services.Installation
 
             var productSoundForge = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Sound Forge Pro 11 (recurring)",
                 Sku = "SF_PRO_11",
                 ShortDescription = "Advanced audio waveform editor.",
-                FullDescription = "<p>Sound Forge™ Pro is the application of choice for a generation of creative and prolific artists, producers, and editors. Record audio quickly on a rock-solid platform, address sophisticated audio processing tasks with surgical precision, and render top-notch master files with ease. New features include one-touch recording, metering for the new critical standards, more repair and restoration tools, and exclusive round-trip interoperability with SpectraLayers Pro. Taken together, these enhancements make this edition of Sound Forge Pro the deepest and most advanced audio editing platform available.</p>",
+                FullDescription = "<p>Sound Forge?Pro is the application of choice for a generation of creative and prolific artists, producers, and editors. Record audio quickly on a rock-solid platform, address sophisticated audio processing tasks with surgical precision, and render top-notch master files with ease. New features include one-touch recording, metering for the new critical standards, more repair and restoration tools, and exclusive round-trip interoperability with SpectraLayers Pro. Taken together, these enhancements make this edition of Sound Forge Pro the deepest and most advanced audio editing platform available.</p>",
                 ProductTemplateId = productTemplateSimple.Id,
                 //SeName = "major-league-baseball-2k9",
                 IsRecurring = true,
@@ -8080,7 +8080,7 @@ namespace Nop.Services.Installation
             //this one is a grouped product with two associated ones
             var productNikonD5500DSLR = new Product
             {
-                ProductType = ProductType.GroupedProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Nikon D5500 DSLR",
                 Sku = "N5500DS_0",
@@ -8131,7 +8131,7 @@ namespace Nop.Services.Installation
             _productRepository.Insert(productNikonD5500DSLR);
             var productNikonD5500DSLR_associated_1 = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = false, //hide this products
                 ParentGroupedProductId = productNikonD5500DSLR.Id,
                 Name = "Nikon D5500 DSLR - Black",
@@ -8168,7 +8168,7 @@ namespace Nop.Services.Installation
             _productRepository.Insert(productNikonD5500DSLR_associated_1);
             var productNikonD5500DSLR_associated_2 = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = false, //hide this products
                 ParentGroupedProductId = productNikonD5500DSLR.Id,
                 Name = "Nikon D5500 DSLR - Red",
@@ -8210,7 +8210,7 @@ namespace Nop.Services.Installation
 
             var productLeica = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Leica T Mirrorless Digital Camera",
                 Sku = "LT_MIR_DC",
@@ -8262,7 +8262,7 @@ namespace Nop.Services.Installation
 
             var productAppleICam = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Apple iCam",
                 Sku = "APPLE_CAM",
@@ -8324,7 +8324,7 @@ namespace Nop.Services.Installation
 
             var productHtcOne = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "HTC One M8 Android L 5.0 Lollipop",
                 Sku = "M8_HTC_5L",
@@ -8378,7 +8378,7 @@ namespace Nop.Services.Installation
 
             var productHtcOneMini = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "HTC One Mini Blue",
                 Sku = "OM_HTC_BL",
@@ -8436,7 +8436,7 @@ namespace Nop.Services.Installation
 
             var productNokiaLumia = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Nokia Lumia 1020",
                 Sku = "N_1020_LU",
@@ -8490,12 +8490,12 @@ namespace Nop.Services.Installation
 
             var productBeatsPill = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Beats Pill 2.0 Wireless Speaker",
                 Sku = "BP_20_WSP",
                 ShortDescription = "<b>Pill 2.0 Portable Bluetooth Speaker (1-Piece):</b> Watch your favorite movies and listen to music with striking sound quality. This lightweight, portable speaker is easy to take with you as you travel to any destination, keeping you entertained wherever you are. ",
-                FullDescription = "<ul><li>Pair and play with your Bluetooth® device with 30 foot range</li><li>Built-in speakerphone</li><li>7 hour rechargeable battery</li><li>Power your other devices with USB charge out</li><li>Tap two Beats Pills™ together for twice the sound with Beats Bond™</li></ul>",
+                FullDescription = "<ul><li>Pair and play with your Bluetooth?device with 30 foot range</li><li>Built-in speakerphone</li><li>7 hour rechargeable battery</li><li>Power your other devices with USB charge out</li><li>Tap two Beats Pills?together for twice the sound with Beats Bond?/li></ul>",
                 ProductTemplateId = productTemplateSimple.Id,
                 //SeName = "acer-aspire-one-89-mini-notebook-case-black",
                 AllowCustomerReviews = true,
@@ -8569,7 +8569,7 @@ namespace Nop.Services.Installation
 
             var productUniversalTabletCover = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Universal 7-8 Inch Tablet Cover",
                 Sku = "TC_78I_UN",
@@ -8619,7 +8619,7 @@ namespace Nop.Services.Installation
 
             var productPortableSoundSpeakers = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Portable Sound Speakers",
                 Sku = "PT_SPK_SN",
@@ -8672,7 +8672,7 @@ namespace Nop.Services.Installation
 
             var productNikeFloral = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Nike Floral Roshe Customized Running Shoes",
                 Sku = "NK_FRC_RS",
@@ -8830,7 +8830,7 @@ namespace Nop.Services.Installation
 
             var productAdidas = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "adidas Consortium Campus 80s Running Shoes",
                 Sku = "AD_C80_RS",
@@ -8995,7 +8995,7 @@ namespace Nop.Services.Installation
 
             var productNikeZoom = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Nike SB Zoom Stefan Janoski \"Medium Mint\"",
                 Sku = "NK_ZSJ_MM",
@@ -9068,12 +9068,12 @@ namespace Nop.Services.Installation
 
             var productNikeTailwind = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Nike Tailwind Loose Short-Sleeve Running Shirt",
                 Sku = "NK_TLS_RS",
                 ShortDescription = "",
-                FullDescription = "<p>Boost your adrenaline with the Nike® Women's Tailwind Running Shirt. The lightweight, slouchy fit is great for layering, and moisture-wicking fabrics keep you feeling at your best. This tee has a notched hem for an enhanced range of motion, while flat seams with reinforcement tape lessen discomfort and irritation over longer distances. Put your keys and card in the side zip pocket and take off in your Nike® running t-shirt.</p>",
+                FullDescription = "<p>Boost your adrenaline with the Nike?Women's Tailwind Running Shirt. The lightweight, slouchy fit is great for layering, and moisture-wicking fabrics keep you feeling at your best. This tee has a notched hem for an enhanced range of motion, while flat seams with reinforcement tape lessen discomfort and irritation over longer distances. Put your keys and card in the side zip pocket and take off in your Nike?running t-shirt.</p>",
                 ProductTemplateId = productTemplateSimple.Id,
                 //SeName = "50s-rockabilly-polka-dot-top-jr-plus-size",
                 AllowCustomerReviews = true,
@@ -9174,7 +9174,7 @@ namespace Nop.Services.Installation
 
             var productOversizedWomenTShirt = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Oversized Women T-Shirt",
                 Sku = "WM_OVR_TS",
@@ -9243,7 +9243,7 @@ namespace Nop.Services.Installation
 
             var productCustomTShirt = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Custom T-Shirt",
                 Sku = "CS_TSHIRT",
@@ -9305,7 +9305,7 @@ namespace Nop.Services.Installation
 
             var productLeviJeans = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Levi's 511 Jeans",
                 Sku = "LV_511_JN",
@@ -9384,7 +9384,7 @@ namespace Nop.Services.Installation
 
             var productObeyHat = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Obey Propaganda Hat",
                 Sku = "OB_HAT_PR",
@@ -9473,7 +9473,7 @@ namespace Nop.Services.Installation
 
             var productBelt = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Reversible Horseferry Check Belt",
                 Sku = "RH_CHK_BL",
@@ -9526,7 +9526,7 @@ namespace Nop.Services.Installation
 
             var productSunglasses = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Ray Ban Aviator Sunglasses",
                 Sku = "RB_AVR_SG",
@@ -9598,7 +9598,7 @@ namespace Nop.Services.Installation
             downloadService.InsertDownload(downloadNightVision2);
             var productNightVision = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Night Visions",
                 Sku = "NIGHT_VSN",
@@ -9671,7 +9671,7 @@ namespace Nop.Services.Installation
             downloadService.InsertDownload(downloadIfYouWait2);
             var productIfYouWait = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "If You Wait (donation)",
                 Sku = "IF_YOU_WT",
@@ -9737,7 +9737,7 @@ namespace Nop.Services.Installation
             downloadService.InsertDownload(downloadScienceAndFaith);
             var productScienceAndFaith = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Science & Faith",
                 Sku = "SCI_FAITH",
@@ -9793,7 +9793,7 @@ namespace Nop.Services.Installation
 
             var productFahrenheit = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Fahrenheit 451 by Ray Bradbury",
                 Sku = "FR_451_RB",
@@ -9844,7 +9844,7 @@ namespace Nop.Services.Installation
 
             var productFirstPrizePies = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "First Prize Pies",
                 Sku = "FIRST_PRP",
@@ -9898,7 +9898,7 @@ namespace Nop.Services.Installation
 
             var productPrideAndPrejudice = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Pride and Prejudice",
                 Sku = "PRIDE_PRJ",
@@ -9954,7 +9954,7 @@ namespace Nop.Services.Installation
 
             var productElegantGemstoneNecklace = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Elegant Gemstone Necklace (rental)",
                 Sku = "EG_GEM_NL",
@@ -10009,7 +10009,7 @@ namespace Nop.Services.Installation
 
             var productFlowerGirlBracelet = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Flower Girl Bracelet",
                 Sku = "FL_GIRL_B",
@@ -10064,7 +10064,7 @@ namespace Nop.Services.Installation
 
             var productEngagementRing = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "Vintage Style Engagement Ring",
                 Sku = "VS_ENG_RN",
@@ -10118,7 +10118,7 @@ namespace Nop.Services.Installation
 
             var product25GiftCard = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "$25 Virtual Gift Card",
                 Sku = "VG_CR_025",
@@ -10163,7 +10163,7 @@ namespace Nop.Services.Installation
 
             var product50GiftCard = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "$50 Physical Gift Card",
                 Sku = "PG_CR_050",
@@ -10215,7 +10215,7 @@ namespace Nop.Services.Installation
 
             var product100GiftCard = new Product
             {
-                ProductType = ProductType.SimpleProduct,
+                ProductType = ProductType.WiCoupon,
                 VisibleIndividually = true,
                 Name = "$100 Physical Gift Card",
                 Sku = "PG_CR_100",
@@ -10774,7 +10774,7 @@ namespace Nop.Services.Installation
             var random = new Random();
             foreach (var product in allProducts)
             {
-                if (product.ProductType != ProductType.SimpleProduct)
+                if (product.ProductType != ProductType.WiCoupon)
                     continue;
 
                 //only 3 of 4 products will have reviews
@@ -11927,14 +11927,14 @@ namespace Nop.Services.Installation
                                            Name = "Simple product",
                                            ViewPath = "ProductTemplate.Simple",
                                            DisplayOrder = 10,
-                                           IgnoredProductTypes = ((int)ProductType.GroupedProduct).ToString()
+                                           IgnoredProductTypes = ((int)ProductType.WiCoupon).ToString()
                                        },
                                    new ProductTemplate
                                        {
                                            Name = "Grouped product (with variants)",
                                            ViewPath = "ProductTemplate.Grouped",
                                            DisplayOrder = 100,
-                                           IgnoredProductTypes = ((int)ProductType.SimpleProduct).ToString()
+                                           IgnoredProductTypes = ((int)ProductType.WiCoupon).ToString()
                                        }
                                };
             _productTemplateRepository.Insert(productTemplates);

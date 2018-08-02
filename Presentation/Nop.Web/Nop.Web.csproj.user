@@ -9,6 +9,9 @@
     <NameOfLastUsedPublishProfile>LessWallet</NameOfLastUsedPublishProfile>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <ActiveDebugTarget />
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

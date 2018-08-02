@@ -445,14 +445,10 @@ namespace Nop.Services.Orders
                 where (!createdFromUtc.HasValue || createdFromUtc.Value <= o.CreatedOnUtc) &&
                       (!createdToUtc.HasValue || createdToUtc.Value >= o.CreatedOnUtc) &&
                       (!o.Deleted)
-                select orderItem.ProductId).Distinct();
-
-            var simpleProductTypeId = (int) ProductType.SimpleProduct;
+                select orderItem.ProductId).Distinct();            
 
             var query = from p in _productRepository.Table
-                where (!query_tmp.Contains(p.Id)) &&
-                      //include only simple products
-                      (p.ProductTypeId == simpleProductTypeId) &&
+                where (!query_tmp.Contains(p.Id)) &&                      
                       (!p.Deleted) &&
                       (vendorId == 0 || p.VendorId == vendorId) &&
                       (categoryId == 0 || p.ProductCategories.Count(pc => pc.CategoryId == categoryId) > 0) &&

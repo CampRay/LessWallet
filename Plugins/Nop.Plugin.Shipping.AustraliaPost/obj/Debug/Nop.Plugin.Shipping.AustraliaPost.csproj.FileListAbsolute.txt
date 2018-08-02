@@ -6,6 +6,7 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plu
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plugin.Shipping.AustraliaPost.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plugin.Shipping.AustraliaPost.pdb
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Debug\Nop.Plugin.Shipping.AustraliaPost.csproj.App.config
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Debug\Nop.Plugin.Shipping.AustraliaPost.csprojResolveAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Debug\Nop.Plugin.Shipping.AustraliaPost.csprojAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Debug\Nop.Plugin.Shipping.AustraliaPost.csproj.CoreCompileInputs.cache
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Debug\Nop.Plugin.Shipping.AustraliaPost.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Debug\Nop.Plugin.Shipping.AustraliaPost.pdb

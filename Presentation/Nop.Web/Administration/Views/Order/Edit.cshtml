@@ -16,10 +16,10 @@
             <small><i class="fa fa-arrow-circle-left"></i>@Html.ActionLink(T("Admin.Orders.BackToList").Text, "List")</small>
         </h1>
         <div class="pull-right">
-            <a href="@Url.Action("PdfInvoice", new {orderId = Model.Id})" class="btn bg-purple">
+            @*<a href="@Url.Action("PdfInvoice", new {orderId = Model.Id})" class="btn bg-purple">
                 <i class="fa fa-file-pdf-o"></i>
                 @T("Admin.Orders.PdfInvoice")
-            </a>
+            </a>*@
             @if (!Model.IsLoggedInAsVendor)
             {
                 <span id="order-delete" class="btn bg-red">
@@ -63,8 +63,8 @@
             <div id="order-edit" class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     @Html.RenderBootstrapTabHeader("tab-info", @T("Admin.Orders.Info"), true)
-                    @Html.RenderBootstrapTabHeader("tab-billing-info", @T("Admin.Orders.BillingInfo"))
-                    @Html.RenderBootstrapTabHeader("tab-shipping-info", @T("Admin.Orders.ShippingInfo"))
+                    @*@Html.RenderBootstrapTabHeader("tab-billing-info", @T("Admin.Orders.BillingInfo"))
+                    @Html.RenderBootstrapTabHeader("tab-shipping-info", @T("Admin.Orders.ShippingInfo"))*@
                     @Html.RenderBootstrapTabHeader("tab-products", @T("Admin.Orders.Products"))
                     @if (!Model.IsLoggedInAsVendor)
                     {
@@ -73,8 +73,8 @@
                 </ul>
                 <div class="tab-content">
                     @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
-                    @Html.RenderBootstrapTabContent("tab-billing-info", @TabBillingInfo())
-                    @Html.RenderBootstrapTabContent("tab-shipping-info", @TabShippingInfo())
+                    @*@Html.RenderBootstrapTabContent("tab-billing-info", @TabBillingInfo())
+                    @Html.RenderBootstrapTabContent("tab-shipping-info", @TabShippingInfo())*@
                     @Html.RenderBootstrapTabContent("tab-products", @TabProducts())
                     @if (!Model.IsLoggedInAsVendor)
                     {
@@ -105,14 +105,14 @@
 {
     @Html.Partial("_OrderDetails.Info", Model)
 }
-@helper TabBillingInfo()
+@*@helper TabBillingInfo()
 {
     @Html.Partial("_OrderDetails.Billing", Model)
 }
 @helper TabShippingInfo()
 {
     @Html.Partial("_OrderDetails.Shipping", Model)
-}
+}*@
 @helper TabProducts()
 {
     @Html.Partial("_OrderDetails.Products", Model)

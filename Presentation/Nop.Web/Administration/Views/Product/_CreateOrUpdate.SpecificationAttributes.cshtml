@@ -180,7 +180,7 @@
                     <script type="text/javascript">
                         $(document).ready(function() {
                             $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeId)").change(function() {
-                                var selectedAttributeId = $(this).val();                                
+                                var selectedAttributeId = $(this).val();
                                 $.ajax({
                                     cache: false,
                                     type: "GET",
@@ -258,10 +258,11 @@
                         });
 
 
-                        $(document).ready(function() {
+                        $(document).ready(function () {
+                            toggleAttribute();
                             $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId)").change(toggleAttributeType);
                             $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeOptionId)").change(toggleAttribute);
-                            toggleAttributeType();                            
+                            toggleAttributeType();
                         });
 
                         function toggleAttributeType() {
@@ -271,12 +272,7 @@
                                 $('#color-picker').hide();
                                 $('#pnlCustomValue').hide();
                                 $('#pnlCustomImage').hide();
-                                $('#pnlAllowFiltering').hide();
-                                var selectedAttributeId = $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeId)").val();
-                                //如果是图片属性选项
-                                if (selectedAttributeId == 8||selectedAttributeId == 9||selectedAttributeId == 10) {
-                                    toggleAttribute();
-                                }
+                                $('#pnlAllowFiltering').hide();                                
                             } else if (selectedTypeId == @(((int) SpecificationAttributeType.CustomText).ToString())) {
                                 $('#pnlSpecificationAttributeOptionId').hide();
                                 $('#pnlCustomValue').show();
@@ -320,57 +316,122 @@
                                 $('#pnlImage').hide();
                                 $('#AddSpecificationAttributeModel_CustomValue').removeAttr("style");
                                 $('#pnlAllowFiltering').hide();
-                            }                            
+                            }
                         }
 
                         function toggleAttribute() {
+                            $('#pnlImage').hide();
                             var selectedAttributeId = $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeId)").val();
-                            //如果是图片属性选项
-                            if (selectedAttributeId == 8||selectedAttributeId == 9||selectedAttributeId == 10) {
-                                var pictureId=$("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeOptionId) option:selected").attr('data');  
-                                if(!$.isNumeric(pictureId)){
-                                    pictureId=0;
-                                }
-                                //查询图片访问Url
-                                var postData = {
-                                    pictureId:pictureId,
-                                    targetSize:100,
-                                    showDefaultPicture:true
-                                };
-                                addAntiForgeryToken(postData);
-                                $.ajax({
-                                    cache: false,
-                                    type: "POST",
-                                    url: "@(Url.Action("GetPictureUrl", "Picture"))",
-                                    data: postData,
-                                    success: function(data) {
-                                        if (data.success){
-                                            $('#showAttrImage').attr("src",data.imageUrl);
-                                            $('#pnlImage').show();
-                                        }
-                                    },
-                                    error: function(xhr, ajaxOptions, thrownError) {
-                                        alert('Failed to add specification attribute.');
-                                        $('#addProductSpec').attr('disabled', false);
+                            //如果是自定义权益选项
+                            if (selectedAttributeId == 1 || selectedAttributeId == 4) {
+                                $.each($("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option"), function (i, n) {
+                                    if ($(n).val() ==@(((int) SpecificationAttributeType.CustomText).ToString())) {
+                                        $(n).show();                                        
+                                        $(n).attr("selected", true);
                                     }
-                                });
-                                
+                                    else {
+                                        $(n).hide();
+                                    }
+                                }); 
+                                $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option[index=0]").select();                                
+                            }//如果是权益选项                            
+                            else if (selectedAttributeId == 2 || selectedAttributeId == 3) {
+                                $.each($("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option"), function (i, n) {
+                                    if ($(n).val() ==@(((int) SpecificationAttributeType.Option).ToString())) {
+                                        $(n).show();
+                                        $(n).attr("selected", true);
+                                    }else if ($(n).val() ==@(((int) SpecificationAttributeType.CustomText).ToString())) {
+                                        $(n).show();
+                                    }else {
+                                        $(n).hide();
+                                    }
+                                });                                
+                            }//如果是颜色选项                            
+                            else if (selectedAttributeId == 5) {
+                                $.each($("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option"), function (i, n) {
+                                    if ($(n).val() ==@(((int) SpecificationAttributeType.Option).ToString())) {
+                                        $(n).show();
+                                        $(n).attr("selected", true);
+                                    }else if ($(n).val() ==@(((int) SpecificationAttributeType.CustomColor).ToString())) {
+                                        $(n).show();
+                                    }else {
+                                        $(n).hide();
+                                    }
+                                });                                
                             }
-                            else{
-                                $('#pnlImage').hide();
+                            //如果是图片属性选项
+                            else if (selectedAttributeId == 6 || selectedAttributeId == 7 || selectedAttributeId == 8) {
+                                $.each($("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option"), function (i, n) {
+                                    if ($(n).val() ==@(((int) SpecificationAttributeType.Option).ToString())) {
+                                        if (selectedAttributeId == 6) {
+                                            $(n).show();
+                                            $(n).attr("selected", true);
+                                            $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option:selected").select(); 
+                                            showPicture();
+                                        }
+                                        else {
+                                            $(n).hide();
+                                        }
+                                    }
+                                    else if ($(n).val() ==@(((int) SpecificationAttributeType.CustomImage).ToString())) {
+                                        $(n).show();
+                                        if (selectedAttributeId != 6) {
+                                            $(n).attr("selected", true);
+                                            $("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option:selected").select();
+                                        }
+                                    }
+                                    else {
+                                        $(n).hide();
+                                    }
+                                });                                                                  
+
+                             }//如果是其他选项                            
+                            else {
+                                $.each($("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.AttributeTypeId) option"), function (i, n) {
+                                    if ($(n).val() ==@(((int) SpecificationAttributeType.Option).ToString())) {
+                                        $(n).show();
+                                        $(n).attr("selected", true);
+                                    }else if ($(n).val() ==@(((int) SpecificationAttributeType.CustomText).ToString())) {
+                                        $(n).show();
+                                    }else {
+                                        $(n).hide();
+                                    }
+                                });                                           
                             }
+                            toggleAttributeType();
+                        }
+
+                        function showPicture() {
+                            var pictureId=$("#@Html.FieldIdFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeOptionId) option:selected").attr('data');
+                            if(!$.isNumeric(pictureId)){
+                                pictureId=0;
+                            }
+                            //查询图片访问Url
+                            var postData = {
+                                pictureId:pictureId,
+                                targetSize:100,
+                                showDefaultPicture:true
+                            };
+                            addAntiForgeryToken(postData);
+                            $.ajax({
+                                cache: false,
+                                type: "POST",
+                                url: "@(Url.Action("GetPictureUrl", "Picture"))",
+                                data: postData,
+                                success: function(data) {
+                                    if (data.success){
+                                        $('#showAttrImage').attr("src",data.imageUrl);
+                                        $('#pnlImage').show();
+                                    }
+                                },
+                                error: function(xhr, ajaxOptions, thrownError) {
+                                    alert('Failed to add specification attribute.');
+                                    $('#addProductSpec').attr('disabled', false);
+                                }
+                            });
                         }
                     </script>
 
-                    <div class="form-group">
-                        <div class="col-md-3">
-                            @Html.NopLabelFor(model => model.AddSpecificationAttributeModel.AttributeTypeId)
-                        </div>
-                        <div class="col-md-9">
-                            @Html.NopDropDownListFor(model => model.AddSpecificationAttributeModel.AttributeTypeId, ((SpecificationAttributeType)Model.AddSpecificationAttributeModel.AttributeTypeId).ToSelectList().Where(x => !x.Value.Equals("20") && !x.Value.Equals("30")))
-                            @Html.ValidationMessageFor(model => model.AddSpecificationAttributeModel.AttributeTypeId)
-                        </div>
-                    </div>
                     <div class="form-group">
                         <div class="col-md-3">
                             @Html.NopLabelFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeId)
@@ -378,6 +439,15 @@
                         <div class="col-md-9">
                             @Html.NopDropDownListFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeId, Model.AddSpecificationAttributeModel.AvailableAttributes)
                             @Html.ValidationMessageFor(model => model.AddSpecificationAttributeModel.SpecificationAttributeId)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            @Html.NopLabelFor(model => model.AddSpecificationAttributeModel.AttributeTypeId)
+                        </div>
+                        <div class="col-md-9">
+                            @Html.NopDropDownListFor(model => model.AddSpecificationAttributeModel.AttributeTypeId, ((SpecificationAttributeType)Model.AddSpecificationAttributeModel.AttributeTypeId).ToSelectList().Where(x => !x.Value.Equals("20") && !x.Value.Equals("30")))
+                            @Html.ValidationMessageFor(model => model.AddSpecificationAttributeModel.AttributeTypeId)
                         </div>
                     </div>
                     <div class="form-group" id="pnlSpecificationAttributeOptionId">
@@ -398,7 +468,7 @@
                             <div id="color-picker"></div>
                             @Html.ValidationMessageFor(model => model.AddSpecificationAttributeModel.CustomValue)
                         </div>
-                    </div>  
+                    </div>
                     <div class="form-group" id="pnlCustomImage" style="display:none;">
                         <div class="col-md-3">
                             @Html.NopLabelFor(model => model.AddPictureModel.PictureId)
@@ -407,7 +477,7 @@
                             @Html.NopEditorFor(model => model.AddPictureModel.PictureId)
                             @Html.ValidationMessageFor(model => model.AddPictureModel.PictureId)
                         </div>
-                    </div>   
+                    </div>
                     <div class="form-group" id="pnlImage" style="display:none;">
                         <div class="col-md-3">
                             @Html.NopLabelFor(model => model.AddPictureModel.PictureId)
@@ -415,7 +485,7 @@
                         <div class="col-md-9">
                             <img id="showAttrImage" src="" alt="" title="" width="100" style="margin:10px 0;">
                         </div>
-                    </div>               
+                    </div>
                     <div class="form-group" id="pnlAllowFiltering">
                         <div class="col-md-3">
                             @Html.NopLabelFor(model => model.AddSpecificationAttributeModel.AllowFiltering)
@@ -425,7 +495,7 @@
                             @Html.ValidationMessageFor(model => model.AddSpecificationAttributeModel.AllowFiltering)
                         </div>
                     </div>
-                    <div class="form-group"  style="display:none;">
+                    <div class="form-group" style="display:none;">
                         <div class="col-md-3">
                             @Html.NopLabelFor(model => model.AddSpecificationAttributeModel.ShowOnProductPage)
                         </div>

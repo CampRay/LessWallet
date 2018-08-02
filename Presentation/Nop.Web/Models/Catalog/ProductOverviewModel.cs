@@ -20,6 +20,7 @@ namespace Nop.Web.Models.Catalog
         public string ShortDescription { get; set; }
         public string FullDescription { get; set; }
         public string SeName { get; set; }
+        public VendorBriefInfoModel VendorModel { get; set; }
 
         public string Sku { get; set; }
 

@@ -1,3 +1,5 @@
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.HasOneProduct\obj\Debug\Nop.Plugin.DiscountRules.HasOneProduct.csproj.App.config
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.HasOneProduct\obj\Debug\Nop.Plugin.DiscountRules.HasOneProduct.csproj.CoreCompileInputs.cache
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\Views\Configure.cshtml
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\Description.txt
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\web.config
@@ -6,7 +8,5 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\lo
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\Nop.Plugin.DiscountRules.HasOneProduct.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\Nop.Plugin.DiscountRules.HasOneProduct.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\DiscountRules.HasOneProduct\Nop.Plugin.DiscountRules.HasOneProduct.pdb
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.HasOneProduct\obj\Debug\Nop.Plugin.DiscountRules.HasOneProduct.csproj.App.config
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.HasOneProduct\obj\Debug\Nop.Plugin.DiscountRules.HasOneProduct.csprojResolveAssemblyReference.cache
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.HasOneProduct\obj\Debug\Nop.Plugin.DiscountRules.HasOneProduct.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.DiscountRules.HasOneProduct\obj\Debug\Nop.Plugin.DiscountRules.HasOneProduct.pdb

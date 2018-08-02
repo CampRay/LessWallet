@@ -12,14 +12,14 @@ namespace Nop.Web.Framework
     public partial class WebStoreContext : IStoreContext
     {
         private readonly IStoreService _storeService;
-        private readonly IWebHelper _webHelper;
+        private readonly IWebHelper _webHelper;        
 
         private Store _cachedStore;
 
         public WebStoreContext(IStoreService storeService, IWebHelper webHelper)
         {
             this._storeService = storeService;
-            this._webHelper = webHelper;
+            this._webHelper = webHelper;            
         }
 
         /// <summary>
@@ -40,7 +40,13 @@ namespace Nop.Web.Framework
                 if (store == null)
                 {
                     //load the first found store
-                    store = allStores.FirstOrDefault();
+                    store = new Store();
+                    store.Id = 0;
+                    store.Name = "LessWallet";
+                    store.Url = "http://www.lesswallet.com:15536/";
+                    store.Hosts = "www.lesswallet.com:15536";
+                    store.DefaultLanguageId =3;
+                    //store = allStores.FirstOrDefault();
                 }
                 if (store == null)
                     throw new Exception("No store could be loaded");

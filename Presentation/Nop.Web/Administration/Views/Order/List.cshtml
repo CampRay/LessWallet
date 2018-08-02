@@ -57,7 +57,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="btn-group">
+            @*<div class="btn-group">
                 <button type="button" class="btn bg-purple">
                     <i class="fa fa-file-pdf-o"></i>
                     @T("Admin.Orders.PdfInvoices")
@@ -78,7 +78,7 @@
                         </button>
                     </li>
                 </ul>
-            </div>
+            </div>*@
         </div>
     </div>
 
@@ -105,14 +105,14 @@
                                         @Html.NopEditorFor(model => model.EndDate)
                                     </div>
                                 </div>
-                                <div class="form-group" @(Model.AvailableWarehouses.SelectionIsNotPossible() ? Html.Raw("style=\"display:none\"") : null)>
+                                @*<div class="form-group" @(Model.AvailableWarehouses.SelectionIsNotPossible() ? Html.Raw("style=\"display:none\"") : null)>
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.WarehouseId)
                                     </div>
                                     <div class="col-md-8">
                                         @Html.NopDropDownList("WarehouseId", Model.AvailableWarehouses)
                                     </div>
-                                </div>
+                                </div>*@
                                 <div class="form-group">
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.ProductId)
@@ -165,17 +165,17 @@
                                         @Html.EditorFor(model => model.PaymentStatusIds, new { SelectList = Model.AvailablePaymentStatuses })
                                     </div>
                                 </div>
-                                <div class="form-group" @(Model.IsLoggedInAsVendor ? Html.Raw("style='display: none;'") : null)>
+                                @*<div class="form-group" @(Model.IsLoggedInAsVendor ? Html.Raw("style='display: none;'") : null)>
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.ShippingStatusIds)
                                     </div>
                                     <div class="col-md-8">
                                         @Html.EditorFor(model => model.ShippingStatusIds, new { SelectList = Model.AvailableShippingStatuses })
                                     </div>
-                                </div>
+                                </div>*@
                             </div>
                             <div class="col-md-7">
-                                <div class="form-group" @(Model.AvailableStores.SelectionIsNotPossible() ? Html.Raw("style=\"display:none\"") : null)>
+                                <div class="form-group" @(Model.AvailableStores.SelectionIsNotPossible()||Model.IsLoggedInAsVendor ? Html.Raw("style=\"display:none\"") : null)>
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.StoreId)
                                     </div>
@@ -191,7 +191,7 @@
                                         @Html.NopDropDownList("VendorId", Model.AvailableVendors)
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                @*<div class="form-group">
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.BillingEmail)
                                     </div>
@@ -214,8 +214,8 @@
                                     <div class="col-md-8">
                                         @Html.NopDropDownList("BillingCountryId", Model.AvailableCountries)
                                     </div>
-                                </div>
-                                <div class="form-group" @(Model.AvailablePaymentMethods.SelectionIsNotPossible() || Model.IsLoggedInAsVendor ? Html.Raw("style='display: none;'") : null)>
+                                </div>*@
+                                <div class="form-group" @(Model.AvailablePaymentMethods.SelectionIsNotPossible() ? Html.Raw("style='display: none;'") : null)>
                                     <div class="col-md-4">
                                         @Html.NopLabelFor(model => model.PaymentMethodSystemName)
                                     </div>
@@ -290,7 +290,7 @@
                                                 }
                                             }
                                         },
-                                        error: function(e) {
+                                        error: function (e) {
                                             display_kendoui_grid_error(e);
                                             // Cancel the changes
                                             this.cancelChanges();
@@ -344,7 +344,7 @@
                                             title: "@T("Admin.Orders.Fields.PaymentStatus")",
                                             width: 150
                                         },
-                                        @if (!Model.IsLoggedInAsVendor)
+                                        @*@if (!Model.IsLoggedInAsVendor)
                                         {
                                             //a vendor does not have access to this functionality
                                             <text>{
@@ -352,19 +352,23 @@
                                             title: "@T("Admin.Orders.Fields.ShippingStatus")",
                                             width: 150
                                         },</text>
-                                        }
+                                        }*@
                                         {
                                             field: "CustomerEmail",
                                             title: "@T("Admin.Orders.Fields.Customer")",
                                             width: 250,
                                             template: '#=CustomerFullName# (#=CustomerEmail#)'
                                         },
+                                        @if (!Model.IsLoggedInAsVendor)
                                         {
+                                            <text>{
                                             field: "StoreName",
                                             hidden: @(stores.Count > 1 ? "false" : "true"),
                                             title: "@T("Admin.Orders.Fields.Store")",
                                             width: 100
-                                        }, {
+                                            },</text>
+                                        }
+                                        {
                                             field: "CreatedOn",
                                             title: "@T("Admin.Orders.Fields.CreatedOn")",
                                             width: 150,
@@ -464,13 +468,13 @@
                                     EndDate: $('#@Html.FieldIdFor(model => model.EndDate)').val(),
                                     OrderStatusIds: $('#@Html.FieldIdFor(model => model.OrderStatusIds)').val(),
                                     PaymentStatusIds: $('#@Html.FieldIdFor(model => model.PaymentStatusIds)').val(),
-                                    ShippingStatusIds: $('#@Html.FieldIdFor(model => model.ShippingStatusIds)').val(),
+                                    @*ShippingStatusIds: $('#@Html.FieldIdFor(model => model.ShippingStatusIds)').val(),*@
                                     StoreId: $('#@Html.FieldIdFor(model => model.StoreId)').val(),
                                     VendorId: $('#@Html.FieldIdFor(model => model.VendorId)').val(),
-                                    WarehouseId: $('#@Html.FieldIdFor(model => model.WarehouseId)').val(),
+                                    @*WarehouseId: $('#@Html.FieldIdFor(model => model.WarehouseId)').val(),
                                     BillingEmail: $('#@Html.FieldIdFor(model => model.BillingEmail)').val(),
                                     BillingLastName: $('#@Html.FieldIdFor(model => model.BillingLastName)').val(),
-                                    BillingCountryId: $('#@Html.FieldIdFor(model => model.BillingCountryId)').val(),
+                                    BillingCountryId: $('#@Html.FieldIdFor(model => model.BillingCountryId)').val(),*@
                                     PaymentMethodSystemName: $('#@Html.FieldIdFor(model => model.PaymentMethodSystemName)').val(),
                                     ProductId: $('#@Html.FieldIdFor(model => model.ProductId)').val(),
                                     OrderNotes: $('#@Html.FieldIdFor(model => model.OrderNotes)').val()

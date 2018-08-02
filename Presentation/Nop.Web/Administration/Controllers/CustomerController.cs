@@ -622,10 +622,10 @@ namespace Nop.Admin.Controllers
                 }
             }
 
-            //newsletter subscriptions
-            model.AvailableNewsletterSubscriptionStores = allStores
-                .Select(s => new CustomerModel.StoreModel() {Id = s.Id, Name = s.Name })
-                .ToList();
+            ////newsletter subscriptions
+            //model.AvailableNewsletterSubscriptionStores = allStores
+            //    .Select(s => new CustomerModel.StoreModel() {Id = s.Id, Name = s.Name })
+            //    .ToList();
 
             //customer roles
             var allRoles = _customerService.GetAllCustomerRoles(true);
@@ -634,6 +634,12 @@ namespace Nop.Admin.Controllers
             if (customer == null && adminRole != null)
             {
                 model.SelectedCustomerRoleIds.Add(adminRole.Id);
+                if (model.IsLoggedInAsVendor)
+                {
+                    var vendorRole = allRoles.FirstOrDefault(c => c.SystemName == SystemCustomerRoleNames.Vendors);
+                    model.SelectedCustomerRoleIds.Add(vendorRole.Id);
+                    model.VendorId = _workContext.CurrentCustomer.VendorId;
+                }
             }
             foreach (var role in allRoles)
             {
@@ -779,7 +785,8 @@ namespace Nop.Admin.Controllers
                 PhoneEnabled = _customerSettings.PhoneEnabled,
                 ZipPostalCodeEnabled = _customerSettings.ZipPostalCodeEnabled,
                 SearchCustomerRoleIds = defaultRoleIds,
-            };
+                IsLoggedInAsVendor = _workContext.CurrentVendor != null,                
+        };
             var allRoles = _customerService.GetAllCustomerRoles(true);
             foreach (var role in allRoles)
             {
@@ -811,6 +818,7 @@ namespace Nop.Admin.Controllers
             
             var customers = _customerService.GetAllCustomers(
                 customerRoleIds: searchCustomerRoleIds,
+                vendorId: _workContext.CurrentCustomer.VendorId,
                 email: model.SearchEmail,
                 username: model.SearchUsername,
                 firstName: model.SearchFirstName,
@@ -839,6 +847,8 @@ namespace Nop.Admin.Controllers
                 return AccessDeniedView();
 
             var model = new CustomerModel();
+            model.IsLoggedInAsVendor = _workContext.CurrentVendor != null;
+
             PrepareCustomerModel(model, null, false);
             //default value
             model.Active = true;
@@ -852,6 +862,8 @@ namespace Nop.Admin.Controllers
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManageCustomers))
                 return AccessDeniedView();
+
+            model.IsLoggedInAsVendor = _workContext.CurrentVendor != null;
 
             if (!String.IsNullOrWhiteSpace(model.Email))
             {
@@ -947,39 +959,39 @@ namespace Nop.Admin.Controllers
 
 
                 //newsletter subscriptions
-                if (!String.IsNullOrEmpty(customer.Email))
-                {
-                    var allStores = _storeService.GetAllStores();
-                    foreach (var store in allStores)
-                    {
-                        var newsletterSubscription = _newsLetterSubscriptionService
-                            .GetNewsLetterSubscriptionByEmailAndStoreId(customer.Email, store.Id);
-                        if (model.SelectedNewsletterSubscriptionStoreIds != null &&
-                            model.SelectedNewsletterSubscriptionStoreIds.Contains(store.Id))
-                        {
-                            //subscribed
-                            if (newsletterSubscription == null)
-                            {
-                                _newsLetterSubscriptionService.InsertNewsLetterSubscription(new NewsLetterSubscription
-                                {
-                                    NewsLetterSubscriptionGuid = Guid.NewGuid(),
-                                    Email = customer.Email,
-                                    Active = true,
-                                    StoreId = store.Id,
-                                    CreatedOnUtc = DateTime.UtcNow
-                                });
-                            }
-                        }
-                        else
-                        {
-                            //not subscribed
-                            if (newsletterSubscription != null)
-                            {
-                                _newsLetterSubscriptionService.DeleteNewsLetterSubscription(newsletterSubscription);
-                            }
-                        }
-                    }
-                }
+                //if (!String.IsNullOrEmpty(customer.Email))
+                //{
+                //    var allStores = _storeService.GetAllStores();
+                //    foreach (var store in allStores)
+                //    {
+                //        var newsletterSubscription = _newsLetterSubscriptionService
+                //            .GetNewsLetterSubscriptionByEmailAndStoreId(customer.Email, store.Id);
+                //        if (model.SelectedNewsletterSubscriptionStoreIds != null &&
+                //            model.SelectedNewsletterSubscriptionStoreIds.Contains(store.Id))
+                //        {
+                //            //subscribed
+                //            if (newsletterSubscription == null)
+                //            {
+                //                _newsLetterSubscriptionService.InsertNewsLetterSubscription(new NewsLetterSubscription
+                //                {
+                //                    NewsLetterSubscriptionGuid = Guid.NewGuid(),
+                //                    Email = customer.Email,
+                //                    Active = true,
+                //                    StoreId = store.Id,
+                //                    CreatedOnUtc = DateTime.UtcNow
+                //                });
+                //            }
+                //        }
+                //        else
+                //        {
+                //            //not subscribed
+                //            if (newsletterSubscription != null)
+                //            {
+                //                _newsLetterSubscriptionService.DeleteNewsLetterSubscription(newsletterSubscription);
+                //            }
+                //        }
+                //    }
+                //}
 
                 //password
                 if (!String.IsNullOrWhiteSpace(model.Password))
@@ -1058,6 +1070,8 @@ namespace Nop.Admin.Controllers
                 return RedirectToAction("List");
 
             var model = new CustomerModel();
+            model.IsLoggedInAsVendor = _workContext.CurrentVendor != null;
+
             PrepareCustomerModel(model, customer, false);
             return View(model);
         }
@@ -1069,6 +1083,7 @@ namespace Nop.Admin.Controllers
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManageCustomers))
                 return AccessDeniedView();
+            model.IsLoggedInAsVendor = _workContext.CurrentVendor != null;
 
             var customer = _customerService.GetCustomerById(model.Id);
             if (customer == null || customer.Deleted)
@@ -1200,40 +1215,40 @@ namespace Nop.Admin.Controllers
                     //custom customer attributes
                     _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.CustomCustomerAttributes, customerAttributesXml);
 
-                    //newsletter subscriptions
-                    if (!String.IsNullOrEmpty(customer.Email))
-                    {
-                        var allStores = _storeService.GetAllStores();
-                        foreach (var store in allStores)
-                        {
-                            var newsletterSubscription = _newsLetterSubscriptionService
-                                .GetNewsLetterSubscriptionByEmailAndStoreId(customer.Email, store.Id);
-                            if (model.SelectedNewsletterSubscriptionStoreIds != null &&
-                                model.SelectedNewsletterSubscriptionStoreIds.Contains(store.Id))
-                            {
-                                //subscribed
-                                if (newsletterSubscription == null)
-                                {
-                                    _newsLetterSubscriptionService.InsertNewsLetterSubscription(new NewsLetterSubscription
-                                    {
-                                        NewsLetterSubscriptionGuid = Guid.NewGuid(),
-                                        Email = customer.Email,
-                                        Active = true,
-                                        StoreId = store.Id,
-                                        CreatedOnUtc = DateTime.UtcNow
-                                    });
-                                }
-                            }
-                            else
-                            {
-                                //not subscribed
-                                if (newsletterSubscription != null)
-                                {
-                                    _newsLetterSubscriptionService.DeleteNewsLetterSubscription(newsletterSubscription);
-                                }
-                            }
-                        }
-                    }
+                    ////newsletter subscriptions
+                    //if (!String.IsNullOrEmpty(customer.Email))
+                    //{
+                    //    var allStores = _storeService.GetAllStores();
+                    //    foreach (var store in allStores)
+                    //    {
+                    //        var newsletterSubscription = _newsLetterSubscriptionService
+                    //            .GetNewsLetterSubscriptionByEmailAndStoreId(customer.Email, store.Id);
+                    //        if (model.SelectedNewsletterSubscriptionStoreIds != null &&
+                    //            model.SelectedNewsletterSubscriptionStoreIds.Contains(store.Id))
+                    //        {
+                    //            //subscribed
+                    //            if (newsletterSubscription == null)
+                    //            {
+                    //                _newsLetterSubscriptionService.InsertNewsLetterSubscription(new NewsLetterSubscription
+                    //                {
+                    //                    NewsLetterSubscriptionGuid = Guid.NewGuid(),
+                    //                    Email = customer.Email,
+                    //                    Active = true,
+                    //                    StoreId = store.Id,
+                    //                    CreatedOnUtc = DateTime.UtcNow
+                    //                });
+                    //            }
+                    //        }
+                    //        else
+                    //        {
+                    //            //not subscribed
+                    //            if (newsletterSubscription != null)
+                    //            {
+                    //                _newsLetterSubscriptionService.DeleteNewsLetterSubscription(newsletterSubscription);
+                    //            }
+                    //        }
+                    //    }
+                    //}
 
 
                     //customer roles

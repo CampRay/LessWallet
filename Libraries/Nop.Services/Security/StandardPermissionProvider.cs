@@ -55,7 +55,10 @@ namespace Nop.Services.Security
         public static readonly PermissionRecord ManageMaintenance = new PermissionRecord { Name = "Admin area. Manage Maintenance", SystemName = "ManageMaintenance", Category = "Configuration" };
         public static readonly PermissionRecord HtmlEditorManagePictures = new PermissionRecord { Name = "Admin area. HTML Editor. Manage pictures", SystemName = "HtmlEditor.ManagePictures", Category = "Configuration" };
         public static readonly PermissionRecord ManageScheduleTasks = new PermissionRecord { Name = "Admin area. Manage Schedule Tasks", SystemName = "ManageScheduleTasks", Category = "Configuration" };
-        
+        //新添加权限
+        public static readonly PermissionRecord ManageCustomerRoles = new PermissionRecord { Name = "Admin area. Manage Customer Roles", SystemName = "ManageCustomerRoles", Category = "Customers" };
+        public static readonly PermissionRecord ManageOnlineCustomers = new PermissionRecord { Name = "Admin area. Manage Online Customers", SystemName = "ManageOnlineCustomers", Category = "Customers" };
+        public static readonly PermissionRecord ManageOrdersShipments = new PermissionRecord { Name = "Admin area. Manage Shipments", SystemName = "ManageOrdersShipments", Category = "Orders" };
 
         //public store permissions
         public static readonly PermissionRecord DisplayPrices = new PermissionRecord { Name = "Public store. Display Prices", SystemName = "DisplayPrices", Category = "PublicStore" };
@@ -78,9 +81,12 @@ namespace Nop.Services.Security
                 ManageProductTags,
                 ManageAttributes,
                 ManageCustomers,
+                ManageCustomerRoles,
+                ManageOnlineCustomers,
                 ManageVendors,
                 ManageCurrentCarts,
                 ManageOrders,
+                ManageOrdersShipments,
                 ManageRecurringPayments,
                 ManageGiftCards,
                 ManageReturnRequests,
@@ -140,9 +146,12 @@ namespace Nop.Services.Security
                         ManageProductTags,
                         ManageAttributes,
                         ManageCustomers,
+                        ManageCustomerRoles,
+                        ManageOnlineCustomers,
                         ManageVendors,
                         ManageCurrentCarts,
                         ManageOrders,
+                        ManageOrdersShipments,
                         ManageRecurringPayments,
                         ManageGiftCards,
                         ManageReturnRequests,
@@ -222,6 +231,7 @@ namespace Nop.Services.Security
                     PermissionRecords = new[] 
                     {
                         AccessAdminPanel,
+                        ManageCustomers,
                         ManageProducts,
                         ManageProductReviews,
                         ManageOrders

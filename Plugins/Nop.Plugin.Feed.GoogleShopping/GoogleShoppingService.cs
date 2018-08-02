@@ -208,19 +208,14 @@ namespace Nop.Plugin.Feed.GoogleShopping
                     var productsToProcess = new List<Product>();
                     switch (product1.ProductType)
                     {
-                        case ProductType.SimpleProduct:
+                        case ProductType.WiCoupon:
+                        case ProductType.WiCard:
+                        case ProductType.WiTicket:
                             {
                                 //simple product doesn't have child products
                                 productsToProcess.Add(product1);
                             }
-                            break;
-                        case ProductType.GroupedProduct:
-                            {
-                                //grouped products could have several child products
-                                var associatedProducts = _productService.GetAssociatedProducts(product1.Id, store.Id);
-                                productsToProcess.AddRange(associatedProducts);
-                            }
-                            break;
+                            break;                        
                         default:
                             continue;
                     }

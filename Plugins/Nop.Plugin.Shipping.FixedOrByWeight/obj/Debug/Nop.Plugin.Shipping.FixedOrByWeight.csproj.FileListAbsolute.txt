@@ -11,6 +11,6 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.FixedOrByWeight\Nop.P
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.FixedOrByWeight\Nop.Plugin.Shipping.FixedOrByWeight.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Shipping.FixedOrByWeight\Nop.Plugin.Shipping.FixedOrByWeight.pdb
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.FixedOrByWeight\obj\Debug\Nop.Plugin.Shipping.FixedOrByWeight.csproj.App.config
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.FixedOrByWeight\obj\Debug\Nop.Plugin.Shipping.FixedOrByWeight.csprojResolveAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.FixedOrByWeight\obj\Debug\Nop.Plugin.Shipping.FixedOrByWeight.csproj.CoreCompileInputs.cache
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.FixedOrByWeight\obj\Debug\Nop.Plugin.Shipping.FixedOrByWeight.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Shipping.FixedOrByWeight\obj\Debug\Nop.Plugin.Shipping.FixedOrByWeight.pdb

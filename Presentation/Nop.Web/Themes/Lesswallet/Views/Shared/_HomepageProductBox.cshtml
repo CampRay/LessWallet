@@ -65,7 +65,7 @@
             <div class="coupon" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;">
                 <div class="coupon-top">
                     <div class="coupon-logo"><img src="@logoUrl" style="height:44px;max-width:100%;float: left;" /></div>
-                    <div class="coupon-benefit">@Html.Raw(benefit)</div>
+                    <div class="coupon-benefit">@if (Model.ProductPrice.PriceValue > 0) {@Model.ProductPrice.Price} else {@T("products.price.free")}</div>
                 </div>
                 <div class="coupon-title">
                     @Html.Raw(Model.Name)
@@ -73,7 +73,7 @@
             </div>
             <div class="coupon-bottom">                
                 <div class="coupon-bottom-left"><div style="display:table-cell;vertical-align:middle;padding-left:30px;">@timeStr</div></div>
-                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;padding-right:10px;">@Model.ProductPrice.Price </div></div>
+                <div class="coupon-bottom-right"><div style="display:table-cell;vertical-align:middle;padding-right:10px;">@Model.VendorModel.Name </div></div>
             </div> 
             }
             else if (Model.ProductType == ProductType.WiTicket)
@@ -103,14 +103,14 @@
                 <div class="wicard" style="background:@bgColor url('@shadingUrl') no-repeat;background-size:100% 100%;border-radius: 10px;">
                     <div class="card-top">
                         <div class="card-logo"><img src="@logoUrl" style="height:50px;max-width:100%;float: left;" /></div>
-                        <div class="card-benefit">@Html.Raw(benefit)</div>
+                        <div class="card-benefit">@if (Model.ProductPrice.PriceValue > 0) {@Model.ProductPrice.Price} else {@T("products.price.free")}</div>
                     </div>
                     <div class="card-title">
                         @Html.Raw(Model.Name)
                     </div>
                     <div class="card-bottom">
                         <div class="card-bottom-left"><div style="display:table-cell;vertical-align:bottom;">@timeStr</div></div>
-                        <div class="card-bottom-right"><div style="display:table-cell;vertical-align:bottom;">@Model.ProductPrice.Price </div></div>
+                        <div class="card-bottom-right"><div style="display:table-cell;vertical-align:bottom;">@Model.VendorModel.Name</div></div>
                     </div> 
                 </div>
                 }

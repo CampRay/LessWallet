@@ -8,6 +8,7 @@ D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\logo.png
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Nop.Plugin.Pickup.PickupInStore.dll.config
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Nop.Plugin.Pickup.PickupInStore.dll
 D:\NewGit\LessWallet\Presentation\Nop.Web\Plugins\Pickup.PickupInStore\Nop.Plugin.Pickup.PickupInStore.pdb
-D:\NewGit\LessWallet\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\Nop.Plugin.Pickup.PickupInStore.csprojResolveAssemblyReference.cache
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\Nop.Plugin.Pickup.PickupInStore.csproj.CoreCompileInputs.cache
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\Nop.Plugin.Pickup.PickupInStore.dll
 D:\NewGit\LessWallet\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\Nop.Plugin.Pickup.PickupInStore.pdb
+D:\NewGit\LessWallet\Plugins\Nop.Plugin.Pickup.PickupInStore\obj\Debug\Nop.Plugin.Pickup.PickupInStore.csprojAssemblyReference.cache

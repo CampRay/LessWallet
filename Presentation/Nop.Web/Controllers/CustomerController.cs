@@ -335,21 +335,22 @@ namespace Nop.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                string loginName = model.Email;
                 if (_customerSettings.UsernamesEnabled && model.Username != null)
                 {
-                    model.Username = model.Username.Trim();
+                    loginName = model.Username;
                 }
+                loginName=loginName.Trim();
                 var loginResult =
-                    _customerRegistrationService.ValidateCustomer(
-                        _customerSettings.UsernamesEnabled ? model.Username : model.Email, model.Password);
+                    _customerRegistrationService.ValidateCustomer(loginName, model.Password);
                 switch (loginResult)
                 {
                     case CustomerLoginResults.Successful:
                     {
-                        var customer = _customerSettings.UsernamesEnabled
-                            ? _customerService.GetCustomerByUsername(model.Username)
-                            : _customerService.GetCustomerByEmail(model.Email);
-
+                        //var customer = _customerSettings.UsernamesEnabled
+                        //    ? _customerService.GetCustomerByUsername(model.Username)
+                        //    : _customerService.GetCustomerByEmail(model.Email);
+                        var customer = _customerService.GetCustomerByUsernameOrEmail(loginName);
                         //migrate shopping cart
                         _shoppingCartService.MigrateShoppingCart(_workContext.CurrentCustomer, customer, true);
 

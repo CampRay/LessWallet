@@ -24,6 +24,7 @@ namespace Nop.Admin.Models.Vendors
 
             Locales = new List<VendorLocalizedModel>();
             AssociatedCustomers = new List<AssociatedCustomerInfo>();
+            AvailableStores = new List<SelectListItem>();
         }
 
         [NopResourceDisplayName("Admin.Vendors.Fields.Name")]
@@ -75,6 +76,14 @@ namespace Nop.Admin.Models.Vendors
         [NopResourceDisplayName("Admin.Vendors.Fields.LimitedToStores")]        
         public int StoreId { get; set; }        
         public IList<SelectListItem> AvailableStores { get; set; }
+
+        [NopResourceDisplayName("Admin.Vendors.Fields.AccountID")]
+        [AllowHtml]
+        public string AccountId { get; set; }
+        [NopResourceDisplayName("Admin.Vendors.Fields.Password")]
+        [AllowHtml]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
 
         [NopResourceDisplayName("Admin.Vendors.Fields.PageSize")]
         public int PageSize { get; set; }

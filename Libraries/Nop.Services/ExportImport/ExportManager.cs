@@ -975,7 +975,7 @@ namespace Nop.Services.ExportImport
             {
                 new PropertyByName<Product>("ProductType", p => p.ProductTypeId, IgnoreExportPoductProperty(p => p.ProductType))
                 {
-                    DropDownElements = ProductType.SimpleProduct.ToSelectList(useLocalization: false)
+                    DropDownElements = ProductType.WiCoupon.ToSelectList(useLocalization: false)
                 },
                 new PropertyByName<Product>("ParentGroupedProductId", p => p.ParentGroupedProductId, IgnoreExportPoductProperty(p => p.ProductType)),
                 new PropertyByName<Product>("VisibleIndividually", p => p.VisibleIndividually, IgnoreExportPoductProperty(p => p.VisibleIndividually)),

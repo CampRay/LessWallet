@@ -25,35 +25,40 @@
         <h1>@Model.Name</h1>
     </div>
     <div class="page-body">
-        @Html.Widget("vendordetails_top", Model.Id)
-        @*description*@
-        @if (!String.IsNullOrWhiteSpace(Model.Description))
-        {
-            <div class="vendor-description">
-                @Html.Raw(Model.Description)
-            </div>
-        }
-        @*contact vendor*@
-        @if (Model.AllowCustomersToContactVendors)
-        {
-            <div class="contact-vendor">
-                <input type="button" value="@T("ContactVendor")" class="button-2 contact-vendor-button" onclick="setLocation('@Url.RouteUrl("ContactVendor", new { vendorId = Model.Id })')" />
-            </div>
-        }
-        @if (Model.Products.Count > 0)
-        {
-            @Html.Partial("_CatalogSelectors", Model.PagingFilteringContext, new ViewDataDictionary())
-        }
+        
         @*product list*@
         @if (Model.Products.Count > 0)
         {
             <div class="@(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")">
                 <div class="item-grid">
-                    @foreach (var product in Model.Products)
+                    @foreach (var item in Model.Products)
                     {
-                        <div class="item-box">
-                            @Html.Partial("_ProductBox", product)
-                        </div>
+                        var timeStr = item.StartDateTime + (string.IsNullOrEmpty(item.EndDateTime) ? "" : " - " + item.EndDateTime);
+                        <table class="line-box1" width="100%" style="background:white;border:1px solid #b5b5b5;margin-bottom:20px;">
+                            <tr>
+                                <td class="td-coupon">
+                                    <div class="item-box home-item-box">
+                                        @Html.Partial("_HomepageProductBox", item)
+                                    </div>
+                                </td>
+                                <td class="td-info">
+                                    <table height="150" width="100%">
+                                        <tr>
+                                            <td valign="top" height="30px" colspan="2" style="font-size:18px;font-weight:bold;color:black;">@item.Name</td>
+                                            @*<td valign="top" height="30px" align="right" style="font-size:18px;font-weight:bold;color:black;">@item.ProductType</td>*@
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" height="90px" colspan="2" style="font-size:16px;color:black;">@item.ShortDescription</td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="middle" height="30px" style="font-size:14px;color:black;position:relative;"><img style="position:absolute;top:5px;" src="~/Themes/Lesswallet/Content/images/date.png" width="20" height="20" /><span style="padding-left:25px;">@timeStr</span></td>
+                                            <td valign="middle" height="30px" width="150" align="right" style="font-size:14px;color:black;"><a href="@Url.RouteUrl("Vendor", new { SeName = item.VendorModel.SeName })">@item.VendorModel.Name</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="td-button"><a href="@Url.RouteUrl("Product", new { SeName = item.SeName })" title="@item.DefaultPictureModel.Title"><div style="width: 100%;height: 100%;background: #ec6422;text-align: center;padding: 10px;"><img class="td-btn-img" src="~/Themes/Lesswallet/Content/images/icon_get.png" /><div style="color:white;font-size:26px;font-weight:bold">Get it now</div></div></a></td>
+                            </tr>
+                        </table>
                     }
                 </div>
             </div>

@@ -274,10 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:40</publishTime>
     </File>
     <File Include="Administration/Content/images/logo-mini.png">
-      <publishTime>12/06/2016 17:11:13</publishTime>
+      <publishTime>07/30/2018 16:04:56</publishTime>
     </File>
     <File Include="Administration/Content/images/logo.png">
-      <publishTime>12/06/2016 17:11:13</publishTime>
+      <publishTime>07/30/2018 16:02:42</publishTime>
     </File>
     <File Include="Administration/Content/images/search-icon.png">
       <publishTime>12/06/2016 17:11:13</publishTime>
@@ -3646,7 +3646,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:11:18</publishTime>
     </File>
     <File Include="Administration/sitemap.config">
-      <publishTime>08/18/2017 11:25:56</publishTime>
+      <publishTime>08/01/2018 14:18:51</publishTime>
     </File>
     <File Include="Administration/Views/ActivityLog/ListLogs.cshtml">
       <publishTime>03/14/2017 18:09:14</publishTime>
@@ -3730,7 +3730,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:14</publishTime>
     </File>
     <File Include="Administration/Views/Category/_CreateOrUpdate.cshtml">
-      <publishTime>03/14/2017 18:09:14</publishTime>
+      <publishTime>08/01/2018 15:59:17</publishTime>
     </File>
     <File Include="Administration/Views/CheckoutAttribute/Create.cshtml">
       <publishTime>12/06/2016 17:11:19</publishTime>
@@ -3826,7 +3826,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:11:19</publishTime>
     </File>
     <File Include="Administration/Views/Customer/List.cshtml">
-      <publishTime>03/14/2017 18:09:14</publishTime>
+      <publishTime>07/31/2018 09:40:17</publishTime>
     </File>
     <File Include="Administration/Views/Customer/ReportRegisteredCustomers.cshtml">
       <publishTime>03/14/2017 18:09:14</publishTime>
@@ -3835,7 +3835,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:11:19</publishTime>
     </File>
     <File Include="Administration/Views/Customer/_CreateOrUpdate.cshtml">
-      <publishTime>05/06/2017 07:40:56</publishTime>
+      <publishTime>08/01/2018 12:40:48</publishTime>
     </File>
     <File Include="Administration/Views/Customer/_CreateOrUpdateAddress.cshtml">
       <publishTime>12/06/2016 17:11:19</publishTime>
@@ -4063,19 +4063,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:14</publishTime>
     </File>
     <File Include="Administration/Views/Order/BestsellersReport.cshtml">
-      <publishTime>03/14/2017 18:09:14</publishTime>
+      <publishTime>07/31/2018 09:55:20</publishTime>
     </File>
     <File Include="Administration/Views/Order/CountryReport.cshtml">
       <publishTime>03/14/2017 18:09:14</publishTime>
     </File>
     <File Include="Administration/Views/Order/Edit.cshtml">
-      <publishTime>03/14/2017 18:09:14</publishTime>
+      <publishTime>07/30/2018 17:44:49</publishTime>
     </File>
     <File Include="Administration/Views/Order/LatestOrders.cshtml">
       <publishTime>03/14/2017 18:09:14</publishTime>
     </File>
     <File Include="Administration/Views/Order/List.cshtml">
-      <publishTime>03/14/2017 18:09:14</publishTime>
+      <publishTime>07/31/2018 09:49:08</publishTime>
     </File>
     <File Include="Administration/Views/Order/NeverSoldReport.cshtml">
       <publishTime>03/14/2017 18:09:14</publishTime>
@@ -4114,7 +4114,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:14</publishTime>
     </File>
     <File Include="Administration/Views/Order/_OrderDetails.Products.cshtml">
-      <publishTime>03/14/2017 18:09:14</publishTime>
+      <publishTime>07/30/2018 17:41:04</publishTime>
     </File>
     <File Include="Administration/Views/Order/_OrderDetails.Shipping.cshtml">
       <publishTime>03/14/2017 18:09:14</publishTime>
@@ -4165,7 +4165,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:15</publishTime>
     </File>
     <File Include="Administration/Views/Product/AddAttributeCombinationPopup.cshtml">
-      <publishTime>03/14/2017 18:09:15</publishTime>
+      <publishTime>12/28/2017 18:19:31</publishTime>
     </File>
     <File Include="Administration/Views/Product/AssociatedProductAddPopup.cshtml">
       <publishTime>03/14/2017 18:09:15</publishTime>
@@ -4186,13 +4186,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2017 16:56:09</publishTime>
     </File>
     <File Include="Administration/Views/Product/EditAttributeValues.cshtml">
-      <publishTime>03/14/2017 18:09:15</publishTime>
+      <publishTime>12/27/2017 12:33:17</publishTime>
     </File>
     <File Include="Administration/Views/Product/EditProductTag.cshtml">
       <publishTime>12/06/2016 17:11:21</publishTime>
     </File>
     <File Include="Administration/Views/Product/List.cshtml">
-      <publishTime>09/25/2017 12:44:45</publishTime>
+      <publishTime>08/01/2018 18:16:59</publishTime>
     </File>
     <File Include="Administration/Views/Product/LowStockReport.cshtml">
       <publishTime>03/14/2017 18:09:15</publishTime>
@@ -4225,16 +4225,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:15</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.cshtml">
-      <publishTime>09/25/2017 14:35:33</publishTime>
+      <publishTime>08/01/2018 14:49:21</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.Info.cshtml">
-      <publishTime>10/16/2017 19:32:46</publishTime>
+      <publishTime>08/01/2018 16:13:55</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.Pictures.cshtml">
       <publishTime>03/14/2017 18:09:15</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.ProductAttributes.cshtml">
-      <publishTime>03/14/2017 18:09:15</publishTime>
+      <publishTime>12/27/2017 17:53:34</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.PurchasedWithOrders.cshtml">
       <publishTime>03/14/2017 18:09:15</publishTime>
@@ -4243,7 +4243,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:15</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.SpecificationAttributes.cshtml">
-      <publishTime>03/14/2017 18:09:15</publishTime>
+      <publishTime>08/01/2018 10:15:48</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate._StockQuantityHistory.cshtml">
       <publishTime>09/25/2017 15:23:18</publishTime>
@@ -4552,7 +4552,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:16</publishTime>
     </File>
     <File Include="Administration/Views/SpecificationAttribute/_CreateOrUpdateOption.cshtml">
-      <publishTime>03/14/2017 18:09:16</publishTime>
+      <publishTime>11/24/2017 15:27:09</publishTime>
     </File>
     <File Include="Administration/Views/Store/Create.cshtml">
       <publishTime>12/06/2016 17:11:21</publishTime>
@@ -4609,7 +4609,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:16</publishTime>
     </File>
     <File Include="Administration/Views/Vendor/_CreateOrUpdate.cshtml">
-      <publishTime>03/14/2017 18:09:16</publishTime>
+      <publishTime>07/30/2018 14:30:22</publishTime>
     </File>
     <File Include="Administration/Views/Web.config">
       <publishTime>12/06/2016 17:09:51</publishTime>
@@ -4782,11 +4782,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>02/10/2015 19:24:07</publishTime>
     </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>02/10/2015 19:26:08</publishTime>
+    </File>
     <File Include="bin/App_Data/InstalledPlugins.txt">
-      <publishTime>09/11/2017 14:04:35</publishTime>
+      <publishTime>06/11/2018 15:30:37</publishTime>
     </File>
     <File Include="bin/App_Data/Settings.txt">
-      <publishTime>08/14/2017 11:37:50</publishTime>
+      <publishTime>08/01/2018 16:52:38</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
       <publishTime>03/14/2017 18:09:21</publishTime>
@@ -4962,6 +4965,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Web.RedisSessionStateProvider.dll">
       <publishTime>03/14/2017 18:09:23</publishTime>
     </File>
+    <File Include="bin/Microsoft.Web.RedisSessionStateProvider.pdb">
+      <publishTime>03/07/2017 00:00:32</publishTime>
+    </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
       <publishTime>03/14/2017 18:09:26</publishTime>
     </File>
@@ -4970,6 +4976,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/MiniProfiler.Mvc.dll">
       <publishTime>02/10/2015 19:24:19</publishTime>
+    </File>
+    <File Include="bin/MiniProfiler.Mvc.pdb">
+      <publishTime>02/10/2015 19:26:14</publishTime>
+    </File>
+    <File Include="bin/MiniProfiler.pdb">
+      <publishTime>08/28/2015 09:55:03</publishTime>
     </File>
     <File Include="bin/mk/FluentValidation.resources.dll">
       <publishTime>03/14/2017 18:09:21</publishTime>
@@ -4981,25 +4993,55 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:22</publishTime>
     </File>
     <File Include="bin/Nop.Admin.dll">
-      <publishTime>11/13/2017 10:07:23</publishTime>
+      <publishTime>08/01/2018 19:46:36</publishTime>
+    </File>
+    <File Include="bin/Nop.Admin.pdb">
+      <publishTime>08/01/2018 19:46:36</publishTime>
     </File>
     <File Include="bin/Nop.Core.dll">
-      <publishTime>11/10/2017 18:09:13</publishTime>
+      <publishTime>08/01/2018 16:54:24</publishTime>
+    </File>
+    <File Include="bin/Nop.Core.dll.config">
+      <publishTime>03/14/2017 18:09:10</publishTime>
+    </File>
+    <File Include="bin/Nop.Core.pdb">
+      <publishTime>08/01/2018 16:54:24</publishTime>
     </File>
     <File Include="bin/Nop.Data.dll">
-      <publishTime>11/10/2017 18:09:13</publishTime>
+      <publishTime>08/01/2018 16:54:25</publishTime>
+    </File>
+    <File Include="bin/Nop.Data.dll.config">
+      <publishTime>03/14/2017 18:09:10</publishTime>
+    </File>
+    <File Include="bin/Nop.Data.pdb">
+      <publishTime>08/01/2018 16:54:25</publishTime>
     </File>
     <File Include="bin/Nop.Services.dll">
-      <publishTime>11/10/2017 18:09:16</publishTime>
+      <publishTime>08/01/2018 16:54:27</publishTime>
+    </File>
+    <File Include="bin/Nop.Services.dll.config">
+      <publishTime>08/01/2018 16:54:20</publishTime>
+    </File>
+    <File Include="bin/Nop.Services.pdb">
+      <publishTime>08/01/2018 16:54:27</publishTime>
     </File>
     <File Include="bin/Nop.Services.XmlSerializers.dll">
-      <publishTime>11/10/2017 18:09:21</publishTime>
+      <publishTime>08/01/2018 16:54:29</publishTime>
     </File>
     <File Include="bin/Nop.Web.dll">
-      <publishTime>11/10/2017 18:09:25</publishTime>
+      <publishTime>08/02/2018 21:39:41</publishTime>
     </File>
     <File Include="bin/Nop.Web.Framework.dll">
-      <publishTime>11/10/2017 18:09:23</publishTime>
+      <publishTime>08/01/2018 16:54:30</publishTime>
+    </File>
+    <File Include="bin/Nop.Web.Framework.dll.config">
+      <publishTime>08/01/2018 16:54:20</publishTime>
+    </File>
+    <File Include="bin/Nop.Web.Framework.pdb">
+      <publishTime>08/01/2018 16:54:30</publishTime>
+    </File>
+    <File Include="bin/Nop.Web.pdb">
+      <publishTime>08/02/2018 21:39:41</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>12/06/2016 17:09:53</publishTime>
@@ -5164,6 +5206,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:25</publishTime>
     </File>
     <File Include="bin/zxing.dll">
+      <publishTime>09/11/2017 22:55:04</publishTime>
+    </File>
+    <File Include="bin/zxing.pdb">
       <publishTime>09/11/2017 22:55:04</publishTime>
     </File>
     <File Include="bin/zxing.presentation.dll">
@@ -5961,6 +6006,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Images/Thumbs/placeholder.txt">
       <publishTime>02/10/2015 19:23:50</publishTime>
     </File>
+    <File Include="Content/Images/uploaded/icon_appstore.png">
+      <publishTime>05/09/2018 23:43:17</publishTime>
+    </File>
+    <File Include="Content/Images/uploaded/icon_googleplay.png">
+      <publishTime>05/09/2018 23:43:18</publishTime>
+    </File>
+    <File Include="Content/Images/uploaded/img_workfolw.png">
+      <publishTime>05/09/2018 23:14:08</publishTime>
+    </File>
     <File Include="Content/Images/uploaded/placeholder.txt">
       <publishTime>02/10/2015 19:23:51</publishTime>
     </File>
@@ -6283,13 +6337,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:24:03</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>02/10/2015 19:24:05</publishTime>
+      <publishTime>07/31/2018 16:48:16</publishTime>
     </File>
     <File Include="FileNotFound.htm">
       <publishTime>02/10/2015 19:24:03</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/11/2017 14:04:35</publishTime>
+      <publishTime>06/13/2018 12:12:16</publishTime>
     </File>
     <File Include="Plugins/bin/Index.htm">
       <publishTime>02/10/2015 19:24:03</publishTime>
@@ -6301,10 +6355,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:15</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.CustomerRoles/Nop.Plugin.DiscountRules.CustomerRoles.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:01</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.CustomerRoles/Nop.Plugin.DiscountRules.CustomerRoles.dll.config">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:00</publishTime>
+    </File>
+    <File Include="Plugins/DiscountRules.CustomerRoles/Nop.Plugin.DiscountRules.CustomerRoles.pdb">
+      <publishTime>08/01/2018 16:38:01</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.CustomerRoles/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:10</publishTime>
@@ -6319,10 +6376,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:16</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasOneProduct/Nop.Plugin.DiscountRules.HasOneProduct.dll">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:00</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasOneProduct/Nop.Plugin.DiscountRules.HasOneProduct.dll.config">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:00</publishTime>
+    </File>
+    <File Include="Plugins/DiscountRules.HasOneProduct/Nop.Plugin.DiscountRules.HasOneProduct.pdb">
+      <publishTime>08/01/2018 16:38:00</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasOneProduct/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:10</publishTime>
@@ -6340,10 +6400,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:09:51</publishTime>
     </File>
     <File Include="Plugins/ExchangeRate.EcbExchange/Nop.Plugin.ExchangeRate.EcbExchange.dll">
-      <publishTime>05/08/2017 12:04:30</publishTime>
+      <publishTime>08/01/2018 16:37:59</publishTime>
     </File>
     <File Include="Plugins/ExchangeRate.EcbExchange/Nop.Plugin.ExchangeRate.EcbExchange.dll.config">
-      <publishTime>03/14/2017 18:09:10</publishTime>
+      <publishTime>10/10/2017 12:01:45</publishTime>
+    </File>
+    <File Include="Plugins/ExchangeRate.EcbExchange/Nop.Plugin.ExchangeRate.EcbExchange.pdb">
+      <publishTime>08/01/2018 16:37:59</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Content/facebookstyles.css">
       <publishTime>12/06/2016 17:09:51</publishTime>
@@ -6400,10 +6463,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:24:08</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Nop.Plugin.ExternalAuth.Facebook.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Nop.Plugin.ExternalAuth.Facebook.dll.config">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
+    </File>
+    <File Include="Plugins/ExternalAuth.Facebook/Nop.Plugin.ExternalAuth.Facebook.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Org.Mentalis.Security.Cryptography.dll">
       <publishTime>02/10/2015 19:24:08</publishTime>
@@ -6430,10 +6496,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:10</publishTime>
     </File>
     <File Include="Plugins/Feed.GoogleShopping/Nop.Plugin.Feed.GoogleShopping.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Feed.GoogleShopping/Nop.Plugin.Feed.GoogleShopping.dll.config">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:03</publishTime>
+    </File>
+    <File Include="Plugins/Feed.GoogleShopping/Nop.Plugin.Feed.GoogleShopping.pdb">
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Feed.GoogleShopping/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:10</publishTime>
@@ -6441,11 +6510,167 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Plugins/Feed.GoogleShopping/web.config">
       <publishTime>03/14/2017 18:09:10</publishTime>
     </File>
+    <File Include="Plugins/Misc.MobileAPI/App_Data/InstalledPlugins.txt">
+      <publishTime>06/11/2018 15:30:37</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/App_Data/Settings.txt">
+      <publishTime>08/01/2018 16:52:38</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Autofac.Integration.Mvc.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Autofac.Integration.Mvc.xml">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/AutoMapper.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/AutoMapper.xml">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/cs/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/da/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/de/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/de/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/de/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
     <File Include="Plugins/Misc.MobileAPI/Description.txt">
       <publishTime>08/31/2017 11:45:17</publishTime>
     </File>
+    <File Include="Plugins/Misc.MobileAPI/EPPlus.dll">
+      <publishTime>12/06/2016 17:11:28</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/EPPlus.xml">
+      <publishTime>12/06/2016 17:11:28</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/es/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/es/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/es/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fa/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fi/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/FluentValidation.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/FluentValidation.Mvc.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/FluentValidation.xml">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fr/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fr/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/fr/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ImageResizer.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ImageResizer.xml">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/it/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/it/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/it/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/itextsharp.dll">
+      <publishTime>03/14/2017 18:09:26</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/itextsharp.xml">
+      <publishTime>03/14/2017 18:09:26</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ja/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ja/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ko/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ko/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ko/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
     <File Include="Plugins/Misc.MobileAPI/logo.jpg">
       <publishTime>08/31/2017 11:44:51</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MaxMind.Db.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MaxMind.Db.xml">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MaxMind.GeoIP2.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MaxMind.GeoIP2.xml">
+      <publishTime>03/14/2017 18:09:22</publishTime>
     </File>
     <File Include="Plugins/Misc.MobileAPI/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>08/15/2017 13:12:32</publishTime>
@@ -6453,14 +6678,167 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Plugins/Misc.MobileAPI/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml">
       <publishTime>08/10/2017 13:57:08</publishTime>
     </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.Data.Edm.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.Data.Edm.xml">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.Data.OData.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.Data.OData.xml">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.Data.Services.Client.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.Data.Services.Client.xml">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.WindowsAzure.Storage.dll">
+      <publishTime>03/14/2017 18:09:26</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Microsoft.WindowsAzure.Storage.xml">
+      <publishTime>03/14/2017 18:09:26</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MiniProfiler.dll">
+      <publishTime>12/06/2016 17:09:53</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MiniProfiler.Mvc.dll">
+      <publishTime>02/10/2015 19:24:19</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MiniProfiler.Mvc.pdb">
+      <publishTime>02/10/2015 19:26:14</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MiniProfiler.pdb">
+      <publishTime>08/28/2015 09:55:03</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/MiniProfiler.xml">
+      <publishTime>12/06/2016 17:09:53</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/mk/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Newtonsoft.Json.dll">
+      <publishTime>12/06/2016 17:11:32</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Newtonsoft.Json.xml">
+      <publishTime>12/06/2016 17:11:32</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/nl/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Core.dll">
+      <publishTime>08/02/2018 19:12:00</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Core.dll.config">
+      <publishTime>03/14/2017 18:09:10</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Core.pdb">
+      <publishTime>08/02/2018 19:12:00</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Data.dll">
+      <publishTime>08/02/2018 19:12:01</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Data.dll.config">
+      <publishTime>03/14/2017 18:09:10</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Data.pdb">
+      <publishTime>08/02/2018 19:12:01</publishTime>
+    </File>
     <File Include="Plugins/Misc.MobileAPI/Nop.Plugin.Misc.MobileAPI.dll">
-      <publishTime>11/13/2017 10:07:03</publishTime>
+      <publishTime>08/02/2018 19:12:10</publishTime>
     </File>
     <File Include="Plugins/Misc.MobileAPI/Nop.Plugin.Misc.MobileAPI.dll.config">
       <publishTime>08/31/2017 12:03:16</publishTime>
     </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Plugin.Misc.MobileAPI.pdb">
+      <publishTime>08/02/2018 19:12:10</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Services.dll">
+      <publishTime>08/02/2018 19:12:03</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Services.dll.config">
+      <publishTime>08/02/2018 19:12:01</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Services.pdb">
+      <publishTime>08/02/2018 19:12:03</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Web.dll">
+      <publishTime>08/02/2018 19:12:05</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Web.dll.config">
+      <publishTime>08/02/2018 19:12:04</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Web.Framework.dll">
+      <publishTime>08/02/2018 19:12:04</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Web.Framework.dll.config">
+      <publishTime>08/02/2018 19:12:03</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Web.Framework.pdb">
+      <publishTime>08/02/2018 19:12:04</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/Nop.Web.pdb">
+      <publishTime>08/02/2018 19:12:05</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/pl/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/pt/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/RedLock.StrongName.dll">
+      <publishTime>03/14/2017 18:09:23</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ru/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ru/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/ru/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/StackExchange.Redis.StrongName.dll">
+      <publishTime>03/14/2017 18:09:23</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/StackExchange.Redis.StrongName.xml">
+      <publishTime>03/14/2017 18:09:23</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/sv/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/System.Data.SqlServerCe.dll">
+      <publishTime>02/10/2015 19:24:19</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/System.Linq.Dynamic.dll">
+      <publishTime>03/14/2017 18:09:24</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/System.Spatial.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/System.Spatial.xml">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/System.Web.Optimization.dll">
+      <publishTime>02/10/2015 19:24:19</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/System.Web.Optimization.xml">
+      <publishTime>02/10/2015 19:24:19</publishTime>
+    </File>
     <File Include="Plugins/Misc.MobileAPI/ThoughtWorks.QRCode.dll">
       <publishTime>05/10/2012 17:41:12</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/tr/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
     </File>
     <File Include="Plugins/Misc.MobileAPI/Views/Configure.cshtml">
       <publishTime>09/11/2017 17:00:50</publishTime>
@@ -6468,17 +6846,92 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Plugins/Misc.MobileAPI/web.config">
       <publishTime>08/31/2017 10:56:05</publishTime>
     </File>
+    <File Include="Plugins/Misc.MobileAPI/WebGrease.dll">
+      <publishTime>02/10/2015 19:24:19</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-CN/FluentValidation.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hans/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hant/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>03/14/2017 18:09:22</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>03/14/2017 18:09:25</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zxing.dll">
+      <publishTime>09/11/2017 22:55:04</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zxing.pdb">
+      <publishTime>09/11/2017 22:55:04</publishTime>
+    </File>
+    <File Include="Plugins/Misc.MobileAPI/zxing.xml">
+      <publishTime>09/11/2017 22:55:04</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Autofac.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Autofac.Integration.Mvc.dll">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Autofac.Integration.Mvc.xml">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Autofac.xml">
+      <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Description.txt">
+      <publishTime>06/11/2018 16:31:12</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/logo.jpg">
+      <publishTime>06/11/2018 14:51:22</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Nop.Plugin.Payments.AliPay.dll">
+      <publishTime>08/01/2018 16:38:03</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Nop.Plugin.Payments.AliPay.pdb">
+      <publishTime>08/01/2018 16:38:03</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Views/Configure.cshtml">
+      <publishTime>06/12/2018 16:08:21</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/Views/PaymentInfo.cshtml">
+      <publishTime>06/12/2018 17:14:08</publishTime>
+    </File>
+    <File Include="Plugins/Payments.AliPay/web.config">
+      <publishTime>06/12/2018 13:22:03</publishTime>
+    </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/Description.txt">
-      <publishTime>08/21/2017 12:36:59</publishTime>
+      <publishTime>05/08/2017 11:56:01</publishTime>
     </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/logo.jpg">
       <publishTime>02/10/2015 19:23:21</publishTime>
     </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/Nop.Plugin.Payments.CheckMoneyOrder.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/Nop.Plugin.Payments.CheckMoneyOrder.dll.config">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
+    </File>
+    <File Include="Plugins/Payments.CheckMoneyOrder/Nop.Plugin.Payments.CheckMoneyOrder.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:10</publishTime>
@@ -6490,16 +6943,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:09:51</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/Description.txt">
-      <publishTime>08/21/2017 12:37:16</publishTime>
+      <publishTime>05/08/2017 11:56:01</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/logo.jpg">
       <publishTime>02/10/2015 19:23:21</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/Nop.Plugin.Payments.Manual.dll">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:37:59</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/Nop.Plugin.Payments.Manual.dll.config">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:37:59</publishTime>
+    </File>
+    <File Include="Plugins/Payments.Manual/Nop.Plugin.Payments.Manual.pdb">
+      <publishTime>08/01/2018 16:37:59</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:11</publishTime>
@@ -6517,10 +6973,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:21</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/Nop.Plugin.Payments.PayPalDirect.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/Nop.Plugin.Payments.PayPalDirect.dll.config">
-      <publishTime>03/14/2017 18:09:11</publishTime>
+      <publishTime>10/10/2017 12:01:46</publishTime>
+    </File>
+    <File Include="Plugins/Payments.PayPalDirect/Nop.Plugin.Payments.PayPalDirect.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/PayPal.dll">
       <publishTime>03/14/2017 18:09:23</publishTime>
@@ -6537,38 +6996,47 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Plugins/Payments.PayPalDirect/web.config">
       <publishTime>12/06/2016 17:09:51</publishTime>
     </File>
+    <File Include="Plugins/Payments.PayPalStandard/Braintree.dll">
+      <publishTime>04/11/2018 18:44:58</publishTime>
+    </File>
     <File Include="Plugins/Payments.PayPalStandard/Description.txt">
-      <publishTime>08/21/2017 12:37:26</publishTime>
+      <publishTime>05/08/2017 11:56:01</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/logo.jpg">
       <publishTime>02/10/2015 19:23:21</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/Nop.Plugin.Payments.PayPalStandard.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/Nop.Plugin.Payments.PayPalStandard.dll.config">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
+    </File>
+    <File Include="Plugins/Payments.PayPalStandard/Nop.Plugin.Payments.PayPalStandard.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/Views/Configure.cshtml">
-      <publishTime>03/14/2017 18:09:11</publishTime>
+      <publishTime>06/28/2018 11:39:23</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/Views/PaymentInfo.cshtml">
       <publishTime>03/14/2017 18:09:11</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/web.config">
-      <publishTime>12/06/2016 17:09:51</publishTime>
+      <publishTime>06/22/2018 10:44:32</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/Description.txt">
-      <publishTime>08/21/2017 12:37:33</publishTime>
+      <publishTime>05/08/2017 11:56:01</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/logo.jpg">
       <publishTime>02/10/2015 19:23:22</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/Nop.Plugin.Payments.PurchaseOrder.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/Nop.Plugin.Payments.PurchaseOrder.dll.config">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
+    </File>
+    <File Include="Plugins/Payments.PurchaseOrder/Nop.Plugin.Payments.PurchaseOrder.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:11</publishTime>
@@ -6577,19 +7045,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:11</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/web.config">
-      <publishTime>12/06/2016 17:09:51</publishTime>
+      <publishTime>06/22/2018 10:40:14</publishTime>
     </File>
     <File Include="Plugins/Pickup.PickupInStore/Description.txt">
-      <publishTime>08/21/2017 12:40:10</publishTime>
+      <publishTime>05/08/2017 11:56:01</publishTime>
     </File>
     <File Include="Plugins/Pickup.PickupInStore/logo.png">
       <publishTime>12/06/2016 17:11:12</publishTime>
     </File>
     <File Include="Plugins/Pickup.PickupInStore/Nop.Plugin.Pickup.PickupInStore.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Pickup.PickupInStore/Nop.Plugin.Pickup.PickupInStore.dll.config">
-      <publishTime>03/14/2017 18:09:11</publishTime>
+      <publishTime>10/10/2017 12:01:45</publishTime>
+    </File>
+    <File Include="Plugins/Pickup.PickupInStore/Nop.Plugin.Pickup.PickupInStore.pdb">
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Pickup.PickupInStore/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:11</publishTime>
@@ -6613,10 +7084,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:23</publishTime>
     </File>
     <File Include="Plugins/Shipping.AustraliaPost/Nop.Plugin.Shipping.AustraliaPost.dll">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:00</publishTime>
     </File>
     <File Include="Plugins/Shipping.AustraliaPost/Nop.Plugin.Shipping.AustraliaPost.dll.config">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:00</publishTime>
+    </File>
+    <File Include="Plugins/Shipping.AustraliaPost/Nop.Plugin.Shipping.AustraliaPost.pdb">
+      <publishTime>08/01/2018 16:38:00</publishTime>
     </File>
     <File Include="Plugins/Shipping.AustraliaPost/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:11</publishTime>
@@ -6631,10 +7105,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:28</publishTime>
     </File>
     <File Include="Plugins/Shipping.CanadaPost/Nop.Plugin.Shipping.CanadaPost.dll">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:37:59</publishTime>
     </File>
     <File Include="Plugins/Shipping.CanadaPost/Nop.Plugin.Shipping.CanadaPost.dll.config">
-      <publishTime>03/14/2017 18:09:11</publishTime>
+      <publishTime>10/10/2017 12:01:46</publishTime>
+    </File>
+    <File Include="Plugins/Shipping.CanadaPost/Nop.Plugin.Shipping.CanadaPost.pdb">
+      <publishTime>08/01/2018 16:37:59</publishTime>
     </File>
     <File Include="Plugins/Shipping.CanadaPost/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:11</publishTime>
@@ -6649,10 +7126,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:30</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Nop.Plugin.Shipping.Fedex.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Nop.Plugin.Shipping.Fedex.dll.config">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:01</publishTime>
+    </File>
+    <File Include="Plugins/Shipping.Fedex/Nop.Plugin.Shipping.Fedex.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6661,16 +7141,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:09:51</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedOrByWeight/Description.txt">
-      <publishTime>08/21/2017 12:39:54</publishTime>
+      <publishTime>05/08/2017 11:56:01</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedOrByWeight/logo.jpg">
       <publishTime>03/14/2017 18:09:12</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedOrByWeight/Nop.Plugin.Shipping.FixedOrByWeight.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedOrByWeight/Nop.Plugin.Shipping.FixedOrByWeight.dll.config">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:03</publishTime>
+    </File>
+    <File Include="Plugins/Shipping.FixedOrByWeight/Nop.Plugin.Shipping.FixedOrByWeight.pdb">
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedOrByWeight/Views/AddRateByWeightPopup.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6700,10 +7183,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:31</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Nop.Plugin.Shipping.UPS.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:01</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Nop.Plugin.Shipping.UPS.dll.config">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:01</publishTime>
+    </File>
+    <File Include="Plugins/Shipping.UPS/Nop.Plugin.Shipping.UPS.pdb">
+      <publishTime>08/01/2018 16:38:01</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6718,10 +7204,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:31</publishTime>
     </File>
     <File Include="Plugins/Shipping.USPS/Nop.Plugin.Shipping.USPS.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:01</publishTime>
     </File>
     <File Include="Plugins/Shipping.USPS/Nop.Plugin.Shipping.USPS.dll.config">
-      <publishTime>05/08/2017 12:04:31</publishTime>
+      <publishTime>08/01/2018 16:38:01</publishTime>
+    </File>
+    <File Include="Plugins/Shipping.USPS/Nop.Plugin.Shipping.USPS.pdb">
+      <publishTime>08/01/2018 16:38:01</publishTime>
     </File>
     <File Include="Plugins/Shipping.USPS/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6736,10 +7225,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:12</publishTime>
     </File>
     <File Include="Plugins/Tax.FixedOrByCountryStateZip/Nop.Plugin.Tax.FixedOrByCountryStateZip.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:10</publishTime>
     </File>
     <File Include="Plugins/Tax.FixedOrByCountryStateZip/Nop.Plugin.Tax.FixedOrByCountryStateZip.dll.config">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:10</publishTime>
+    </File>
+    <File Include="Plugins/Tax.FixedOrByCountryStateZip/Nop.Plugin.Tax.FixedOrByCountryStateZip.pdb">
+      <publishTime>08/01/2018 16:38:10</publishTime>
     </File>
     <File Include="Plugins/Tax.FixedOrByCountryStateZip/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6760,10 +7252,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:32</publishTime>
     </File>
     <File Include="Plugins/Widgets.GoogleAnalytics/Nop.Plugin.Widgets.GoogleAnalytics.dll">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Widgets.GoogleAnalytics/Nop.Plugin.Widgets.GoogleAnalytics.dll.config">
-      <publishTime>05/08/2017 12:04:32</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
+    </File>
+    <File Include="Plugins/Widgets.GoogleAnalytics/Nop.Plugin.Widgets.GoogleAnalytics.pdb">
+      <publishTime>08/01/2018 16:38:02</publishTime>
     </File>
     <File Include="Plugins/Widgets.GoogleAnalytics/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6799,7 +7294,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:09:51</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Content/nivoslider/themes/custom/custom.css">
-      <publishTime>12/06/2016 17:09:51</publishTime>
+      <publishTime>06/06/2018 15:43:29</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Content/nivoslider/themes/custom/loading.gif">
       <publishTime>12/06/2016 17:09:51</publishTime>
@@ -6847,13 +7342,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:23:32</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Nop.Plugin.Widgets.NivoSlider.dll">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Nop.Plugin.Widgets.NivoSlider.dll.config">
-      <publishTime>05/08/2017 12:04:33</publishTime>
+      <publishTime>08/01/2018 16:38:02</publishTime>
+    </File>
+    <File Include="Plugins/Widgets.NivoSlider/Nop.Plugin.Widgets.NivoSlider.pdb">
+      <publishTime>08/01/2018 16:38:03</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Scripts/jquery.nivo.slider.js">
-      <publishTime>02/10/2015 19:23:32</publishTime>
+      <publishTime>06/06/2018 16:01:55</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Views/Configure.cshtml">
       <publishTime>03/14/2017 18:09:12</publishTime>
@@ -6949,7 +7447,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/18/2015 12:34:17</publishTime>
     </File>
     <File Include="Scripts/public.ajaxcart.js">
-      <publishTime>10/16/2017 18:41:59</publishTime>
+      <publishTime>12/27/2017 18:22:33</publishTime>
     </File>
     <File Include="Scripts/public.common.js">
       <publishTime>03/14/2017 18:09:21</publishTime>
@@ -6973,7 +7471,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:11:25</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/css/styles.css">
-      <publishTime>10/10/2017 13:54:40</publishTime>
+      <publishTime>05/10/2018 16:00:50</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/css/styles.rtl.css">
       <publishTime>03/14/2017 18:09:21</publishTime>
@@ -6995,6 +7493,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Themes/DefaultClean/Content/images/compare-button.png">
       <publishTime>03/14/2017 18:09:21</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Content/images/date.png">
+      <publishTime>11/20/2017 23:45:22</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/images/details.png">
       <publishTime>12/06/2016 17:09:52</publishTime>
@@ -7027,6 +7528,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 17:09:52</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/images/logo.png">
+      <publishTime>10/26/2017 13:56:32</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Content/images/logo1.png">
       <publishTime>03/14/2017 18:09:21</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/images/menu-icon.png">
@@ -7067,6 +7571,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Themes/DefaultClean/Content/images/return.png">
       <publishTime>12/06/2016 17:09:52</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Content/images/right-arc-shadow.png">
+      <publishTime>12/18/2017 15:39:56</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Content/images/right-arc-shadow1.png">
+      <publishTime>12/18/2017 15:47:46</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/images/rss.png">
       <publishTime>12/06/2016 17:09:52</publishTime>
@@ -7131,11 +7641,485 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Themes/DefaultClean/theme.config">
       <publishTime>02/19/2015 09:12:10</publishTime>
     </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/CategoryNavigation.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/CategoryTemplate.ProductsInGridOrLines.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/HomepageCategories.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/ManufacturerAll.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/ManufacturerNavigation.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/ManufacturerTemplate.ProductsInGridOrLines.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/PopularProductTags.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/ProductsByTag.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/ProductTagsAll.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/Search.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/SearchBox.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/TopMenu.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/Vendor.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/VendorAll.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/VendorNavigation.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/_CatalogSelectors.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/_FilterPriceBox.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Catalog/_FilterSpecsBox.cshtml">
+      <publishTime>05/10/2018 15:33:36</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Home/Index.cshtml">
+      <publishTime>05/10/2018 15:30:35</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Product/HomepageBestSellers.cshtml">
+      <publishTime>05/10/2018 15:30:35</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Product/HomepageProducts.cshtml">
+      <publishTime>05/10/2018 15:30:35</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/Error.cshtml">
+      <publishTime>05/10/2018 15:31:03</publishTime>
+    </File>
     <File Include="Themes/DefaultClean/Views/Shared/Head.cshtml">
-      <publishTime>03/10/2017 10:35:09</publishTime>
+      <publishTime>05/10/2018 15:31:03</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/Header.cshtml">
+      <publishTime>05/10/2018 15:31:03</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/_ColumnsOne.cshtml">
+      <publishTime>05/10/2018 15:30:57</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/_Notifications.cshtml">
+      <publishTime>05/10/2018 15:30:58</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/_ProductBox.cshtml">
+      <publishTime>05/10/2018 15:30:59</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/_Root.cshtml">
+      <publishTime>05/10/2018 15:31:03</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Shared/_Root.Head.cshtml">
+      <publishTime>05/10/2018 15:31:03</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Web.config">
       <publishTime>12/06/2016 17:09:52</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/css/ie8.css">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/css/print.css">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/css/styles.css">
+      <publishTime>08/02/2018 16:29:44</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/css/styles.rtl.css">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/ajax-loader-small.gif">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/back-button.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/calendar-next.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/calendar-prev.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/close.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/compare-button.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/date.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/details.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/discontinued-product-icon.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/download-button.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/edit.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/edit_.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/email-button.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/first.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_appstore.png">
+      <publishTime>05/08/2018 18:07:47</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_arrow.png">
+      <publishTime>05/08/2018 18:56:10</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_facebook.png">
+      <publishTime>05/08/2018 18:47:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_get.jpg">
+      <publishTime>05/10/2018 17:44:13</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_get.png">
+      <publishTime>05/10/2018 17:26:27</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_googleplay.png">
+      <publishTime>05/08/2018 18:07:21</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_instagram.png">
+      <publishTime>05/08/2018 18:54:32</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_search.png">
+      <publishTime>05/08/2018 18:45:35</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_twitter.png">
+      <publishTime>05/08/2018 18:49:00</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/icon_wechat.png">
+      <publishTime>05/08/2018 18:51:06</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/ie_warning.jpg">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/last.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/loading.gif">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/logo.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/logo_white.png">
+      <publishTime>05/08/2018 18:42:29</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/menu-icon.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/move.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/new.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/next.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/pointer.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/prev.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/rating1.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/rating2.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/remove.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/remove_.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/reply.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/retry.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/return.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/right-arc-shadow.png">
+      <publishTime>05/09/2018 16:03:18</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/right-arc-shadow1.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/rss.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/shipping.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/shopping-bag.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/social-sprite.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/subscribe-button.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/toggle-black.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/toggle-gray.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/toggle-white.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/topic-type1.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/topic-type2.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/topic-type3.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/view-grid.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/view-list.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/vote-down-selected.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/vote-down.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/vote-up-selected.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/vote-up.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/watch.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Content/images/wishlist-button.png">
+      <publishTime>05/09/2018 16:03:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/preview.jpg">
+      <publishTime>05/09/2018 16:05:33</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/theme.config">
+      <publishTime>05/09/2018 16:04:19</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/CategoryNavigation.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/CategoryTemplate.ProductsInGridOrLines.cshtml">
+      <publishTime>07/31/2018 15:18:14</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/HomepageCategories.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/ManufacturerAll.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/ManufacturerNavigation.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/ManufacturerTemplate.ProductsInGridOrLines.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/PopularProductTags.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/ProductsByTag.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/ProductTagsAll.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/Search.cshtml">
+      <publishTime>06/11/2018 19:05:58</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/SearchBox.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/TopMenu.cshtml">
+      <publishTime>05/10/2018 14:18:39</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/Vendor.cshtml">
+      <publishTime>07/31/2018 15:36:41</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/VendorAll.cshtml">
+      <publishTime>07/31/2018 16:04:51</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/VendorNavigation.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/_CatalogSelectors.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/_FilterPriceBox.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Catalog/_FilterSpecsBox.cshtml">
+      <publishTime>05/10/2018 00:20:34</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Checkout/Completed.cshtml">
+      <publishTime>06/12/2018 17:14:40</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Checkout/Confirm.cshtml">
+      <publishTime>06/12/2018 17:14:40</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Checkout/PaymentInfo.cshtml">
+      <publishTime>06/12/2018 17:14:40</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Checkout/PaymentMethod.cshtml">
+      <publishTime>06/13/2018 15:21:32</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Checkout/ShippingAddress.cshtml">
+      <publishTime>06/12/2018 17:14:40</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Checkout/ShippingMethod.cshtml">
+      <publishTime>06/12/2018 17:14:40</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/AdminHeaderLinks.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/ContactUs.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/ContactVendor.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/CurrencySelector.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/EuCookieLaw.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/Favicon.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/Footer.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/HeaderLinks.cshtml">
+      <publishTime>05/09/2018 16:46:33</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/JavaScriptDisabledWarning.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/LanguageSelector.cshtml">
+      <publishTime>05/09/2018 22:52:32</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/Logo.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/PageNotFound.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/Sitemap.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/Social.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/StoreClosed.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/StoreThemeSelector.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Common/TaxTypeSelector.cshtml">
+      <publishTime>05/09/2018 16:26:16</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Home/Index.cshtml">
+      <publishTime>07/31/2018 11:08:20</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/HomepageBestSellers.cshtml">
+      <publishTime>05/10/2018 11:35:51</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/HomepageProducts.cshtml">
+      <publishTime>07/31/2018 15:17:57</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/ProductTemplate.WiCard.cshtml">
+      <publishTime>07/31/2018 15:31:09</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/ProductTemplate.WiCoupon.cshtml">
+      <publishTime>07/31/2018 15:31:09</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/ProductTemplate.WiTicket.cshtml">
+      <publishTime>07/31/2018 15:31:09</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/_ProductDetailsPictures.cshtml">
+      <publishTime>07/31/2018 15:33:12</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/_ProductPrice.cshtml">
+      <publishTime>07/31/2018 15:33:12</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Product/_SKU_Man_GTIN_Ven.cshtml">
+      <publishTime>07/31/2018 15:33:12</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/Error.cshtml">
+      <publishTime>05/09/2018 16:18:15</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/Head.cshtml">
+      <publishTime>05/09/2018 16:19:09</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/Header.cshtml">
+      <publishTime>05/09/2018 23:46:58</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_ColumnsOne.cshtml">
+      <publishTime>05/10/2018 12:31:53</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_ColumnsTwo.cshtml">
+      <publishTime>07/31/2018 15:39:45</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_HomepageProductBox.cshtml">
+      <publishTime>07/31/2018 15:21:55</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_Notifications.cshtml">
+      <publishTime>05/09/2018 16:18:11</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_ProductBox.cshtml">
+      <publishTime>07/31/2018 15:20:58</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_Root.cshtml">
+      <publishTime>05/10/2018 12:32:39</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Shared/_Root.Head.cshtml">
+      <publishTime>06/05/2018 10:35:22</publishTime>
+    </File>
+    <File Include="Themes/Lesswallet/Views/Web.config">
+      <publishTime>05/09/2018 16:03:19</publishTime>
     </File>
     <File Include="Views/BackInStockSubscription/CustomerSubscriptions.cshtml">
       <publishTime>03/10/2017 10:35:50</publishTime>
@@ -7249,7 +8233,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/10/2017 10:35:43</publishTime>
     </File>
     <File Include="Views/Catalog/Search.cshtml">
-      <publishTime>03/10/2017 10:35:43</publishTime>
+      <publishTime>06/11/2018 19:05:50</publishTime>
     </File>
     <File Include="Views/Catalog/SearchBox.cshtml">
       <publishTime>03/10/2017 10:35:43</publishTime>
@@ -7279,13 +8263,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/10/2017 10:35:43</publishTime>
     </File>
     <File Include="Views/Checkout/CheckoutProgress.cshtml">
-      <publishTime>03/10/2017 10:35:43</publishTime>
+      <publishTime>06/12/2018 18:15:06</publishTime>
     </File>
     <File Include="Views/Checkout/Completed.cshtml">
       <publishTime>10/18/2017 09:59:16</publishTime>
     </File>
     <File Include="Views/Checkout/Confirm.cshtml">
-      <publishTime>10/18/2017 09:21:41</publishTime>
+      <publishTime>06/11/2018 19:00:25</publishTime>
     </File>
     <File Include="Views/Checkout/OnePageCheckout.cshtml">
       <publishTime>03/10/2017 10:35:43</publishTime>
@@ -7309,7 +8293,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/10/2017 10:34:55</publishTime>
     </File>
     <File Include="Views/Checkout/PaymentInfo.cshtml">
-      <publishTime>03/10/2017 10:34:55</publishTime>
+      <publishTime>06/12/2018 17:04:49</publishTime>
     </File>
     <File Include="Views/Checkout/PaymentMethod.cshtml">
       <publishTime>10/18/2017 10:37:47</publishTime>
@@ -7435,7 +8419,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2017 18:09:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/06/2016 17:11:26</publishTime>
+      <publishTime>05/09/2018 16:14:22</publishTime>
     </File>
     <File Include="Views/Install/Index.cshtml">
       <publishTime>03/14/2017 18:09:21</publishTime>
@@ -7570,7 +8554,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/10/2017 10:34:55</publishTime>
     </File>
     <File Include="Views/Product/_ProductDetailsPictures.cshtml">
-      <publishTime>10/16/2017 13:46:44</publishTime>
+      <publishTime>07/05/2018 17:29:30</publishTime>
     </File>
     <File Include="Views/Product/_ProductEmailAFriendButton.cshtml">
       <publishTime>03/10/2017 10:34:55</publishTime>
@@ -7651,16 +8635,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/10/2017 10:21:02</publishTime>
     </File>
     <File Include="Views/Shared/_ProductBox.cshtml">
-      <publishTime>09/27/2017 16:04:56</publishTime>
+      <publishTime>07/05/2018 16:18:29</publishTime>
     </File>
     <File Include="Views/Shared/_Root.cshtml">
       <publishTime>12/06/2016 17:09:52</publishTime>
     </File>
     <File Include="Views/Shared/_Root.Head.cshtml">
-      <publishTime>03/14/2017 18:09:21</publishTime>
+      <publishTime>05/09/2018 15:58:00</publishTime>
     </File>
     <File Include="Views/ShoppingCart/Cart.cshtml">
-      <publishTime>03/10/2017 10:34:55</publishTime>
+      <publishTime>06/12/2018 18:08:30</publishTime>
     </File>
     <File Include="Views/ShoppingCart/EmailWishlist.cshtml">
       <publishTime>03/10/2017 10:34:55</publishTime>
@@ -7720,7 +8704,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/10/2015 19:24:05</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/30/2017 09:12:58</publishTime>
+      <publishTime>08/01/2018 16:54:36</publishTime>
     </File>
   </ItemGroup>
 </Project>

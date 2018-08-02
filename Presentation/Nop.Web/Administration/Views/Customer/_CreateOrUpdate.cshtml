@@ -16,34 +16,34 @@
         <div id="customer-edit" class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 @Html.RenderBootstrapTabHeader("tab-info", @T("Admin.Customers.Customers.Info"), true)
-                @if (Model.Id > 0)
+                @if (Model.Id > 0&& !Model.IsLoggedInAsVendor)
                 {
                     @Html.RenderBootstrapTabHeader("tab-orders", @T("Admin.Customers.Customers.Orders"))
-                    @Html.RenderBootstrapTabHeader("tab-address", @T("Admin.Customers.Customers.Addresses"))
+                    @*@Html.RenderBootstrapTabHeader("tab-address", @T("Admin.Customers.Customers.Addresses"))
                     @Html.RenderBootstrapTabHeader("tab-cart", @T("Admin.Customers.Customers.CurrentShoppingCart"))
-                    @Html.RenderBootstrapTabHeader("tab-wishlist", @T("Admin.Customers.Customers.CurrentWishlist"))
+                    @Html.RenderBootstrapTabHeader("tab-wishlist", @T("Admin.Customers.Customers.CurrentWishlist"))*@
                     @Html.RenderBootstrapTabHeader("tab-activitylog", @T("Admin.Customers.Customers.ActivityLog"))
-                    @Html.RenderBootstrapTabHeader("tab-impersonate", @T("Admin.Customers.Customers.Impersonate"))
-                    @Html.RenderBootstrapTabHeader("tab-backinstock", @T("Admin.Customers.Customers.BackInStockSubscriptions"))
+                    @*@Html.RenderBootstrapTabHeader("tab-impersonate", @T("Admin.Customers.Customers.Impersonate"))
+                    @Html.RenderBootstrapTabHeader("tab-backinstock", @T("Admin.Customers.Customers.BackInStockSubscriptions"))*@
                 } 
-                @if (Model.DisplayRewardPointsHistory)
+                @if (Model.DisplayRewardPointsHistory && !Model.IsLoggedInAsVendor)
                 {
                     @Html.RenderBootstrapTabHeader("tab-rewardpoints", @T("Admin.Customers.Customers.RewardPoints"))
                 }
             </ul>
             <div class="tab-content">
                 @Html.RenderBootstrapTabContent("tab-info", @TabInfo(), true)
-                @if (Model.Id > 0)
+                @if (Model.Id > 0 && !Model.IsLoggedInAsVendor)
                 {
                     @Html.RenderBootstrapTabContent("tab-orders", @TabOrders())
-                    @Html.RenderBootstrapTabContent("tab-address", @TabAddresses())
+                    @*@Html.RenderBootstrapTabContent("tab-address", @TabAddresses())
                     @Html.RenderBootstrapTabContent("tab-cart", @TabCurrentShoppingCart())
-                    @Html.RenderBootstrapTabContent("tab-wishlist", @TabCurrentWishlist())
+                    @Html.RenderBootstrapTabContent("tab-wishlist", @TabCurrentWishlist())*@
                     @Html.RenderBootstrapTabContent("tab-activitylog", @TabActivityLog())
-                    @Html.RenderBootstrapTabContent("tab-impersonate", @TabImpersonate())
-                    @Html.RenderBootstrapTabContent("tab-backinstock", @TabBackInStockSubscriptions())
+                    @*@Html.RenderBootstrapTabContent("tab-impersonate", @TabImpersonate())
+                    @Html.RenderBootstrapTabContent("tab-backinstock", @TabBackInStockSubscriptions())*@
                 } 
-                @if (Model.DisplayRewardPointsHistory)
+                @if (Model.DisplayRewardPointsHistory && !Model.IsLoggedInAsVendor)
                 {
                     @Html.RenderBootstrapTabContent("tab-rewardpoints", @TabRewardPoints())
                 }
@@ -222,40 +222,41 @@
                         </div>
                     </div>
                 }
-            <div class="form-group">
-                <div class="col-md-3">
-                    @Html.NopLabelFor(model => model.SelectedCustomerRoleIds)
-                </div>
-                <div class="col-md-9">
-                    <div class="input-group input-group-required">
-                        @Html.EditorFor(model => model.SelectedCustomerRoleIds, new { SelectList = Model.AvailableCustomerRoles })
-                        <div class="input-group-btn">
-                            @Html.RequiredHint()
-                        </div>
+                
+                <div class="form-group" @(Model.IsLoggedInAsVendor? Html.Raw("style=\"display:none\"") : null)>
+                    <div class="col-md-3">
+                        @Html.NopLabelFor(model => model.SelectedCustomerRoleIds)
                     </div>
-                    <script>
-                        $(document).ready(function() {
-                            var customerRolesIdsInput = $('#@Html.FieldIdFor(model => model.SelectedCustomerRoleIds)').data("kendoMultiSelect");
-                            customerRolesIdsInput.setOptions({
-                                customerRolesIdsInput: false
-                            });
+                    <div class="col-md-9">
+                        <div class="input-group input-group-required">
+                            @Html.EditorFor(model => model.SelectedCustomerRoleIds, new { SelectList = Model.AvailableCustomerRoles })
+                            <div class="input-group-btn">
+                                @Html.RequiredHint()
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function() {
+                                var customerRolesIdsInput = $('#@Html.FieldIdFor(model => model.SelectedCustomerRoleIds)').data("kendoMultiSelect");
+                                customerRolesIdsInput.setOptions({
+                                    customerRolesIdsInput: false
+                                });
 
-                            @if (Model.AvailableCustomerRoles.Count == 0)
-                            {
-                                <text>
-                                    customerRolesIdsInput.setOptions({
-                                        enable: false,
-                                        placeholder: '@T("Admin.Customers.Customers.Fields.CustomerRoles.NoRoles")'
-                                    });
-                                    customerRolesIdsInput._placeholder();
-                                    customerRolesIdsInput._enable();
-                                </text>
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
-                <div class="form-group">
+                                @if (Model.AvailableCustomerRoles.Count == 0)
+                                {
+                                    <text>
+                                        customerRolesIdsInput.setOptions({
+                                            enable: false,
+                                            placeholder: '@T("Admin.Customers.Customers.Fields.CustomerRoles.NoRoles")'
+                                        });
+                                        customerRolesIdsInput._placeholder();
+                                        customerRolesIdsInput._enable();
+                                    </text>
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>                
+                <div class="form-group" @(Model.IsLoggedInAsVendor? Html.Raw("style=\"display:none\"") : null)>
                     <div class="col-md-3">
                         @Html.NopLabelFor(model => model.VendorId)
                     </div>
@@ -265,6 +266,7 @@
                         <em>@T("Admin.Customers.Customers.VendorShouldBeInVendorsRole")</em>
                     </div>
                 </div>
+                
                 @if (Model.GenderEnabled)
                 {
                     <div class="form-group">
@@ -444,7 +446,7 @@
                         @Html.ValidationMessageFor(model => model.AdminComment)
                     </div>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <div class="col-md-3">
                         @Html.NopLabelFor(model => model.IsTaxExempt)
                     </div>
@@ -452,8 +454,8 @@
                         @Html.NopEditorFor(model => model.IsTaxExempt)
                         @Html.ValidationMessageFor(model => model.IsTaxExempt)
                     </div>
-                </div>
-                @if (Model.AllowCustomersToSetTimeZone)
+                </div>*@
+                @*@if (Model.AllowCustomersToSetTimeZone)
                 {
                     <div class="form-group">
                         <div class="col-md-3">
@@ -497,8 +499,8 @@
                             @Html.ValidationMessageFor(model => model.VatNumber)
                         </div>
                     </div>
-                }
-                @if (Model.AvailableNewsletterSubscriptionStores != null && Model.AvailableNewsletterSubscriptionStores.Count > 0)
+                }*@
+                @*@if (Model.AvailableNewsletterSubscriptionStores != null && Model.AvailableNewsletterSubscriptionStores.Count > 0)
                 {
                     <div class="form-group">
                         <div class="col-md-3">
@@ -520,7 +522,7 @@
                 else
                 {
                     @T("Admin.Customers.Customers.Fields.CustomerRoles.NoRoles")
-                }
+                }*@
                 <div class="form-group">
                     <div class="col-md-3">
                         @Html.NopLabelFor(model => model.Active)
@@ -530,7 +532,7 @@
                         @Html.ValidationMessageFor(model => model.Active)
                     </div>
                 </div>
-                @if (Model.Id > 0 && !string.IsNullOrEmpty(Model.RegisteredInStore))
+                @*@if (Model.Id > 0 && !string.IsNullOrEmpty(Model.RegisteredInStore))
                 {
                     <div class="form-group">
                         <div class="col-md-3">
@@ -540,7 +542,7 @@
                             @Html.NopDisplayFor(model => model.RegisteredInStore)
                         </div>
                     </div>
-                }
+                }*@
                 @if (Model.Id > 0)
                 {
                     <div class="form-group">

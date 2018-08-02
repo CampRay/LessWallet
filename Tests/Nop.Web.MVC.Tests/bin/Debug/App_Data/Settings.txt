@@ -1,2 +1,0 @@
-DataProvider: sqlserver
-DataConnectionString: Data Source=PHILLS-LI\SQLEXPRESS;Initial Catalog=LessWallet;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=888888

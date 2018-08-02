@@ -41,12 +41,12 @@
                     }
 
                     <table class="table table-hover table-bordered text-center">
+                        @*<col />*@
                         <col />
-                        <col />
-                        @if (Model.HasDownloadableProducts)
+                        @*@if (Model.HasDownloadableProducts)
                         {
                             <col />
-                        }
+                        }*@
                         <col />
                         <col />
                         <col />
@@ -57,18 +57,18 @@
                         }
                     <thead>
                     <tr>
-                        <th>
+                        @*<th>
                             @T("Admin.Orders.Products.Picture")
-                        </th>
+                        </th>*@
                         <th>
                             @T("Admin.Orders.Products.ProductName")
                         </th>
-                        @if (Model.HasDownloadableProducts)
+                        @*@if (Model.HasDownloadableProducts)
                         {
                             <th>
                                 @T("Admin.Orders.Products.Download")
                             </th>
-                        }
+                        }*@
                         <th>
                             @T("Admin.Orders.Products.Price")
                         </th>
@@ -93,9 +93,9 @@
                             @foreach (var item in Model.Items)
                             {
                                 <tr>
-                                <td>
+                                @*<td>
                                     <img src="@item.PictureThumbnailUrl" alt="" title=""/>
-                                </td>
+                                </td>*@
                                 <td style="text-align: left; width: 15%;">
                                     <em><a href="@Url.Action("Edit", "Product", new {id = item.ProductId})">@item.ProductName</a></em>
                                     @if (!String.IsNullOrEmpty(item.AttributeInfo))
@@ -160,7 +160,7 @@
                                     }
                                 </td>
 
-                                @if (Model.HasDownloadableProducts)
+                                @*@if (Model.HasDownloadableProducts)
                                 {
                                     <td style="width: 15%;">
                                         @if (item.IsDownload)
@@ -199,7 +199,7 @@
                                             </div>
                                         }
                                     </td>
-                                }
+                                }*@
                                 <td style="width: 15%;">
                                     @if (Model.AllowCustomersToSelectTaxDisplayType)
                                     {

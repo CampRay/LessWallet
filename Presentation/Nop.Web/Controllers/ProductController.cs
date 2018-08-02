@@ -326,7 +326,7 @@ namespace Nop.Web.Controllers
                 pageSize: _catalogSettings.NewProductsNumber);
 
             var model = new List<ProductOverviewModel>();
-            model.AddRange(_productModelFactory.PrepareProductOverviewModels(products));
+            model.AddRange(_productModelFactory.PrepareProductOverviewModels(products, true, false, null, true));
 
             return View(model);
         }
@@ -400,7 +400,7 @@ namespace Nop.Web.Controllers
                 return Content("");
 
             //prepare model
-            var model = _productModelFactory.PrepareProductOverviewModels(products, true, true, productThumbPictureSize).ToList();
+            var model = _productModelFactory.PrepareProductOverviewModels(products, true, false, productThumbPictureSize,true).ToList();
             return PartialView(model);
         }
 
